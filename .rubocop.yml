@@ -1,0 +1,18 @@
+require:
+  - rubocop-performance
+  - rubocop-rake
+  - rubocop-rails
+#  - rubocop-rspec
+
+AllCops:
+  DisabledByDefault: false
+  NewCops: enable
+  TargetRubyVersion: 2.6.3
+  Exclude:
+    - db/schema.rb
+    - node_modules/**/*
+    - vendor/**/*
+
+#Layout/FirstArgumentIndentation:
+#  Exclude:
+#    - spec/controllers/api/payments_controller_spec.rb
