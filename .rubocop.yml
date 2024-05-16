@@ -2,7 +2,7 @@ require:
   - rubocop-performance
   - rubocop-rake
   - rubocop-rails
-#  - rubocop-rspec
+  - rubocop-rspec
 
 AllCops:
   DisabledByDefault: false
@@ -12,7 +12,3 @@ AllCops:
     - db/schema.rb
     - node_modules/**/*
     - vendor/**/*
-
-#Layout/FirstArgumentIndentation:
-#  Exclude:
-#    - spec/controllers/api/payments_controller_spec.rb
