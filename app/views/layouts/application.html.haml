@@ -9,6 +9,12 @@
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
   %body
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+    .wrapper
+    #content.flex-shrink-0
+      = render partial: 'layouts/navbar'
+      .container
+        = render partial: 'layouts/messages'
+        %p.notice= notice
+        %p.alert= alert
+        = yield
+    = render partial: 'layouts/footer'
