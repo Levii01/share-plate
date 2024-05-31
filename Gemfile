@@ -7,6 +7,7 @@ ruby '3.3.0'
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.9.4'
+gem 'haml-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'
 gem 'pg', '~> 1.1'
