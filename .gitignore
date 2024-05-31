@@ -123,3 +123,5 @@ fabric.properties
 
 # *.iml
 # modules.xml
+
+/node_modules
