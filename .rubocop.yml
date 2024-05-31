@@ -6,6 +6,7 @@ require:
   - rubocop-rails
   - rubocop-rspec
   - rubocop-rspec_rails
+  - rubocop-capybara # not installed
 
 AllCops:
   DisabledByDefault: false
