@@ -27,5 +27,16 @@ module SharePlate
     # config.eager_load_paths << Rails.root.join("extras")
     config.i18n.available_locales = %i[en pl]
     config.i18n.default_locale = :pl
+
+    config.generators do |generate|
+      generate.template_engine :haml
+      generate.test_framework :rspec
+      generate.integration_tool :rspec
+      generate.view_specs false
+      generate.helper_specs false
+      # generate.helper false
+      # generate.assets false
+      # generate.decorator false
+    end
   end
 end

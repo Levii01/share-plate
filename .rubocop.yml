@@ -16,3 +16,17 @@ AllCops:
     - db/schema.rb
     - node_modules/**/*
     - vendor/**/*
+
+Style/Documentation:
+  Enabled: false
+
+Layout/LineLength:
+  Exclude:
+    - 'bin/bundle'
+    - 'config/initializers/devise.rb'
+    - 'config/initializers/simple_form_bootstrap.rb'
+
+Metrics/BlockLength:
+  Exclude:
+    - 'config/initializers/simple_form_bootstrap.rb'
+    - 'config/environments/development.rb'
