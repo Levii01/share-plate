@@ -8,6 +8,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
+  state_machine :state, initial: :initialized do
+    event :complete do
+      transition [:initialized] => :completed
+    end
+  end
+
   def self.create_from_omniauth(auth) # rubocop:disable Metrics/AbcSize
     where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
       user.email = auth.info.email

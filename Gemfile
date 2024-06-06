@@ -27,6 +27,7 @@ gem 'sass-rails'
 gem 'simple_form'
 gem 'sprockets-rails'
 gem 'state_machines'
+gem 'state_machines-activerecord'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
