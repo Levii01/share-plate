@@ -1,0 +1,13 @@
+.devise-bootstrap-form
+  .devise-bootstrap-form-row
+    .devise-bootstrap-form-col
+      %h2.text-center Forgot your password?
+      = bootstrap_form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+        = render "devise/shared/error_messages", resource: resource
+        %br/
+        %p.text-left Please enter your email address and we will send you a link to reset your password.
+        = f.email_field :email, autofocus: true, autocomplete: "email"
+        = f.form_group do
+          = f.submit "Send me reset password instructions", class: 'btn btn-primary btn-block btn-lg'
+      .text-center
+        = render "devise/shared/links"
