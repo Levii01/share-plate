@@ -5,8 +5,11 @@ source 'https://rubygems.org'
 ruby '3.3.0'
 
 gem 'bootsnap', require: false # Reduces boot times through caching; required in config/boot.rb
+gem 'bootstrap_form'
 gem 'cssbundling-rails'
 gem 'devise', '~> 4.9.4'
+gem 'devise-bootstrap-form'
+gem 'devise-i18n'
 gem 'haml-rails'
 gem 'jbuilder'
 gem 'jsbundling-rails'

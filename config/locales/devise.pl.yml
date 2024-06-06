@@ -40,6 +40,8 @@ pl:
       signed_up_but_unconfirmed: "Wiadomość email z instrukcją aktywacji konta została przesłana na Twój adres email. Użj linku z emaila aby aktywować konto."
       update_needs_confirmation: "Konto zostało zaktualizowane. Niemniej jednak przed wprowadzeniem zmian musimy potwierdzić Twój nowy adres email. Za chwilę wyślemy instrukcję na nowy adres."
       updated: "Konto zostało pomyślnie zaktualizowane."
+      new:
+        sign_up: "Zarejestruj się"
     sessions:
       user:
         signed_in: "Zostałeś zalogowany."

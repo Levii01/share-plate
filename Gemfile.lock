@@ -84,6 +84,9 @@ GEM
     bindex (0.8.1)
     bootsnap (1.18.3)
       msgpack (~> 1.2)
+    bootstrap_form (5.4.0)
+      actionpack (>= 6.1)
+      activemodel (>= 6.1)
     builder (3.2.4)
     capybara (3.40.0)
       addressable
@@ -110,6 +113,12 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    devise-bootstrap-form (0.3.0)
+      bootstrap_form (>= 4.0.0.alpha1)
+      devise (>= 4.6.0)
+      rails (>= 5.0.0)
+    devise-i18n (1.12.1)
+      devise (>= 4.9.0)
     diff-lcs (1.5.1)
     drb (2.2.1)
     erubi (1.12.0)
@@ -370,10 +379,13 @@ PLATFORMS
 
 DEPENDENCIES
   bootsnap
+  bootstrap_form
   capybara
   cssbundling-rails
   debug
   devise (~> 4.9.4)
+  devise-bootstrap-form
+  devise-i18n
   haml-rails
   html2haml
   jbuilder
