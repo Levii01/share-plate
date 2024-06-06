@@ -17,6 +17,6 @@ class ApplicationController < ActionController::Base
   def finish_registration
     return if current_user.blank? || controller_name == 'chose_profile'
 
-    redirect_to users_registrations_chose_profile_index_path if current_user.initialized?
+    # redirect_to users_registrations_chose_profile_index_path if current_user.initialized?
   end
 end
