@@ -26,6 +26,7 @@ gem 'rolify'
 gem 'sass-rails'
 gem 'simple_form'
 gem 'sprockets-rails'
+gem 'state_machines'
 gem 'stimulus-rails'
 gem 'turbo-rails'
 gem 'tzinfo-data', platforms: %i[windows jruby]
