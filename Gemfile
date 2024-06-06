@@ -49,6 +49,9 @@ end
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
+  gem 'database_cleaner'
+  gem 'factory_bot'
+  gem 'ffaker'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-performance'
@@ -57,4 +60,5 @@ group :test do
   gem 'rubocop-rspec'
   gem 'rubocop-rspec_rails'
   gem 'selenium-webdriver'
+  gem 'shoulda-matchers'
 end

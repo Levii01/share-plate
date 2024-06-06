@@ -7,6 +7,7 @@ require:
   - rubocop-rspec
   - rubocop-rspec_rails
   - rubocop-capybara # not installed
+  - rubocop-factory_bot
 
 AllCops:
   DisabledByDefault: false
