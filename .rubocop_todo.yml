@@ -13,24 +13,6 @@ Metrics/BlockLength:
   Exclude:
     - 'config/environments/development.rb'
 
-# Offense count: 1
-# Configuration parameters: AllowedMethods, AllowedPatterns.
-Metrics/CyclomaticComplexity:
-  Exclude: #  Max: 9
-    - 'bin/bundle'
-
-# Offense count: 2
-# Configuration parameters: CountComments, CountAsOne, AllowedMethods, AllowedPatterns.
-Metrics/MethodLength:
-  Exclude: #  Max: 12
-    - 'bin/bundle'
-
-# Offense count: 1
-# Configuration parameters: AllowedMethods, AllowedPatterns.
-Metrics/PerceivedComplexity:
-  Exclude: #  Max: 9
-    - 'bin/bundle'
-
 # Offense count: 4
 # Configuration parameters: AllowedConstants.
 Style/Documentation:
@@ -46,12 +28,6 @@ Style/GlobalStdStream:
   Exclude:
     - 'config/environments/production.rb'
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-Style/IfUnlessModifier:
-  Exclude:
-    - 'bin/bundle'
-
 # Offense count: 4
 # This cop supports unsafe autocorrection (--autocorrect-all).
 # Configuration parameters: SafeForConstants.
@@ -66,10 +42,3 @@ Style/RedundantFetchBlock:
 Style/SpecialGlobalVars:
   EnforcedStyle: use_perl_names
 
-# Offense count: 1
-# This cop supports safe autocorrection (--autocorrect).
-# Configuration parameters: AllowHeredoc, AllowURI, URISchemes, IgnoreCopDirectives, AllowedPatterns.
-# URISchemes: http, https
-Layout/LineLength:
-  Exclude:
-    - 'bin/bundle'
