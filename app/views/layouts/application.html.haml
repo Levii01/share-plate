@@ -14,7 +14,5 @@
       = render partial: 'layouts/navbar'
       .container
         = render partial: 'layouts/messages'
-        %p.notice= notice
-        %p.alert= alert
         = yield
     = render partial: 'layouts/footer'
