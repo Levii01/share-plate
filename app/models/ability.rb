@@ -34,6 +34,7 @@ class Ability
     return unless user
 
     can :manage, :all
+    can :access, :rails_admin
     can :manage, :dashboard
   end
 end

@@ -8,12 +8,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  def self.create_from_omniauth(auth)
-    data = auth.info
-    user = where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
-      user.email = data.email
-      user.fullname = data.name
-      user.avatar_url = data.image
+  def self.create_from_omniauth(auth) # rubocop:disable Metrics/AbcSize
+    where(provider: auth.provider, uid: auth.uid).first_or_create do |user|
+      user.email = auth.info.email
+      user.fullname = auth.info.name
+      user.avatar_url = auth.info.image
       user.password = Devise.friendly_token[0, 20]
       user.confirmed_at = Time.current
     end

@@ -504,6 +504,7 @@ DEPENDENCIES
   rubocop-rspec
   rubocop-rspec_rails
   sass-rails
+  sassc-rails
   selenium-webdriver
   shoulda-matchers
   simple_form
