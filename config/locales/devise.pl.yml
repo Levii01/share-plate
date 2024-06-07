@@ -41,7 +41,11 @@ pl:
       update_needs_confirmation: "Konto zostało zaktualizowane. Niemniej jednak przed wprowadzeniem zmian musimy potwierdzić Twój nowy adres email. Za chwilę wyślemy instrukcję na nowy adres."
       updated: "Konto zostało pomyślnie zaktualizowane."
       new:
+        head_sign_up: "Formularz rejestracji"
         sign_up: "Zarejestruj się"
+        sign_up_1: "Zarejestruj się"
+        sign_up_2: "teraz!"
+        sing_in_with: "Zarejestruj przez %{provider}"
     sessions:
       user:
         signed_in: "Zostałeś zalogowany."

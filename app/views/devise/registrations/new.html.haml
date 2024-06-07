@@ -1,14 +1,53 @@
-.devise-bootstrap-form
-  .devise-bootstrap-form-row
-    .devise-bootstrap-form-col
-      %h2.text-center
-        = t('.sign_up')
-      = bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-        = f.password_field :password, autocomplete: "new-password", help: "(#{@minimum_password_length} characters minimum)"
-        = f.password_field :password_confirmation, autocomplete: "new-password", label_class: "required"
-        = f.form_group do
-          = f.submit "Sign up", class: "btn btn-primary btn-block btn-lg"
-      .text-center
-        = render "devise/shared/links"
+.section.page-banner-section{:style => "background-image: url(#{asset_path('page-banner.jpg')});"}
+  .container
+    / Page banner Section Start
+    .page-banner-content
+      %h2.page-title= t('.head_sign_up')
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{:href => "index.html"} Home
+        %li.breadcrumb-item.active Login
+    / Page banner Section End
+
+.section.section-padding
+  .container
+    / Register & Login Wrapper Start
+    .register-login-wrapper
+      .row.justify-content-center
+        .col-lg-6.col-xl-5
+          / Register & Login Form Start
+          .register-login-form
+            %h3.title
+              = t('.sign_up_1')
+              %span= t('.sign_up_2')
+            .form-wrapper
+              = bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+                = render "devise/shared/error_messages", resource: resource
+                = f.text_field :fullname, autocomplete: "name", label: "Podpis", label_as_placeholder: true, wrapper: { class: 'single-form' }
+                = f.email_field :email, autofocus: true, autocomplete: "email", label_as_placeholder: true, wrapper: { class: 'single-form' }
+                = f.password_field :password, autocomplete: "new-password", label_as_placeholder: true, wrapper: { class: 'single-form' }
+                = f.password_field :password_confirmation, autocomplete: "new-password", label_class: "required", label_as_placeholder: true, wrapper: { class: 'single-form' }
+                -# = f.form_group do
+                .single-form
+                  = f.submit t('.sign_up'), class: "btn btn-primary btn-hover-dark w-100"
+                  - resource_class.omniauth_providers.each do |provider|
+                    = link_to t(".sing_in_with", provider: OmniAuth::Utils.camelize(provider)), omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary btn-outline w-100"
+              %br
+              .text-center
+                = render "devise/shared/links"
+
+
+-# .devise-bootstrap-form
+-#   .devise-bootstrap-form-row
+-#     .devise-bootstrap-form-col
+-#       %h2.text-center
+-#         = t('.sign_up')
+-#       = bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+-#         = render "devise/shared/error_messages", resource: resource
+-#         = f.email_field :email, autofocus: true, autocomplete: "email"
+-#         = f.password_field :password, autocomplete: "new-password", help: "(#{@minimum_password_length} characters minimum)"
+-#         = f.password_field :password_confirmation, autocomplete: "new-password", label_class: "required"
+-#         = f.form_group do
+-#           = f.submit "Sign up", class: "btn btn-primary btn-block btn-lg"
+-#       .text-center
+-#         = render "devise/shared/links"

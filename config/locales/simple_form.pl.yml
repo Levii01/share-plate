@@ -112,6 +112,7 @@ pl:
         discoverable: Wyświetlaj ten profil w katalogu
         display_name: Widoczna nazwa
         email: Adres e-mail
+        fullname: Podpis
         expires_in: Wygaśnie po
         fields: Metadane profilu
         header: Nagłówek

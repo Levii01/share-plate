@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
 
     # redirect_to users_registrations_chose_profile_index_path if current_user.initialized?
   end
+
+  def configure_permitted_parameters
+    devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fullname, :email, :password) }
+    devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
+  end
 end
