@@ -13,8 +13,7 @@ Rails.application.routes.draw do
   get 'home/index'
   namespace :users do
     namespace :registrations do
-      get 'chose_profile/index'
-      get 'chose_profile/create'
+      resource :account_types, only: %i[show update]
     end
     resources :panel, only: %i[index]
   end

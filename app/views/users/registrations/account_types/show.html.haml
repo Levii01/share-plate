@@ -1,0 +1,32 @@
+.section.page-banner-section{style: "background-image: url(#{asset_path('page-banner.jpg')});"}
+  .container
+    .page-banner-content
+      %h2.page-title Wybierz profil Twojego konta
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href: root_path} Home
+        %li.breadcrumb-item Rejestracja
+        %li.breadcrumb-item.active Wybierz profil
+
+.section.section-padding
+  .container
+    .register-login-wrapper
+      .row.justify-content-center
+        .col-lg-6.col-xl-5
+          .register-login-form
+            %h3.title
+              Dobrze że
+              %span jesteś!
+              %br
+
+            %p
+              Wybierz w jaki sposób chcesz pomagać.
+              %br
+              \- Beneficjentem przekazującym żywność w dobre ręce?
+              %br
+              \- Lokalem gastronomicznym ratującym żywność?
+            .form-wrapper
+              = bootstrap_form_for(current_user, url: users_registrations_account_types_path) do |f|
+                = f.select :account_type, User.account_types.keys.map { |type| [t("activerecord.attributes.user.account_types.#{type}").humanize, type] }, autofocus: true, wrapper: { class: 'single-form' }
+                .single-form
+                  = f.submit "Dalej", class: "btn btn-primary btn-hover-dark w-100"

@@ -1,5 +1,15 @@
 pl:
   activerecord:
+    models:
+      user: Użytkownik
+    attributes:
+      user:
+        account_type: Typ Konta
+        account_types:
+          food_provider: lokal gastronomiczny
+          beneficiary: beneficjent
+        fullname: Podpis
+        password: "mot de passe"
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'

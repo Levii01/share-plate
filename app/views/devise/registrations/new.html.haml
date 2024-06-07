@@ -23,7 +23,7 @@
             .form-wrapper
               = bootstrap_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
                 = render "devise/shared/error_messages", resource: resource
-                = f.text_field :fullname, autocomplete: "name", label: "Podpis", label_as_placeholder: true, wrapper: { class: 'single-form' }
+                = f.text_field :fullname, autocomplete: "name", label_as_placeholder: true, wrapper: { class: 'single-form' }
                 = f.email_field :email, autofocus: true, autocomplete: "email", label_as_placeholder: true, wrapper: { class: 'single-form' }
                 = f.password_field :password, autocomplete: "new-password", label_as_placeholder: true, wrapper: { class: 'single-form' }
                 = f.password_field :password_confirmation, autocomplete: "new-password", label_class: "required", label_as_placeholder: true, wrapper: { class: 'single-form' }

@@ -8,6 +8,8 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
+  enum account_type: %w[food_provider beneficiary].index_by(&:to_sym)
+
   state_machine :state, initial: :initialized do
     event :complete do
       transition [:initialized] => :completed

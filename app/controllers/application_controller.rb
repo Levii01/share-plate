@@ -15,9 +15,9 @@ class ApplicationController < ActionController::Base
   end
 
   def finish_registration
-    nil if current_user.blank? || controller_name == 'chose_profile'
+    return if current_user.blank? || controller_name == 'account_types'
 
-    # redirect_to users_registrations_chose_profile_index_path if current_user.initialized?
+    redirect_to users_registrations_account_types_path if current_user.initialized?
   end
 
   def configure_permitted_parameters
