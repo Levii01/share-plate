@@ -154,6 +154,10 @@ GEM
       activesupport (>= 5.1)
       haml (>= 4.0.6)
       railties (>= 5.1)
+    hashid-rails (1.4.1)
+      activerecord (>= 4.0)
+      hashids (~> 1.0)
+    hashids (1.0.6)
     hashie (5.0.0)
     html2haml (2.3.0)
       erubis (~> 2.7.0)
@@ -489,6 +493,7 @@ DEPENDENCIES
   factory_bot
   ffaker
   haml-rails
+  hashid-rails
   html2haml
   jbuilder
   jsbundling-rails
