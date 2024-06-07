@@ -12,7 +12,7 @@
     .wrapper
     #content.flex-shrink-0
       = render partial: 'layouts/navbar'
-      .container-fluid
-        = render partial: 'layouts/messages'
-        = yield
+      -# .container-fluid
+      = render partial: 'layouts/messages'
+      = yield
     = render partial: 'layouts/footer'

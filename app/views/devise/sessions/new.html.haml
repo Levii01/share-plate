@@ -1,14 +1,48 @@
-.devise-bootstrap-form
-  .devise-bootstrap-form-row
-    .devise-bootstrap-form-col
-      %h2.text-center Log in
-      = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-        = f.email_field :email, autofocus: true, autocomplete: "email"
-        = f.password_field :password, autocomplete: "current-password", placeholder: 'Password'
-        - if devise_mapping.rememberable?
-          = f.form_group do
-            = f.check_box :remember_me
-        = f.form_group do
-          = f.submit "Log in", class: "btn btn-primary btn-block btn-lg"
-      .text-center
-        = render "devise/shared/links"
+.section.page-banner-section{style: "background-image: url(#{asset_path('page-banner.jpg')});"}
+  .container
+    .page-banner-content
+      %h2.page-title Login Form
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href: root_path} Home
+        %li.breadcrumb-item.active Login
+
+
+.section.section-padding
+  .container
+    / Register & Login Wrapper Start
+    .register-login-wrapper
+      .row.justify-content-center
+        .col-lg-6.col-xl-5
+          / Register & Login Form Start
+          .register-login-form
+            %h3.title
+              = t(".login_1")
+              %span= t(".login_2")
+            .form-wrapper
+              = bootstrap_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+                = f.email_field :email, autofocus: true, autocomplete: "email", label_as_placeholder: true, wrapper: { class: 'single-form' }
+                = f.password_field :password, autocomplete: "current-password", placeholder: 'Password', label_as_placeholder: true, wrapper: { class: 'single-form' }
+                - if devise_mapping.rememberable?
+                  = f.form_group do
+                    = f.check_box :remember_me
+                .single-form
+                  = f.submit t(".sign_in"), class: "btn btn-primary btn-hover-dark w-100"
+                  = button_to "Zaloguj z Google", user_google_oauth2_omniauth_authorize_path, method: :post, data: {turbo: "false"}, class: "btn btn-secondary btn-outline w-100"
+              .text-center
+                %br
+                = render "devise/shared/links"
+
+
+              -# %form{:action => "#"}
+              -#   .single-form
+              -#     %input{:placeholder => "Username or Email", :type => "email"}/
+              -#   .single-form
+              -#     %input{:placeholder => "Password", :type => "password"}/
+              -#   .single-form
+              -#     %button.btn.btn-primary.btn-hover-dark.w-100 Login
+              -#   %p
+              -#     %a{:href => "#"} Lost your password?
+              -#   %p
+              -#     No account?
+              -#     %a{:href => "register.html"} Create one here.

@@ -116,6 +116,8 @@ pl:
       already_signed_out: Wylogowano pomyślnie.
       new:
         sign_in: Zaloguj się
+        login_1: Zaloguj
+        login_2: Się
       signed_in: Zalogowano pomyślnie.
       signed_out: Wylogowano pomyślnie.
     shared:

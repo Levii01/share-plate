@@ -1,12 +1,12 @@
-.section.page-banner-section{:style => "background-image: url(#{asset_path('page-banner.jpg')});"}
+.section.page-banner-section{style: "background-image: url(#{asset_path('page-banner.jpg')});"}
   .container
     / Page banner Section Start
     .page-banner-content
       %h2.page-title= t('.head_sign_up')
       %ul.breadcrumb
         %li.breadcrumb-item
-          %a{:href => "index.html"} Home
-        %li.breadcrumb-item.active Login
+          %a{href: root_path} Home
+        %li.breadcrumb-item.active Sign In
     / Page banner Section End
 
 .section.section-padding
