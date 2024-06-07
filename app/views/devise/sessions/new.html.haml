@@ -28,7 +28,8 @@
                     = f.check_box :remember_me
                 .single-form
                   = f.submit t(".sign_in"), class: "btn btn-primary btn-hover-dark w-100"
-                  = button_to "Zaloguj z Google", user_google_oauth2_omniauth_authorize_path, method: :post, data: {turbo: "false"}, class: "btn btn-secondary btn-outline w-100"
+                  - resource_class.omniauth_providers.each do |provider|
+                    = link_to t("devise.registrations.new.sing_in_with", provider: "Google"), omniauth_authorize_path(resource_name, provider), class: "btn btn-secondary btn-outline w-100"
               .text-center
                 %br
                 = render "devise/shared/links"
