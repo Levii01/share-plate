@@ -1,3 +1,101 @@
-%nav.navbar.fixed-bottom.navbar-light.bg-light
-  .container-fluid
-    %a.navbar-brand{:href => "#"} Fixed bottom
+-# %nav.navbar.fixed-bottom.navbar-light.bg-light
+-#   .container-fluid
+-#     %a.navbar-brand{:href => "#"} Fixed bottom
+
+.section.footer-section
+  / Footer Widget Section Start
+  .footer-widget-section.section-padding
+    %img.shape-01.animation-rotate{:alt => "Shape", src: asset_path('shape/shape-9.png')}
+    .container
+      / Footer Widget Wrapper Start
+      .footer-widget-wrapper
+        .row
+          .col-lg-4
+            / Footer Widget Start
+            .footer-widget
+              %h3.footer-widget-title Subscribe Newsletter
+              .widget-newsletter
+                %p Lorem Ipsum has been them an industry printer took a galley make book.
+                .newsletter-form
+                  %form{:action => "#"}
+                    %input{:placeholder => "Enter email", :type => "text"}/
+                    %button.btn.btn-primary.btn-hover-white Subscribe Now
+            / Footer Widget End
+          .col-lg-8
+            / Footer Widget Start
+            .widget-wrapper
+              / Footer Widget Start
+              .footer-widget
+                %h3.footer-widget-title All Courses
+                %ul.widget-link
+                  %li
+                    %a{:href => "#"} Daily Exercise
+                  %li
+                    %a{:href => "#"} Find Your Balance
+                  %li
+                    %a{:href => "#"} Personal Program
+                  %li
+                    %a{:href => "#"} Natural Process
+                  %li
+                    %a{:href => "#"} Immune System
+                  %li
+                    %a{:href => "#"} Gives You Energy
+              / Footer Widget End
+              / Footer Widget Start
+              .footer-widget
+                %h3.footer-widget-title Help Links
+                %ul.widget-link
+                  %li
+                    %a{:href => "#"} Privacy Policy
+                  %li
+                    %a{:href => "#"} Discussion
+                  %li
+                    %a{:href => "#"} Terms & Conditions
+                  %li
+                    %a{:href => "#"} Customer Support
+                  %li
+                    %a{:href => "#"} Course FAQ’s
+                  %li
+                    %a{:href => "#"} Online Classes
+              / Footer Widget End
+              / Footer Widget Start
+              .footer-widget
+                %h3.footer-widget-title Opening Hours
+                %ul.widget-link
+                  %li
+                    %a{:href => "#"} Mon-Fri: 9 AM – 6 PM
+                  %li
+                    %a{:href => "#"} Saturday: 9 AM – 4 PM
+                  %li
+                    %a{:href => "#"} Sunday: Closed
+                .widget-location
+                  %h3.footer-widget-title Location
+                  %p
+                    176 W street name, New
+                    %br/
+                    York, NY 10014
+              / Footer Widget End
+            / Footer Widget End
+      / Footer Widget Wrapper End
+    %img.shape-02.animation-rotate{alt: "Shape", src: asset_path('shape/shape-9.png')}/
+  / Footer Widget Section End
+  / Footer Copyright Section Start
+  .footer-copyright
+    .container
+      / Copyright Wrapper Start
+      .copyright-wrapper
+        .copyright-text
+          %p
+            ="© #{Time.current.year}"
+            %span Nutras
+            Made with
+            %i.icofont-heart-alt
+            by
+            %a{:href => "https://hasthemes.com/", :target => "_blank"} HasThemes
+        .copyright-link
+          %a{:href => "#"} Terms of Service
+          %a{:href => "#"} Privacy Policy
+          %a{:href => "#"} Sitemap
+          %a{:href => "#"} Security
+      / Copyright Wrapper End
+  / Footer Copyright Section End
