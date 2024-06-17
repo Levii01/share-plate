@@ -27,6 +27,7 @@ module Users
 
         respond_to do |format|
           if @food_provider.save
+            current_user.verify
             format.html do
               redirect_to users_registrations_food_providers_path(@food_provider),
                           notice: 'Udało się zapisać dane twojego lokalu'
@@ -41,8 +42,10 @@ module Users
 
       # PATCH/PUT /food_providers/1 or /food_providers/1.json
       def update
+        @food_provider.assign_attributes(food_provider_params)
+
         respond_to do |format|
-          if @food_provider.update(food_provider_params)
+          if @food_provider.save
             format.html do
               redirect_to users_registrations_food_providers_path(@food_provider),
                           notice: 'Udało się zapisać dane twojego lokalu'

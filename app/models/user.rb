@@ -18,8 +18,12 @@ class User < ApplicationRecord
       transition [:initialized] => :type_confirmed
     end
 
+    event :verify do
+      transition %i[type_confirmed] => :verifying
+    end
+
     event :complete do
-      transition %i[type_confirmed initialized] => :completed
+      transition %i[verifying type_confirmed initialized] => :completed
     end
 
     state :initialized do
