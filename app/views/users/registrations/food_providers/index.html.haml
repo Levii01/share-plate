@@ -1,0 +1,41 @@
+-# %h1 Listing food_providers
+-#
+-# %table
+-#   %thead
+-#     %tr
+-#       %th Name
+-#       %th Type
+-#       %th State
+-#       %th User
+-#       %th Address
+-#       %th Nip
+-#       %th Phone
+-#       %th Email
+-#       %th Description
+-#       %th Opening time
+-#       %th Active
+-#       %th
+-#       %th
+-#       %th
+-#
+-#   %tbody
+-#     - @food_providers.each do |food_provider|
+-#       %tr
+-#         %td= food_provider.name
+-#         %td= food_provider.type
+-#         %td= food_provider.state
+-#         %td= food_provider.user
+-#         %td= food_provider.address
+-#         %td= food_provider.nip
+-#         %td= food_provider.phone
+-#         %td= food_provider.email
+-#         %td= food_provider.description
+-#         %td= food_provider.opening_time
+-#         %td= food_provider.active
+-#         %td= link_to 'Show', food_provider
+-#         %td= link_to 'Edit', edit_food_provider_path(food_provider)
+-#         %td= link_to 'Destroy', food_provider, method: :delete, data: { confirm: 'Are you sure?' }
+-#
+-# %br
+-#
+-# = link_to 'New Food provider', new_food_provider_path

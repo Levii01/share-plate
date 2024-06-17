@@ -15,9 +15,22 @@ class ApplicationController < ActionController::Base
   end
 
   def finish_registration
-    return if current_user.blank? || controller_name == 'account_types'
+    return if current_user.blank?
 
-    redirect_to users_registrations_account_types_path if current_user.initialized?
+    case current_user.state
+    when 'initialized'
+      return if controller_name == 'account_types'
+
+      redirect_to edit_users_registrations_account_types_path
+    when 'type_confirmed'
+      return if controller_name.in?(%w[food_providers])
+
+      redirect_to new_users_registrations_food_provider_path if current_user.account_food_provider?
+      # redirect_to  if current_user.account_beneficiary?
+    else
+      # binding.pry
+    end
+    # redirect_to edit_users_registrations_account_types_path if current_user.initialized? && current_user.account_type.blank?
   end
 
   def configure_permitted_parameters

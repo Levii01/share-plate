@@ -4,14 +4,34 @@ module Users
   module Registrations
     class AccountTypesController < ApplicationController
       before_action :authenticate_user!
+      before_action :user
 
-      def show; end
+      def edit; end
 
       def update
-        current_user.update(update_params)
+        user.assign_attributes(update_params)
+
+        respond_to do |format|
+          if user.type_confirm
+            # flash[:notice] = ""
+            format.html { redirect_to new_users_registrations_food_provider_path }
+            format.json { render :show, status: :ok, location: @resource }
+            format.js   { render :update } # Add this for handling JavaScript responses
+          else
+            flash[:error] = 'Coś poszło nie tak. Skontaktuj się z administracją.'
+            format.html { redirect_to edit_users_registrations_account_types_path }
+            # format.html { render :edit }
+            format.json { render json: user.errors, status: :unprocessable_entity }
+            format.js   { render :edit }
+          end
+        end
       end
 
       private
+
+      def user
+        @user ||= current_user
+      end
 
       def update_params
         params.require(:user).permit(:account_type)

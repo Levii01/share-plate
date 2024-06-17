@@ -1,0 +1,36 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @food_provider.name
+%p
+  %b Type:
+  = @food_provider.provider_type
+%p
+  %b State:
+  = @food_provider.state
+%p
+  %b User:
+  = @food_provider.user.email
+%p
+  %b Address:
+  = @food_provider.address
+%p
+  %b Nip:
+  = @food_provider.nip
+%p
+  %b Phone:
+  = @food_provider.phone
+%p
+  %b Email:
+  = @food_provider.email
+%p
+  %b Description:
+  = @food_provider.description
+%p
+  %b Opening time:
+  = @food_provider.opening_time
+
+= link_to 'Edit', edit_users_registrations_account_types_path
+-# \|
+-# = link_to 'Back', food_providers_path

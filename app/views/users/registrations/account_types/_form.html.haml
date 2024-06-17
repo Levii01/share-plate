@@ -1,0 +1,12 @@
+%p.text-start
+  Wybierz w jaki sposób chcesz pomagać
+.form-wrapper
+  = bootstrap_form_for(@user, url: users_registrations_account_types_path, label_errors: true, method: :put) do |f|
+    = f.error_summary
+    = f.select :account_type, User.account_types.keys.map { |type| [t("activerecord.attributes.user.account_types.#{type}").humanize, type] }, autofocus: true, wrapper: { class: 'single-form' }
+    %p.text-start
+      \- Beneficjent przekazujący żywność w dobre ręce
+      %br
+      \- Lokal gastronomiczny ratujący żywność
+    .single-form
+      = f.submit "Dalej", class: "btn btn-primary btn-hover-dark w-100"

@@ -188,3 +188,5 @@ pl:
       mark: "*"
       text: pole wymagane
     'yes': Tak
+    error_notification:
+      default_message: "Uzupełnij poprawnie poniższe pola:"

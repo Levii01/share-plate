@@ -3,17 +3,36 @@
 class User < ApplicationRecord
   has_paper_trail
   rolify
+
   # Include default devise modules. Others available are: :lockable, :timeoutable
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:google_oauth2]
 
-  enum account_type: %w[food_provider beneficiary].index_by(&:to_sym)
+  enum account_type: %w[food_provider beneficiary].index_by(&:to_sym), _prefix: :account
+
+  has_one :food_provider, dependent: :nullify
 
   state_machine :state, initial: :initialized do
-    event :complete do
-      transition [:initialized] => :completed
+    event :type_confirm do
+      transition [:initialized] => :type_confirmed
     end
+
+    event :complete do
+      transition %i[type_confirmed initialized] => :completed
+    end
+
+    state :initialized do
+      validates :account_type, absence: true
+    end
+
+    state all - :initialized do
+      validates :account_type, presence: true
+    end
+
+    # state :type_confirmed do
+    #   validates :account_type, presence: true
+    # end
   end
 
   def self.create_from_omniauth(auth) # rubocop:disable Metrics/AbcSize

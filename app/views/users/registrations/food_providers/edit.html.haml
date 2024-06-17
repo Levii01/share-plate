@@ -1,22 +1,26 @@
 .section.page-banner-section{style: "background-image: url(#{asset_path('page-banner.jpg')});"}
   .container
     .page-banner-content
-      %h2.page-title Wybierz profil Twojego konta
+      %h2.page-title Edytuj dane lokalu gastronomicznego
       %ul.breadcrumb
         %li.breadcrumb-item
           %a{href: root_path} Home
         %li.breadcrumb-item Rejestracja
-        %li.breadcrumb-item.active Wybierz profil
+        %li.breadcrumb-item.active Twój lokal
 
 .section.section-padding
   .container
     .register-login-wrapper
       .row.justify-content-center
-        .col-lg-6.col-xl-5
+        .col-lg-6.col-xl-10
           .register-login-form
             %h3.title
-              Dobrze że
-              %span jesteś!
+              Dane
+              %span lokalu
               %br
 
             = render 'form'
+
+-# = link_to 'Show', edit_users_registrations_food_providers_path
+-# \|
+-# = link_to 'Back', food_providers_path

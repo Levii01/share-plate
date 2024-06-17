@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # resources :food_providers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :user,
@@ -13,7 +14,8 @@ Rails.application.routes.draw do
   get 'home/index'
   namespace :users do
     namespace :registrations do
-      resource :account_types, only: %i[show update]
+      resource :account_types, only: %i[edit update]
+      resource :food_providers
     end
     resources :panel, only: %i[index]
   end
