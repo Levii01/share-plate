@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  # resources :beneficiaries
   # resources :food_providers
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
@@ -16,6 +17,7 @@ Rails.application.routes.draw do
     namespace :registrations do
       resource :account_types, only: %i[edit update]
       resource :food_providers
+      resource :beneficiaries
     end
     resources :panel, only: %i[index]
   end

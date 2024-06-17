@@ -1,0 +1,24 @@
+.section.page-banner-section{style: "background-image: url(#{asset_path('page-banner.jpg')});"}
+  .container
+    .page-banner-content
+      %h2.page-title Usupełnij dane Benficjenta
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href: root_path} Home
+        %li.breadcrumb-item Rejestracja
+        %li.breadcrumb-item.active Beneficjent
+
+.section.section-padding
+  .container
+    .register-login-wrapper
+      .row.justify-content-center
+        .col-lg-6.col-xl-10
+          .register-login-form
+            %h3.title
+              Dane
+              %span lokalu
+              %br
+
+            = render 'form'
+
+-# = link_to 'Back', beneficiaries_path

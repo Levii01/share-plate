@@ -9,7 +9,7 @@ pl:
           food_provider: lokal gastronomiczny
           beneficiary: beneficjent
         fullname: Podpis
-        password: "mot de passe"
+#        password: "mot de passe"
       food_provider:
         name: Nazwa lokalu
         description: Opis
@@ -28,6 +28,12 @@ pl:
           confectionery: Cukiernia
           deli: Delikatesy
           other: Inne
+      beneficiary:
+        name: Nazwa beneficjenta
+        phone: Telefon kontaktowy
+        email: Email
+        address: Adres
+        description: Opisz miejsce gdzie będzie oddawana żywność
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'

@@ -12,9 +12,12 @@ module Users
         user.assign_attributes(update_params)
 
         respond_to do |format|
-          if user.type_confirm
-            # flash[:notice] = ""
-            format.html { redirect_to new_users_registrations_food_provider_path }
+          # if user.type_confirm
+          if user.save
+            format.html do
+              redirect_to new_users_registrations_food_providers_path if current_user.account_food_provider?
+              redirect_to new_users_registrations_beneficiaries_path if current_user.account_beneficiary?
+            end
             format.json { render :show, status: :ok, location: @resource }
             format.js   { render :update } # Add this for handling JavaScript responses
           else

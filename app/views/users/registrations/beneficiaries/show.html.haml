@@ -1,0 +1,27 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = @beneficiary.name
+-# %p
+-#   %b User:
+-#   = @beneficiary.user
+%p
+  %b Address:
+  = @beneficiary.address
+%p
+  %b Description:
+  = @beneficiary.description
+%p
+  %b Phone:
+  = @beneficiary.phone
+%p
+  %b Email:
+  = @beneficiary.email
+%p
+  %b State:
+  = @beneficiary.state
+
+-# = link_to 'Edit', edit_beneficiary_path(@beneficiary)
+-# \|
+-# = link_to 'Back', beneficiaries_path

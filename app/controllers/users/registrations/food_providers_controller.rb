@@ -3,7 +3,7 @@
 module Users
   module Registrations
     class FoodProvidersController < ApplicationController
-      before_action :set_food_provider, only: %i[show edit update destroy]
+      before_action :set_food_provider, only: %i[show edit update]
 
       # # GET /food_providers or /food_providers.json
       # def index
@@ -30,7 +30,7 @@ module Users
             current_user.verify
             format.html do
               redirect_to users_registrations_food_providers_path(@food_provider),
-                          notice: 'Udało się zapisać dane twojego lokalu'
+                          notice: 'Dane lokalu zostały zapisane'
             end
             format.json { render :new, status: :created, location: @food_provider }
           else
@@ -48,7 +48,7 @@ module Users
           if @food_provider.save
             format.html do
               redirect_to users_registrations_food_providers_path(@food_provider),
-                          notice: 'Udało się zapisać dane twojego lokalu'
+                          notice: 'Dane lokalu zostały zapisane'
             end
             format.json { render :new, status: :ok, location: @food_provider }
           else
@@ -59,14 +59,14 @@ module Users
       end
 
       # DELETE /food_providers/1 or /food_providers/1.json
-      def destroy
-        @food_provider.destroy!
-
-        respond_to do |format|
-          format.html { redirect_to food_providers_url, notice: 'Food provider was successfully destroyed.' }
-          format.json { head :no_content }
-        end
-      end
+      # def destroy
+      #   @food_provider.destroy!
+      #
+      #   respond_to do |format|
+      #     format.html { redirect_to food_providers_url, notice: 'Food provider was successfully destroyed.' }
+      #     format.json { head :no_content }
+      #   end
+      # end
 
       private
 

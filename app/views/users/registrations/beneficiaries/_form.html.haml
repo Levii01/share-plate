@@ -1,0 +1,14 @@
+.form-wrapper
+  = simple_form_for(@beneficiary, url: users_registrations_beneficiaries_path) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+    .form-inputs
+      = f.input :name
+      = f.input :phone
+      = f.input :email, hint: "Może być inny niż użyty w przy logowaniu"
+      = f.input :address
+      = f.input :description
+
+    .form-actions
+      = f.button :submit, "Zapisz dane", class: "btn btn-secondary btn-hover-dark w-100"

@@ -12,6 +12,7 @@ class User < ApplicationRecord
   enum account_type: %w[food_provider beneficiary].index_by(&:to_sym), _prefix: :account
 
   has_one :food_provider, dependent: :nullify
+  has_one :beneficiary, dependent: :nullify
 
   state_machine :state, initial: :initialized do
     event :type_confirm do

@@ -23,14 +23,11 @@ class ApplicationController < ActionController::Base
 
       redirect_to edit_users_registrations_account_types_path
     when 'type_confirmed'
-      return if controller_name.in?(%w[food_providers])
+      return if controller_name.in?(%w[food_providers beneficiaries])
 
       redirect_to new_users_registrations_food_providers_path if current_user.account_food_provider?
-      # redirect_to  if current_user.account_beneficiary?
-    else
-      # binding.pry
+      redirect_to new_users_registrations_beneficiaries_path if current_user.account_beneficiary?
     end
-    # redirect_to edit_users_registrations_account_types_path if current_user.initialized? && current_user.account_type.blank?
   end
 
   def configure_permitted_parameters

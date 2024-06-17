@@ -1,0 +1,33 @@
+%h1 Listing beneficiaries
+
+%table
+  %thead
+    %tr
+      %th Name
+      %th User
+      %th Address
+      %th Description
+      %th Phone
+      %th Email
+      %th State
+      %th
+      %th
+      %th
+
+  %tbody
+    - @beneficiaries.each do |beneficiary|
+      %tr
+        %td= beneficiary.name
+        %td= beneficiary.user
+        %td= beneficiary.address
+        %td= beneficiary.description
+        %td= beneficiary.phone
+        %td= beneficiary.email
+        %td= beneficiary.state
+        %td= link_to 'Show', beneficiary
+        %td= link_to 'Edit', edit_beneficiary_path(beneficiary)
+        %td= link_to 'Destroy', beneficiary, method: :delete, data: { confirm: 'Are you sure?' }
+
+%br
+
+= link_to 'New Beneficiary', new_beneficiary_path
