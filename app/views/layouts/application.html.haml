@@ -3,9 +3,11 @@
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
     %title SharePlate
-    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    %meta{:content => "width=device-width,initial-scale=1,shrink-to-fit=no", :name => "viewport"}/
     = csrf_meta_tags
     = csp_meta_tag
+    %link{:href => "assets/images/favicon.ico", :rel => "shortcut icon", :type => "image/x-icon"}/
+    %link{:href => asset_path("favicon.ico"), :rel => "shortcut icon", :type => "image/x-icon"}/
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", type: "module"
   %body

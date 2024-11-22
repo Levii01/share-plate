@@ -1,3 +1,775 @@
-%h1 Hello there!
-
-= button_to 'Login with Google', user_google_oauth2_omniauth_authorize_path, method: :post, :data => {turbo: "false"}
+%body
+  .main-wrapper
+    / Header Section Start
+    .header.section
+      / Header Main Start
+      .header-main
+        .container
+          / Header Wrapper Start
+          .header-wrapper
+            / Header Logo Start
+            .header-logo
+              %a{:href => "index.html"}
+                %img{:alt => "Logo", :src => asset_path("logo.png")}/
+            / Header Logo End
+            / Header Menu Start
+            .header-menu.d-none.d-lg-flex
+              %ul.nav-menu
+                %li
+                  %a.active{:href => "index.html"} Home
+                %li
+                  %a{:href => "about.html"} About Us
+                %li
+                  %a{:href => "#"} All Course
+                  %ul.sub-menu
+                    %li
+                      %a{:href => "courses.html"} Courses
+                    %li
+                      %a{:href => "my-courses.html"} My Courses
+                    %li
+                      %a{:href => "#"} Courses Details
+                      %ul.sub-menu
+                        %li
+                          %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
+                        %li
+                          %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
+                %li
+                  %a{:href => "#"} Pages
+                  %ul.sub-menu
+                    %li
+                      %a{:href => "after-enroll.html"} After Enroll
+                    %li
+                      %a{:href => "courses-admin.html"} Instructor Dashboard (Course List)
+                    %li
+                      %a{:href => "overview.html"} Instructor Dashboard (Performance)
+                    %li
+                      %a{:href => "students.html"} Students
+                    %li
+                      %a{:href => "reviews.html"} Reviews
+                    %li
+                      %a{:href => "engagement.html"} Course engagement
+                    %li
+                      %a{:href => "traffic-conversion.html"} Traffic & conversion
+                    %li
+                      %a{:href => "messages.html"} Messages
+                    %li
+                      %a{:href => "register.html"} Register
+                    %li
+                      %a{:href => "login.html"} Login
+                    %li
+                      %a{:href => "faq.html"} FAQ
+                    %li
+                      %a{:href => "404-error.html"} 404 Error
+                %li
+                  %a{:href => "#"} Blog
+                  %ul.sub-menu
+                    %li
+                      %a{:href => "#"} Blog
+                      %ul.sub-menu
+                        %li
+                          %a{:href => "blog-grid.html"} Blog Grid
+                        %li
+                          %a{:href => "blog-left-sidebar.html"} Blog Left Sidebar
+                        %li
+                          %a{:href => "blog-right-sidebar.html"} Blog Right Sidebar
+                    %li
+                      %a{:href => "#"} Blog Details
+                      %ul.sub-menu
+                        %li
+                          %a{:href => "blog-details-left-sidebar.html"} Blog Details Left Sidebar
+                        %li
+                          %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
+                %li
+                  %a{:href => "contact.html"} Contact
+              .header-btn
+                %a.btn.btn-secondary.btn-hover-primary{:href => "login.html"} Sign Up
+            / Header Menu End
+            / Header Toggle Start
+            .header-toggle.d-lg-none
+              %a.btn.btn-secondary.btn-hover-primary{:href => "login.html"} Sign Up
+              %a.menu-toggle{:href => "#"}
+                %span
+                %span
+                %span
+            / Header Toggle End
+          / Header Wrapper End
+      / Header Main End
+    / Header Section End
+    / Mobile Menu Start
+    .mobile-menu
+      / Menu Close Start
+      %a.menu-close{:href => "javascript:void(0)"}
+        %i.icofont-close-line
+      / Menu Close End
+      / Mobile Menu Start
+      .mobile-menu-items
+        %ul.nav-menu
+          %li
+            %a.active{:href => "index.html"} Home
+          %li
+            %a{:href => "about.html"} About Us
+          %li
+            %a{:href => "#"} All Course
+            %ul.sub-menu
+              %li
+                %a{:href => "courses.html"} Courses
+              %li
+                %a{:href => "my-courses.html"} My Courses
+              %li
+                %a{:href => "#"} Courses Details
+                %ul.sub-menu
+                  %li
+                    %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
+                  %li
+                    %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
+          %li
+            %a{:href => "#"} Pages
+            %ul.sub-menu
+              %li
+                %a{:href => "after-enroll.html"} After Enroll
+              %li
+                %a{:href => "courses-admin.html"} Instructor Dashboard (Course List)
+              %li
+                %a{:href => "overview.html"} Instructor Dashboard (Performance)
+              %li
+                %a{:href => "students.html"} Students
+              %li
+                %a{:href => "reviews.html"} Reviews
+              %li
+                %a{:href => "engagement.html"} Course engagement
+              %li
+                %a{:href => "traffic-conversion.html"} Traffic & conversion
+              %li
+                %a{:href => "messages.html"} Messages
+              %li
+                %a{:href => "register.html"} Register
+              %li
+                %a{:href => "login.html"} Login
+              %li
+                %a{:href => "faq.html"} FAQ
+              %li
+                %a{:href => "404-error.html"} 404 Error
+          %li
+            %a{:href => "#"} Blog
+            %ul.sub-menu
+              %li
+                %a{:href => "#"} Blog
+                %ul.sub-menu
+                  %li
+                    %a{:href => "blog-grid.html"} Blog Grid
+                  %li
+                    %a{:href => "blog-left-sidebar.html"} Blog Left Sidebar
+                  %li
+                    %a{:href => "blog-right-sidebar.html"} Blog Right Sidebar
+              %li
+                %a{:href => "#"} Blog Details
+                %ul.sub-menu
+                  %li
+                    %a{:href => "blog-details-left-sidebar.html"} Blog Details Left Sidebar
+                  %li
+                    %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
+          %li
+            %a{:href => "contact.html"} Contact
+      / Mobile Menu End
+    / Mobile Menu End
+    / Overlay Start
+    .overlay
+    / Overlay End
+    / Slider Section Start
+    .slider-section.slider-active.section
+      .swiper-container
+        .swiper-wrapper
+          / Single Slider Start
+          .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-1.jpg')});"}
+            .container
+              / Slider Content Start
+              .slider-content
+                %h6.sub-title Fitness & Nutrition
+                %h1.main-title This life style for your fitness, not only diet.
+                %p It has survived not only five centuries but also
+                %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
+              / Slider Content End
+            / Slider Social Start
+            .slider-social
+              .container
+                .social-wrapper
+                  %p Connect with us:
+                  %ul.social
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-facebook
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-skype
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-twitter
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-linkedin
+            / Slider Social End
+          / Single Slider End
+          / Single Slider Start
+          .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-2.jpg')});"}
+            .container
+              / Slider Content Start
+              .slider-content
+                %h6.sub-title Fitness & Nutrition
+                %h1.main-title This life style for your fitness, not only diet.
+                %p It has survived not only five centuries but also
+                %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
+              / Slider Content End
+            / Slider Social Start
+            .slider-social
+              .container
+                .social-wrapper
+                  %p Connect with us:
+                  %ul.social
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-facebook
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-skype
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-twitter
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-linkedin
+            / Slider Social End
+          / Single Slider End
+          / Single Slider Start
+          .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-3.jpg')});"}
+            .container
+              / Slider Content Start
+              .slider-content
+                %h6.sub-title Fitness & Nutrition
+                %h1.main-title This life style for your fitness, not only diet.
+                %p It has survived not only five centuries but also
+                %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
+              / Slider Content End
+            / Slider Social Start
+            .slider-social
+              .container
+                .social-wrapper
+                  %p Connect with us:
+                  %ul.social
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-facebook
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-skype
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-twitter
+                    %li
+                      %a{:href => "#"}
+                        %i.icofont-linkedin
+            / Slider Social End
+          / Single Slider End
+    / Slider Section End
+    / Features Section Start
+    .section.section-padding
+      .container
+        .features-wrapper
+          .row
+            .col-lg-4.col-md-6
+              / Single Feature Start
+              .single-feature
+                .feature-icon
+                  %span
+                    %i.flaticon-lunges
+                .feature-content
+                  .content-wrapper
+                    %h4.title
+                      %a{:href => "#"} Women’s Course
+                    %p Lorem Ipsum is simply dummy themes industryes psum has been them industry the loep into type setting.
+                  %a.arrow{:href => "#"}
+                    %i.icofont-long-arrow-right
+              / Single Feature End
+            .col-lg-4.col-md-6
+              / Single Feature Start
+              .single-feature.active
+                .feature-icon
+                  %span
+                    %i.flaticon-lotus
+                .feature-content
+                  .content-wrapper
+                    %h4.title
+                      %a{:href => "#"} Basic Course
+                    %p Lorem Ipsum is simply dummy themes industryes psum has been them industry the loep into type setting.
+                  %a.arrow{:href => "#"}
+                    %i.icofont-long-arrow-right
+              / Single Feature End
+            .col-lg-4.col-md-6
+              / Single Feature Start
+              .single-feature
+                .feature-icon
+                  %span
+                    %i.flaticon-computer
+                .feature-content
+                  .content-wrapper
+                    %h4.title
+                      %a{:href => "#"} Men’s Course
+                    %p Lorem Ipsum is simply dummy themes industryes psum has been them industry the loep into type setting.
+                  %a.arrow{:href => "#"}
+                    %i.icofont-long-arrow-right
+              / Single Feature End
+    / Features Section End
+    / About Section Start
+    .section.section-padding.bg-grey.overflow-hidden
+      .container
+        / About Wrapper Start
+        .about-wrapper
+          .row.align-items-center.gx-xxl-5
+            .col-lg-5
+              / About Images Start
+              .about-images
+                %img.shape{:alt => "shape", :src => asset_path("shape/shape-2.png")}/
+                .images
+                  %img{:alt => "About", :src => asset_path("about.jpg")}/
+                .about-btn
+                  %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Meet Instructor
+              / About Images End
+            .col-lg-7
+              / About Content Start
+              .about-content.bg-white
+                %img.shape{:alt => "shape", :src => asset_path("shape/shape-1.png")}/
+                .content-wrapper
+                  %h6.sub-title 25+ years of experience
+                  %h2.main-title We have expert instructor for help our students.
+                  %p Lorem Ipsum is simply dummy text the printing and typesetting standard dummy text ever since the 150 when an unknown printe specimen book has survived centuries.
+                  %span.count 100+ Courses
+                  %p Lorem Ipsum is simply dummy text the printing and typesetting standard dummy text ever since the 150 when an unknown printe specimen book has survived centuries.
+              / About Content End
+        / About Wrapper End
+    / About Section End
+    / Courses Section Start
+    .section.section-padding
+      .container
+        / Section Title Start
+        .section-title
+          %h6.sub-title 100+ courses available
+          %h2.main-title Fitness & Nutrition Courses
+        / Section Title End
+        / Courses Wrapper Start
+        .courses-wrapper
+          .row.gx-xxl-5
+            .col-lg-4.col-sm-6
+              / Single Courses Start
+              .single-courses
+                .courses-images
+                  %a{:href => "courses-details-left-sidebar.html"}
+                    %img{:alt => "courses", :src => asset_path("courses/courses-1.jpg")}/
+                .courses-content
+                  .courses-price
+                    %span.price $98
+                  .content-wrapper
+                    %p.author
+                      By:
+                      %a{:href => "#"} Ryan Patterson
+                    %h4.title
+                      %a{:href => "courses-details-left-sidebar.html"} Children Nutrition and Cooking
+                    %ul.meta
+                      %li 08 hr 20 mins
+                      %li 28 Lectures
+              / Single Courses End
+            .col-lg-4.col-sm-6
+              / Single Courses Start
+              .single-courses
+                .courses-images
+                  %a{:href => "courses-details-left-sidebar.html"}
+                    %img{:alt => "courses", :src => asset_path("courses/courses-2.jpg")}/
+                .courses-content
+                  .courses-price
+                    %span.price $72
+                  .content-wrapper
+                    %p.author
+                      By:
+                      %a{:href => "courses-details-left-sidebar.html"} Arlene Daniels
+                    %h4.title
+                      %a{:href => "#"} Introduction to Food and Health.
+                    %ul.meta
+                      %li 09 hr 25 mins
+                      %li 16 Lectures
+              / Single Courses End
+            .col-lg-4.col-sm-6
+              / Single Courses Start
+              .single-courses
+                .courses-images
+                  %a{:href => "courses-details-left-sidebar.html"}
+                    %img{:alt => "courses", :src => asset_path("courses/courses-3.jpg")}/
+                .courses-content
+                  .courses-price
+                    %span.price $68
+                  .content-wrapper
+                    %p.author
+                      By:
+                      %a{:href => "#"} Selina Benton
+                    %h4.title
+                      %a{:href => "courses-details-left-sidebar.html"} Nutrition and Lifestyle in Pregnancy
+                    %ul.meta
+                      %li 03 hr 38 mins
+                      %li 18 Lectures
+              / Single Courses End
+            .col-lg-4.col-sm-6
+              / Single Courses Start
+              .single-courses
+                .courses-images
+                  %a{:href => "courses-details-left-sidebar.html"}
+                    %img{:alt => "courses", :src => asset_path("courses/courses-4.jpg")}/
+                .courses-content
+                  .courses-price
+                    %span.price $98
+                  .content-wrapper
+                    %p.author
+                      By:
+                      %a{:href => "#"} Ryan Patterson
+                    %h4.title
+                      %a{:href => "courses-details-left-sidebar.html"}
+                        Expertise on Fitness, Nutrition and Health
+                    %ul.meta
+                      %li 02 hr 16 mins
+                      %li 14 Lectures
+              / Single Courses End
+            .col-lg-4.col-sm-6
+              / Single Courses Start
+              .single-courses
+                .courses-images
+                  %a{:href => "courses-details-left-sidebar.html"}
+                    %img{:alt => "courses", :src => asset_path("courses/courses-5.jpg")}/
+                .courses-content
+                  .courses-price
+                    %span.price $72
+                  .content-wrapper
+                    %p.author
+                      By:
+                      %a{:href => "#"} Arlene Daniels
+                    %h4.title
+                      %a{:href => "courses-details-left-sidebar.html"} Hacking exercise for health new science of fitness
+                    %ul.meta
+                      %li 06 hr 12 mins
+                      %li 35 Lectures
+              / Single Courses End
+            .col-lg-4.col-sm-6
+              / Single Courses Start
+              .single-courses
+                .courses-images
+                  %a{:href => "courses-details-left-sidebar.html"}
+                    %img{:alt => "courses", :src => asset_path("courses/courses-6.jpg")}/
+                .courses-content
+                  .courses-price
+                    %span.price $68
+                  .content-wrapper
+                    %p.author
+                      By:
+                      %a{:href => "#"} Selina Benton
+                    %h4.title
+                      %a{:href => "courses-details-left-sidebar.html"} Designing Your Personal Weight Loss Plan
+                    %ul.meta
+                      %li 09 hr 34 mins
+                      %li 28 Lectures
+              / Single Courses End
+        / Courses Wrapper End
+    / Courses Section End
+    / Testimonial Section Start
+    .section.section-padding.testimonial-section.testimonial-active
+      %img.shape-01.animation-down{:alt => "Shape", :src => asset_path("shape/shape-5.png")}/
+      %img.shape-02.animation-up{:alt => "Shape", :src => asset_path("shape/shape-6.png")}/
+      .container
+        / Section Title Start
+        .section-title.section-title-white
+          %h6.sub-title happy students
+          %h2.main-title What Client Say About Us
+        / Section Title End
+        / Testimonial Wrapper End
+        .testimonial-wrapper
+          .swiper-container
+            .swiper-wrapper
+              / Single Testimonial Start
+              .single-testimonial.swiper-slide
+                .testimonial-author
+                  %img{:alt => "Author", :src => asset_path("author/author-01.jpg")}/
+                  %i.flaticon-left-quote
+                %p Lorem Ipsum is simply dummy text of the printing typesetting industry has been the industry's standard dummy text ever ince the 1500s when unknown printer took a galley of type and scrambled it to
+                %h4.name Pollock Austin
+                %span.designation UI/UX DESIGNER
+              / Single Testimonial End
+              / Single Testimonial Start
+              .single-testimonial.swiper-slide
+                .testimonial-author
+                  %img{:alt => "Author", :src => asset_path("author/author-02.jpg")}/
+                  %i.flaticon-left-quote
+                %p Lorem Ipsum is simply dummy text of the printing typesetting industry has been the industry's standard dummy text ever ince the 1500s when unknown printer took a galley of type and scrambled it to
+                %h4.name Pollock Austin
+                %span.designation UI/UX DESIGNER
+              / Single Testimonial End
+              / Single Testimonial Start
+              .single-testimonial.swiper-slide
+                .testimonial-author
+                  %img{:alt => "Author", :src => asset_path("author/author-03.jpg")}/
+                  %i.flaticon-left-quote
+                %p Lorem Ipsum is simply dummy text of the printing typesetting industry has been the industry's standard dummy text ever ince the 1500s when unknown printer took a galley of type and scrambled it to
+                %h4.name Pollock Austin
+                %span.designation UI/UX DESIGNER
+              / Single Testimonial End
+        / Testimonial Wrapper End
+      .arrow
+        .swiper-button-next
+          %i.fa.fa-long-arrow-right
+        .swiper-button-prev
+          %i.fa.fa-long-arrow-left
+    / Testimonial Section End
+    / Brand Section Start
+    .section.section-padding-02.overflow-hidden
+      .container
+        / Brand Wrapper Start
+        .brand-wrapper
+          %img.shape{:alt => "Shape", :src => asset_path("shape/shape-12.png")}/
+          / Section Title Start
+          .section-title.shape-none
+            %h6.sub-title Work With Trusted Brand
+            %h2.main-title We Have 8,00+ Trusted Partners.
+            %p Printing and typesetting standard dummy text ever since
+          / Section Title End
+          / Brand Logo Wrapper Start
+          .brand-logo-wrapper.brand-active
+            .swiper-container
+              .swiper-wrapper
+                .swiper-slide
+                  / Single Brand Start
+                  .single-brand
+                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-1.png")}/
+                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-1.png")}/
+                  / Single Brand End
+                .swiper-slide
+                  / Single Brand Start
+                  .single-brand
+                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-2.png")}/
+                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-2.png")}/
+                  / Single Brand End
+                .swiper-slide
+                  / Single Brand Start
+                  .single-brand
+                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-3.png")}/
+                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-3.png")}/
+                  / Single Brand End
+                .swiper-slide
+                  / Single Brand Start
+                  .single-brand
+                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-4.png")}/
+                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-4.png")}/
+                  / Single Brand End
+                .swiper-slide
+                  / Single Brand Start
+                  .single-brand
+                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-5.png")}/
+                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-5.png")}/
+                  / Single Brand End
+          / Brand Logo Wrapper End
+        / Brand Wrapper End
+    / Brand Section End
+    / Blog Section End
+    .section.section-padding-02
+      .container
+        / Section Title Start
+        .section-title
+          %h6.sub-title Our Blog Post
+          %h2.main-title Latest Article of Nutrition
+        / Section Title End
+        / Blog Wrapper Start
+        .blog-wrapper
+          .row.gx-xxl-5
+            .col-lg-4
+              / Single Blog Start
+              .single-blog
+                .blog
+                  .blog-date-meta
+                    %span
+                      %strong 24
+                      Feb
+                    .meta
+                      %p.author
+                        By:
+                        %a{:href => "#"} Maddie Rife
+                      %ul
+                        %li 87 Likes
+                        %li 58 Share
+                  %h4.title
+                    %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
+                  %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
+              / Single Blog End
+            .col-lg-4
+              / Single Blog Start
+              .single-blog
+                .blog
+                  .blog-date-meta
+                    %span
+                      %strong 24
+                      Feb
+                    .meta
+                      %p.author
+                        By:
+                        %a{:href => "#"} Maddie Rife
+                      %ul
+                        %li 87 Likes
+                        %li 58 Share
+                  %h4.title
+                    %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
+                  %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
+              / Single Blog End
+            .col-lg-4
+              / Single Blog Start
+              .single-blog
+                .blog
+                  .blog-date-meta
+                    %span
+                      %strong 24
+                      Feb
+                    .meta
+                      %p.author
+                        By:
+                        %a{:href => "#"} Maddie Rife
+                      %ul
+                        %li 87 Likes
+                        %li 58 Share
+                  %h4.title
+                    %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
+                  %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
+              / Single Blog End
+        / Blog Wrapper End
+    / Blog Section End
+    \.
+    / Download Section Start
+    .section.section-padding
+      .container
+        / Download Wrapper Start
+        .download-wrapper
+          %img.shape-01{:alt => "Shape", :src => asset_path("shape/shape-7.png")}/
+          %img.shape-02{:alt => "Shape", :src => asset_path("shape/shape-8.png")}/
+          / Section Title Start
+          .section-title.shape-none
+            %h6.sub-title mobile app available
+            %h2.main-title
+              Download our mobile
+              %br/
+              app. and start coaching anytime.
+          / Section Title End
+          / download App End
+          .download-app
+            %ul
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "Play Store", :src => asset_path("play-store.jpg")}/
+              %li
+                %a{:href => "#"}
+                  %img{:alt => "App Store", :src => asset_path("app-store.jpg")}/
+          / download App End
+        / Download Wrapper End
+    / Download Section End
+    / Footer Start
+    .section.footer-section
+      / Footer Widget Section Start
+      .footer-widget-section.section-padding
+        %img.shape-01.animation-rotate{:alt => "Shape", :src => asset_path("shape/shape-9.png")}/
+        .container
+          / Footer Widget Wrapper Start
+          .footer-widget-wrapper
+            .row
+              .col-lg-4
+                / Footer Widget Start
+                .footer-widget
+                  %h3.footer-widget-title Subscribe Newsletter
+                  .widget-newsletter
+                    %p Lorem Ipsum has been them an industry printer took a galley make book.
+                    .newsletter-form
+                      %form{:action => "#"}
+                        %input{:placeholder => "Enter email", :type => "text"}/
+                        %button.btn.btn-primary.btn-hover-white Subscribe Now
+                / Footer Widget End
+              .col-lg-8
+                / Footer Widget Start
+                .widget-wrapper
+                  / Footer Widget Start
+                  .footer-widget
+                    %h3.footer-widget-title All Courses
+                    %ul.widget-link
+                      %li
+                        %a{:href => "#"} Daily Exercise
+                      %li
+                        %a{:href => "#"} Find Your Balance
+                      %li
+                        %a{:href => "#"} Personal Program
+                      %li
+                        %a{:href => "#"} Natural Process
+                      %li
+                        %a{:href => "#"} Immune System
+                      %li
+                        %a{:href => "#"} Gives You Energy
+                  / Footer Widget End
+                  / Footer Widget Start
+                  .footer-widget
+                    %h3.footer-widget-title Help Links
+                    %ul.widget-link
+                      %li
+                        %a{:href => "#"} Privacy Policy
+                      %li
+                        %a{:href => "#"} Discussion
+                      %li
+                        %a{:href => "#"} Terms & Conditions
+                      %li
+                        %a{:href => "#"} Customer Support
+                      %li
+                        %a{:href => "#"} Course FAQ’s
+                      %li
+                        %a{:href => "#"} Online Classes
+                  / Footer Widget End
+                  / Footer Widget Start
+                  .footer-widget
+                    %h3.footer-widget-title Opening Hours
+                    %ul.widget-link
+                      %li
+                        %a{:href => "#"} Mon-Fri: 9 AM – 6 PM
+                      %li
+                        %a{:href => "#"} Saturday: 9 AM – 4 PM
+                      %li
+                        %a{:href => "#"} Sunday: Closed
+                    .widget-location
+                      %h3.footer-widget-title Location
+                      %p
+                        176 W street name, New
+                        %br/
+                        York, NY 10014
+                  / Footer Widget End
+                / Footer Widget End
+          / Footer Widget Wrapper End
+        %img.shape-02.animation-rotate{:alt => "Shape", :src => asset_path("shape/shape-9.png")}/
+      / Footer Widget Section End
+      / Footer Copyright Section Start
+      .footer-copyright
+        .container
+          / Copyright Wrapper Start
+          .copyright-wrapper
+            .copyright-text
+              %p
+                © 2023
+                %span Nutras
+                Made with
+                %i.icofont-heart-alt
+                by
+                %a{:href => "https://hasthemes.com/", :target => "_blank"} HasThemes
+            .copyright-link
+              %a{:href => "#"} Terms of Service
+              %a{:href => "#"} Privacy Policy
+              %a{:href => "#"} Sitemap
+              %a{:href => "#"} Security
+          / Copyright Wrapper End
+      / Footer Copyright Section End
+    / Footer End
+    / Back To Start
+    %a.back-to-top{:href => "#"}
+      %i.icofont-simple-up
+    / Back To End
+  /
