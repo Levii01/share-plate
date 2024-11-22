@@ -24,6 +24,7 @@ module Users
       # POST /food_providers or /food_providers.json
       def create
         @food_provider = current_user.build_food_provider(food_provider_params)
+        @food_provider.email = current_user.email unless @food_provider.email?
 
         respond_to do |format|
           if @food_provider.save

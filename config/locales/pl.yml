@@ -40,8 +40,6 @@ pl:
         restrict_dependent_destroy:
           has_one: Nie może zostać usunięte, gdyż istnieje zależny od niego %{record}
           has_many: Nie może zostać usunięte, gdyż istnieją zależne od niego %{record}
-      validators:
-        nip: "Numer NIP jest nieprawidłowy."
   date:
     abbr_day_names:
       - nie
@@ -161,6 +159,8 @@ pl:
       month: Miesiąc
       year: Rok
   errors:
+    validators:
+      nip: "Numer NIP jest nieprawidłowy."
     format: "%{attribute} %{message}"
     messages:
       accepted: musi zostać zaakceptowane

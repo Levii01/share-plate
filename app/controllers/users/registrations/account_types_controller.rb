@@ -9,11 +9,10 @@ module Users
       def edit; end
 
       def update
-        user.assign_attributes(update_params)
+        user.assign_attributes(update_params.merge(state: 'type_confirmed'))
 
         respond_to do |format|
-          # if user.type_confirm
-          if user.save
+          if user.state_was == 'initialized' && user.save
             format.html do
               redirect_to new_users_registrations_food_providers_path if current_user.account_food_provider?
               redirect_to new_users_registrations_beneficiaries_path if current_user.account_beneficiary?
