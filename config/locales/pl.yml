@@ -32,8 +32,8 @@ pl:
         name: Nazwa beneficjenta
         phone: Telefon kontaktowy
         email: Email
-        address: Adres
-        description: Opisz miejsce gdzie będzie oddawana żywność
+        address: Adres zamieszkania
+        description: O mnie (opis)
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'
