@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
   end
 
   def finish_registration
-    return if current_user.blank?
+    return if current_user.blank? || devise_controller?
 
     case current_user.state
     when 'initialized'
