@@ -25,10 +25,10 @@ module Users
       def create
         @food_provider = current_user.build_food_provider(food_provider_params)
         @food_provider.email = current_user.email unless @food_provider.email?
+        @food_provider.user.state_event = :verify unless current_user.verifying?
 
         respond_to do |format|
           if @food_provider.save
-            current_user.verify
             format.html do
               redirect_to users_registrations_food_providers_path(@food_provider),
                           notice: 'Dane lokalu zostały zapisane'
