@@ -10,6 +10,7 @@ class Beneficiary < ApplicationRecord
   validates :email, presence: true, format: { with: URI::MailTo::EMAIL_REGEXP }
 
   belongs_to :user
+  accepts_nested_attributes_for :user
 
   state_machine :state, initial: :initialized
 end

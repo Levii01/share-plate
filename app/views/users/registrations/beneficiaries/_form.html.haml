@@ -6,7 +6,7 @@
     .form-inputs
       = f.input :name
       = f.input :phone
-      = f.input :email, hint: "Może być inny niż użyty w przy logowaniu"
+      = f.input :email, placeholder: current_user.email, hint: "Może być inny niż użyty w przy logowaniu"
       = f.input :address
       = f.input :description
 

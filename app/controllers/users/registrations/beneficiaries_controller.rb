@@ -3,7 +3,7 @@
 module Users
   module Registrations
     class BeneficiariesController < ApplicationController
-      before_action :set_beneficiary, only: %i[show edit update]
+      before_action :set_beneficiary, only: %i[show update]
 
       # GET /beneficiaries or /beneficiaries.json
       # def index
@@ -15,19 +15,26 @@ module Users
 
       # GET /beneficiaries/new
       def new
+        return redirect_to edit_users_registrations_beneficiaries_path if current_user.beneficiary
+
         @beneficiary = current_user.build_beneficiary
       end
 
       # GET /beneficiaries/1/edit
-      def edit; end
+      def edit
+        return redirect_to new_users_registrations_beneficiaries_path unless current_user.beneficiary
+
+        set_beneficiary
+      end
 
       # POST /beneficiaries or /beneficiaries.json
       def create
         @beneficiary = current_user.build_beneficiary(beneficiary_params)
+        @beneficiary.email = current_user.email unless @beneficiary.email?
+        @beneficiary.user.state_event = :verify unless current_user.verifying?
 
         respond_to do |format|
           if @beneficiary.save
-            current_user.verify
             format.html do
               redirect_to users_registrations_beneficiaries_path, notice: 'Dane Beneficjenta zostały zapisane'
             end
