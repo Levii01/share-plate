@@ -15,6 +15,8 @@ module Users
 
       # GET /food_providers/new
       def new
+        return redirect_to edit_users_registrations_food_providers_path if current_user.food_provider
+
         @food_provider = current_user.build_food_provider
       end
 
