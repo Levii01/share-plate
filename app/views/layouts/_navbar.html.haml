@@ -8,7 +8,7 @@
         %li.nav-item
           %a.nav-link.active{"aria-current" => "page", href: root_path} Home
         %li.nav-item
-          %a.nav-link{:href => "#"} Features
+          %a.nav-link{href: users_panel_index_path} Test
         %li.nav-item
           %a.nav-link{:href => "#"} Pricing
         %li.nav-item
@@ -32,3 +32,103 @@
 
 
 
+.section.login-header
+  / Login Header Wrapper Start
+  .login-header-wrapper.navbar.navbar-expand
+    / Header Logo Start
+    .login-header-logo
+      %a{:href => root_path}
+        %img{:alt => "Logo", :src => asset_path("logo-icon.png")}/
+    / Header Logo End
+    / Header Search Start
+    .login-header-search.dropdown
+      %button.search-toggle{"data-bs-toggle" => "dropdown"}
+        %i.icofont-search
+      .search-input.dropdown-menu
+        %form{:action => "#"}
+          %input{:placeholder => "Search here", :type => "text"}/
+    / Header Search End
+    / Header Action Start
+    .login-header-action.ml-auto
+      .dropdown
+        %button.action.notification{"data-bs-toggle" => "dropdown"}
+          %i.flaticon-notification
+          %span.active
+        .dropdown-menu.dropdown-notification
+          %ul.notification-items-list
+            %li.notification-item
+              %span.notify-icon.bg-success.text-white
+                %i.icofont-ui-user
+              .dropdown-body
+                %a{:href => "#"}
+                  %p
+                    %strong Martin
+                    has added a
+                    %strong customer
+                    Successfully
+              %span.notify-time 3:20 am
+            %li.notification-item
+              %span.notify-icon.bg-success.text-white
+                %i.icofont-shopping-cart
+              .dropdown-body
+                %a{:href => "#"}
+                  %p
+                    %strong Jennifer
+                    purchased Light Dashboard 2.0.
+              %span.notify-time 3:20 am
+            %li.notification-item
+              %span.notify-icon.bg-danger.text-white
+                %i.icofont-book-mark
+              .dropdown-body
+                %a{:href => "#"}
+                  %p
+                    %strong Robin
+                    marked a
+                    %strong ticket
+                    as unsolved.
+              %span.notify-time 3:20 am
+            %li.notification-item
+              %span.notify-icon.bg-success.text-white
+                %i.icofont-heart-alt
+              .dropdown-body
+                %a{:href => "#"}
+                  %p
+                    %strong David
+                    purchased Light Dashboard 1.0.
+              %span.notify-time 3:20 am
+            %li.notification-item
+              %span.notify-icon.bg-success.text-white
+                %i.icofont-image
+              .dropdown-body
+                %a{:href => "#"}
+                  %p
+                    %strong James.
+                    has added a
+                    %strong customer
+                    Successfully
+              %span.notify-time 3:20 am
+          %a.all-notification{:href => "#"}
+            See all notifications
+            %i.icofont-simple-right
+      %a.action.author{:href => "#"}
+        %img{:alt => "Author", :src => asset_path("author/author-07.jpg")}/
+      .dropdown
+        %button.action.more{"data-bs-toggle" => "dropdown"}
+          %span
+          %span
+          %span
+        %ul.dropdown-menu
+          %li
+            %a{:href => "#"}
+              %i.icofont-user
+              Profile
+          %li
+            %a{:href => "#"}
+              %i.icofont-inbox
+              Inbox
+          %li
+            %a{:href => "#"}
+              %i.icofont-logout
+              Sign Out
+    / Header Action End
+  / Login Header Wrapper End
