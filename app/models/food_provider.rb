@@ -17,6 +17,7 @@ class FoodProvider < ApplicationRecord
   validates :description, presence: true, length: { minimum: 30 }
 
   belongs_to :user
+  has_many :offers
 
   state_machine :state, initial: :initialized
 

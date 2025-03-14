@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_17_221040) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_14_164603) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,6 +44,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_221040) do
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
     t.index ["user_id"], name: "index_food_providers_on_user_id"
+  end
+
+  create_table "offers", force: :cascade do |t|
+    t.bigint "food_provider_id", null: false
+    t.text "description"
+    t.datetime "expiriaton_datetime"
+    t.datetime "available_from"
+    t.string "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["food_provider_id"], name: "index_offers_on_food_provider_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -107,4 +118,5 @@ ActiveRecord::Schema[7.1].define(version: 2024_06_17_221040) do
 
   add_foreign_key "beneficiaries", "users"
   add_foreign_key "food_providers", "users"
+  add_foreign_key "offers", "food_providers"
 end
