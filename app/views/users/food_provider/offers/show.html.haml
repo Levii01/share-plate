@@ -1,0 +1,26 @@
+.section.section-padding
+  .container
+    .register-login-wrapper
+      .row.justify-content-center
+        .col-lg-6.col-xl-10
+          .register-login-form
+            %h3.title
+              Nowa
+              %span oferta
+              %br
+
+            .form-wrapper
+              %p
+                %b #{t("activerecord.attributes.offer.name")}:
+                = @offer.name
+              %p
+                %b #{t("activerecord.attributes.offer.description")}:
+                = @offer.description
+
+              %p
+                %b #{t("activerecord.attributes.offer.available_from")}:
+                = @offer.available_from
+              %p
+                %b #{t("activerecord.attributes.offer.available_to")}:
+                = @offer.available_to
+              = link_to 'Edit', edit_users_food_provider_offer_path(@offer)

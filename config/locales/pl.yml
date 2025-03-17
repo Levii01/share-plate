@@ -34,6 +34,12 @@ pl:
         email: Email
         address: Adres zamieszkania
         description: O mnie (opis)
+      offer:
+        name: Nazwa
+        description: Opis
+        available_from: Dostępne od
+        available_to: Dostępne do
+        status: Status
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'

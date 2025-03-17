@@ -14,6 +14,9 @@ Rails.application.routes.draw do
 
   get 'home/index'
   namespace :users do
+    namespace :food_provider do
+      resources :offers
+    end
     namespace :registrations do
       resource :account_types, only: %i[edit update]
       resource :food_providers
