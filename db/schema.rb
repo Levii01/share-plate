@@ -50,8 +50,8 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_14_164603) do
     t.bigint "food_provider_id", null: false
     t.string "name"
     t.text "description"
-    t.datetime "expiriaton_datetime"
     t.datetime "available_from"
+    t.datetime "available_to"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
