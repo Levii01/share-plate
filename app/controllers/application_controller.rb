@@ -14,6 +14,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
   def finish_registration
     return if current_user.blank? || devise_controller?
 
@@ -29,6 +30,7 @@ class ApplicationController < ActionController::Base
       redirect_to new_users_registrations_beneficiaries_path if current_user.account_beneficiary?
     end
   end
+  # rubocop:enable Metrics/AbcSize, Metrics/CyclomaticComplexity
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fullname, :email, :password) }

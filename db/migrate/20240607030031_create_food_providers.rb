@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 class CreateFoodProviders < ActiveRecord::Migration[7.1]
+  # rubocop:disable Metrics/MethodLength
   def change
     create_table :food_providers do |t|
       t.string :name
@@ -19,4 +20,5 @@ class CreateFoodProviders < ActiveRecord::Migration[7.1]
       t.datetime :deleted_at
     end
   end
+  # rubocop:enable Metrics/MethodLength
 end

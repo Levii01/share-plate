@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe BeneficiariesController, type: :routing do
+RSpec.describe Users::Registrations::BeneficiariesController, type: :routing do
   describe 'routing' do
     it 'routes to #index' do
       expect(get: '/beneficiaries').to route_to('beneficiaries#index')
