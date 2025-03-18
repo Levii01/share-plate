@@ -1,4 +1,6 @@
 pl:
+  global:
+    back: Powrót
   activerecord:
     models:
       user: Użytkownik
