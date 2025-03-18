@@ -1,0 +1,406 @@
+-# %table
+-#   %thead
+-#     %tr
+-#       %th= t("activerecord.attributes.offer.name")
+-#       %th= t("activerecord.attributes.offer.description")
+-#       %th= t("activerecord.attributes.offer.available_from")
+-#       %th= t("activerecord.attributes.offer.available_to")
+-#       %th= t("activerecord.attributes.offer.status")
+-#       %th
+-#       %th
+-#       %th
+
+-#   %tbody
+-#     - @offers.each do |offer|
+-#       %tr
+-#         %td= offer.name
+-#         %td= offer.description
+-#         %td= offer.available_from
+-#         %td= offer.available_to
+-#         %td= offer.status
+-#         %td= link_to 'Show', users_food_provider_offer_path(offer)
+-#         %td= link_to 'Edit', edit_users_food_provider_offer_path(offer)
+-#         %td= link_to 'Destroy', users_food_provider_offer_path(offer), method: :delete, data: { confirm: 'Jesteś pewny?' }
+-# %br
+
+
+#wrapper.section.overflow-hidden.position-relative
+  / Sidebar Wrapper Start
+  = render "users/panel/sidebar"
+  / Page Content Wrapper Start
+  .page-content-wrapper
+    .container-fluid
+      / Message Start
+      .message
+        .message-icon
+          %img{:alt => "", :src => asset_path("menu-icon/icon-6.png")}/
+        .message-content
+          %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.
+      / Message End
+      / Admin Courses Tab Start
+      .admin-courses-tab
+        %h3.title Oferty
+        .courses-tab-wrapper
+          .courses-select
+            %select{:style => "display: none;"}
+              %option{"data-display" => "Newest First"} Newest First
+              %option{:value => "1"} Oldest First
+            .nice-select{:tabindex => "0"}
+              %span.current Newest First
+              %ul.list
+                %li.option.selected{"data-display" => "Newest First", "data-value" => "Newest First"} Newest First
+                %li.option{"data-value" => "1"} Oldest First
+          %ul.nav{:role => "tablist"}
+            %li
+              %button.active{"aria-selected" => "true", "data-bs-target" => "#tab1", "data-bs-toggle" => "tab", :role => "tab"}
+                %i.icofont-justify-left
+            %li
+              %button{"aria-selected" => "false", "data-bs-target" => "#tab2", "data-bs-toggle" => "tab", :role => "tab", :tabindex => "-1"}
+                %i.icofont-align-left
+            %li
+              %button{"aria-selected" => "false", "data-bs-target" => "#tab3", "data-bs-toggle" => "tab", :role => "tab", :tabindex => "-1"}
+                %i.icofont-eye-blocked
+          .tab-btn
+            %a.btn.btn-primary.btn-hover-dark{:href => new_users_food_provider_offer_path } Nowa oferta
+      / Admin Courses Tab End
+      / Admin Courses Tab Content Start
+      .admin-courses-tab-content
+        .tab-content
+          #tab1.tab-pane.fade.show.active{:role => "tabpanel"}
+            / Courses Item Start
+            - @offers.each do |offer|
+              .courses-item
+                .item-thumb
+                  %a{:href => "#"}
+                    %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
+                .content-title
+                  .meta
+                    %a.action{:href => "#"} Live
+                    %a.action{:href => "#"} Free
+                    %a.action{:href => "#"} Public
+                  %h3.title
+                    %a{:href => edit_users_food_provider_offer_path(offer)}= offer.name || "Brak nazwy"
+                .content-wrapper
+                  .content-box
+                    %p= t("activerecord.attributes.offer.available_from")
+                    %span.count= l(offer.available_from, format: :short)
+                  .content-box
+                    %p= t("activerecord.attributes.offer.available_to")
+                    %span.count= l(offer.available_to, format: :short)
+                  .content-box
+                    %p= t("activerecord.attributes.offer.status")
+                    %span.count
+                      = offer.status || "Ok"
+                      %span.rating-star
+                        %span.rating-bar{:style => "width: 80%;"}
+                  .courses-select
+                    %select{:style => "display: none;"}
+                      %option{"data-display" => "This Month"} This Month
+                      %option{:value => "1"} This Year
+                      %option{:value => "2"} This Week
+                    .nice-select{:tabindex => "0"}
+                      %span.current This Month
+                      %ul.list
+                        %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
+                        %li.option{"data-value" => "1"} This Year
+                        %li.option{"data-value" => "2"} This Week
+            / Courses Item End
+            / Courses Item Start
+
+          #tab2.tab-pane.fade{:role => "tabpanel"}
+            / Courses Item Start
+            .courses-item
+              .item-thumb
+                %a{:href => "#"}
+                  %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
+              .content-title
+                .meta
+                  %a.action{:href => "#"} Live
+                  %a.action{:href => "#"} Free
+                  %a.action{:href => "#"} Public
+                %h3.title
+                  %a{:href => "#"} Build An eCommerce Site With WooCommerce and WooLentor.
+              .content-wrapper
+                .content-box
+                  %p Earned
+                  %span.count $5,68.00
+                .content-box
+                  %p Enrollment’s
+                  %span.count 1,852
+                .content-box
+                  %p Course Rating
+                  %span.count
+                    4.5
+                    %span.rating-star
+                      %span.rating-bar{:style => "width: 80%;"}
+                .courses-select
+                  %select{:style => "display: none;"}
+                    %option{"data-display" => "This Month"} This Month
+                    %option{:value => "1"} This Year
+                    %option{:value => "2"} This Week
+                  .nice-select{:tabindex => "0"}
+                    %span.current This Month
+                    %ul.list
+                      %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
+                      %li.option{"data-value" => "1"} This Year
+                      %li.option{"data-value" => "2"} This Week
+            / Courses Item End
+            / Courses Item Start
+            .courses-item
+              .item-thumb
+                %a{:href => "#"}
+                  %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
+              .content-title
+                .meta
+                  %a.action{:href => "#"} Live
+                  %a.action{:href => "#"} Free
+                  %a.action{:href => "#"} Public
+                %h3.title
+                  %a{:href => "#"} Build An eCommerce Site With WooCommerce and WooLentor.
+              .content-wrapper
+                .content-box
+                  %p Earned
+                  %span.count $5,68.00
+                .content-box
+                  %p Enrollment’s
+                  %span.count 1,852
+                .content-box
+                  %p Course Rating
+                  %span.count
+                    4.5
+                    %span.rating-star
+                      %span.rating-bar{:style => "width: 80%;"}
+                .courses-select
+                  %select{:style => "display: none;"}
+                    %option{"data-display" => "This Month"} This Month
+                    %option{:value => "1"} This Year
+                    %option{:value => "2"} This Week
+                  .nice-select{:tabindex => "0"}
+                    %span.current This Month
+                    %ul.list
+                      %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
+                      %li.option{"data-value" => "1"} This Year
+                      %li.option{"data-value" => "2"} This Week
+            / Courses Item End
+            / Courses Item Start
+            .courses-item
+              .item-thumb
+                %a{:href => "#"}
+                  %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
+              .content-title
+                .meta
+                  %a.action{:href => "#"} Live
+                  %a.action{:href => "#"} Free
+                  %a.action{:href => "#"} Public
+                %h3.title
+                  %a{:href => "#"} Build An eCommerce Site With WooCommerce and WooLentor.
+              .content-wrapper
+                .content-box
+                  %p Earned
+                  %span.count $5,68.00
+                .content-box
+                  %p Enrollment’s
+                  %span.count 1,852
+                .content-box
+                  %p Course Rating
+                  %span.count
+                    4.5
+                    %span.rating-star
+                      %span.rating-bar{:style => "width: 80%;"}
+                .courses-select
+                  %select{:style => "display: none;"}
+                    %option{"data-display" => "This Month"} This Month
+                    %option{:value => "1"} This Year
+                    %option{:value => "2"} This Week
+                  .nice-select{:tabindex => "0"}
+                    %span.current This Month
+                    %ul.list
+                      %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
+                      %li.option{"data-value" => "1"} This Year
+                      %li.option{"data-value" => "2"} This Week
+            / Courses Item End
+          #tab3.tab-pane.fade{:role => "tabpanel"}
+            / Courses Item Start
+            .courses-item
+              .item-thumb
+                %a{:href => "#"}
+                  %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
+              .content-title
+                .meta
+                  %a.action{:href => "#"} Live
+                  %a.action{:href => "#"} Free
+                  %a.action{:href => "#"} Public
+                %h3.title
+                  %a{:href => "#"} Build An eCommerce Site With WooCommerce and WooLentor.
+              .content-wrapper
+                .content-box
+                  %p Earned
+                  %span.count $5,68.00
+                .content-box
+                  %p Enrollment’s
+                  %span.count 1,852
+                .content-box
+                  %p Course Rating
+                  %span.count
+                    4.5
+                    %span.rating-star
+                      %span.rating-bar{:style => "width: 80%;"}
+                .courses-select
+                  %select{:style => "display: none;"}
+                    %option{"data-display" => "This Month"} This Month
+                    %option{:value => "1"} This Year
+                    %option{:value => "2"} This Week
+                  .nice-select{:tabindex => "0"}
+                    %span.current This Month
+                    %ul.list
+                      %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
+                      %li.option{"data-value" => "1"} This Year
+                      %li.option{"data-value" => "2"} This Week
+            / Courses Item End
+            / Courses Item Start
+            .courses-item
+              .item-thumb
+                %a{:href => "#"}
+                  %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
+              .content-title
+                .meta
+                  %a.action{:href => "#"} Live
+                  %a.action{:href => "#"} Free
+                  %a.action{:href => "#"} Public
+                %h3.title
+                  %a{:href => "#"} Build An eCommerce Site With WooCommerce and WooLentor.
+              .content-wrapper
+                .content-box
+                  %p Earned
+                  %span.count $5,68.00
+                .content-box
+                  %p Enrollment’s
+                  %span.count 1,852
+                .content-box
+                  %p Course Rating
+                  %span.count
+                    4.5
+                    %span.rating-star
+                      %span.rating-bar{:style => "width: 80%;"}
+                .courses-select
+                  %select{:style => "display: none;"}
+                    %option{"data-display" => "This Month"} This Month
+                    %option{:value => "1"} This Year
+                    %option{:value => "2"} This Week
+                  .nice-select{:tabindex => "0"}
+                    %span.current This Month
+                    %ul.list
+                      %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
+                      %li.option{"data-value" => "1"} This Year
+                      %li.option{"data-value" => "2"} This Week
+            / Courses Item End
+            / Courses Item Start
+            .courses-item
+              .item-thumb
+                %a{:href => "#"}
+                  %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
+              .content-title
+                .meta
+                  %a.action{:href => "#"} Live
+                  %a.action{:href => "#"} Free
+                  %a.action{:href => "#"} Public
+                %h3.title
+                  %a{:href => "#"} Build An eCommerce Site With WooCommerce and WooLentor.
+              .content-wrapper
+                .content-box
+                  %p Earned
+                  %span.count $5,68.00
+                .content-box
+                  %p Enrollment’s
+                  %span.count 1,852
+                .content-box
+                  %p Course Rating
+                  %span.count
+                    4.5
+                    %span.rating-star
+                      %span.rating-bar{:style => "width: 80%;"}
+                .courses-select
+                  %select{:style => "display: none;"}
+                    %option{"data-display" => "This Month"} This Month
+                    %option{:value => "1"} This Year
+                    %option{:value => "2"} This Week
+                  .nice-select{:tabindex => "0"}
+                    %span.current This Month
+                    %ul.list
+                      %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
+                      %li.option{"data-value" => "1"} This Year
+                      %li.option{"data-value" => "2"} This Week
+            / Courses Item End
+      / Admin Courses Tab Content End
+
+
+      / Courses Resources Start
+      .courses-resources
+        %h4.title Here are our most popular instructor resources.
+        / Resources Wrapper Start
+        .resources-wrapper
+          .row.row-cols-xl-6.row-cols-md-3.row-cols-2
+            .col
+              / Single Resources Start
+              .single-resources
+                .resources-icon
+                  %a{:href => "#"}
+                    %img{:alt => "Icon", :src => asset_path("resources-icon/icon-1-1.png")}/
+                    %img.hover{:alt => "Icon", :src => asset_path("resources-icon/icon-2-1.png")}/
+                %h5.title
+                  %a{:href => "#"} Test Video
+              / Single Resources Start
+            .col
+              / Single Resources Start
+              .single-resources
+                .resources-icon
+                  %a{:href => "#"}
+                    %img{:alt => "Icon", :src => asset_path("resources-icon/icon-1-2.png")}/
+                    %img.hover{:alt => "Icon", :src => asset_path("resources-icon/icon-2-2.png")}/
+                %h5.title
+                  %a{:href => "#"} Community
+              / Single Resources Start
+            .col
+              / Single Resources Start
+              .single-resources
+                .resources-icon
+                  %a{:href => "#"}
+                    %img{:alt => "Icon", :src => asset_path("resources-icon/icon-1-3.png")}/
+                    %img.hover{:alt => "Icon", :src => asset_path("resources-icon/icon-2-3.png")}/
+                %h5.title
+                  %a{:href => "#"} Teaching Center
+              / Single Resources Start
+            .col
+              / Single Resources Start
+              .single-resources
+                .resources-icon
+                  %a{:href => "#"}
+                    %img{:alt => "Icon", :src => asset_path("resources-icon/icon-1-4.png")}/
+                    %img.hover{:alt => "Icon", :src => asset_path("resources-icon/icon-2-4.png")}/
+                %h5.title
+                  %a{:href => "#"} Insight Courses
+              / Single Resources Start
+            .col
+              / Single Resources Start
+              .single-resources
+                .resources-icon
+                  %a{:href => "#"}
+                    %img{:alt => "Icon", :src => asset_path("resources-icon/icon-1-5.png")}/
+                    %img.hover{:alt => "Icon", :src => asset_path("resources-icon/icon-2-5.png")}/
+                %h5.title
+                  %a{:href => "#"} Help & Support
+              / Single Resources Start
+            .col
+              / Single Resources Start
+              .single-resources
+                .resources-icon
+                  %a{:href => "#"}
+                    %img{:alt => "Icon", :src => asset_path("resources-icon/icon-1-6.png")}/
+                    %img.hover{:alt => "Icon", :src => asset_path("resources-icon/icon-2-6.png")}/
+                %h5.title
+                  %a{:href => "#"} Insight Courses
+              / Single Resources Start
+        / Resources Wrapper End
+      / Courses Resources End
+  / Page Content Wrapper End
+
