@@ -27,7 +27,6 @@ module Users
       end
 
       def update
-        binding.pry
         if @offer.update(offer_params)
           redirect_to edit_users_food_provider_offer_path(@offer), notice: 'Offer was successfully updated.'
         else
