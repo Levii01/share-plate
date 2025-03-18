@@ -2,4 +2,3 @@
 //= link_directory ../images
 
 //= link_tree ../builds
-//= link_directory ../css
