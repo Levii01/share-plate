@@ -135,13 +135,17 @@ GEM
     drb (2.2.1)
     erubi (1.12.0)
     erubis (2.7.0)
-    factory_bot (6.4.6)
-      activesupport (>= 5.0.0)
+    factory_bot (6.5.1)
+      activesupport (>= 6.1.0)
+    factory_bot_rails (6.4.4)
+      factory_bot (~> 6.5)
+      railties (>= 5.0.0)
+    faker (3.5.1)
+      i18n (>= 1.8.11, < 2)
     faraday (2.9.1)
       faraday-net_http (>= 2.0, < 3.2)
     faraday-net_http (3.1.0)
       net-http
-    ffaker (2.23.0)
     ffi (1.16.3)
     globalid (1.2.1)
       activesupport (>= 6.1)
@@ -490,8 +494,8 @@ DEPENDENCIES
   devise (~> 4.9.4)
   devise-bootstrap-form
   devise-i18n
-  factory_bot
-  ffaker
+  factory_bot_rails
+  faker
   haml-rails
   hashid-rails
   html2haml

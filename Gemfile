@@ -38,6 +38,8 @@ gem 'tzinfo-data', platforms: %i[windows jruby]
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem 'debug', platforms: %i[mri windows]
+  gem 'factory_bot_rails'
+  gem 'faker'
   gem 'pry'
 end
 
@@ -58,8 +60,6 @@ group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'factory_bot'
-  gem 'ffaker'
   gem 'rspec-rails'
   gem 'rubocop'
   gem 'rubocop-performance'
