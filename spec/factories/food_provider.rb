@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 FactoryBot.define do
-  sequence(:food_provider_email) { |n| "#{rand(10)}f#{n}@example.com" }
+  sequence(:food_provider_email) { |n| "#{rand(10)}#{rand(10)}f#{n}@example.com" }
 
   factory :food_provider do
     email { generate(:food_provider_email) }
@@ -9,7 +9,8 @@ FactoryBot.define do
     provider_type { FoodProvider::PROVIDER_TYPES.sample }
     address { Faker::Address.full_address }
     nip { Faker::Company.polish_taxpayer_identification_number }
-    phone { Faker::PhoneNumber.subscriber_number(length: 9) }
+    # phone { Faker::PhoneNumber.subscriber_number(length: 9) }
+    phone { '504626402' }
     opening_time { '8-16 pn-nd \n' * 10 }
     description { Faker::Lorem.sentence(word_count: 30) }
 
