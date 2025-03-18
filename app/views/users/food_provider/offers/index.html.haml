@@ -26,19 +26,7 @@
 
 #wrapper.section.overflow-hidden.position-relative
   / Sidebar Wrapper Start
-  .sidebar-wrapper
-    .menu-list
-      %a.active{:href => "courses-admin.html"}
-        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
-      %a{:href => "messages.html"}
-        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-2.png")}/
-      %a{:href => "overview.html"}
-        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
-      %a{:href => "engagement.html"}
-        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
-      %a{:href => "traffic-conversion.html"}
-        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-5.png")}/
-  / Sidebar Wrapper End
+  = render "users/panel/sidebar"
   / Page Content Wrapper Start
   .page-content-wrapper
     .container-fluid

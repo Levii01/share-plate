@@ -1,0 +1,15 @@
+.sidebar-wrapper
+  .menu-list
+    - if current_user.food_provider.present?
+      %a.active{:href => users_food_provider_offers_path}
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
+    %a.active{:href => "courses-admin.html"}
+      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
+    %a{:href => "messages.html"}
+      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-2.png")}/
+    %a{:href => "overview.html"}
+      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
+    %a{:href => "engagement.html"}
+      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
+    %a{:href => "traffic-conversion.html"}
+      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-5.png")}/
