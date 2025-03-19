@@ -15,7 +15,7 @@ Rails.application.routes.draw do
   get 'home/index'
   namespace :users do
     namespace :beneficiary do
-      resources :offers, only: [:index]
+      resources :offers, only: %i[index show]
     end
     namespace :food_provider do
       resources :offers
