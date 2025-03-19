@@ -429,7 +429,9 @@
                         %strong Certificate
                         %span Yes
                   .info-btn
-                    %a.btn.btn-secondary.btn-hover-primary{href: "#"} Zarezerwuj teraz
+                    = simple_form_for Reservation.new, url: users_beneficiaries_reservations_path, method: :post do |f|
+                      = f.hidden_field :offer_id, value: @offer.hashid
+                      = f.button :submit, "Zarezerwuj teraz!", class: "btn btn-secondary btn-hover-primary"
                 / Sidebar Widget Information End
                 / Sidebar Widget Share Start
                 .sidebar-widget

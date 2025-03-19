@@ -48,4 +48,10 @@ class ApplicationController < ActionController::Base
 
     redirect_to root_path, alert: 'Nie masz dostępu do tej strony.'
   end
+
+  def require_beneficiary
+    return if current_user&.beneficiary.present?
+
+    redirect_to root_path, alert: 'Nie masz dostępu do tej strony.'
+  end
 end

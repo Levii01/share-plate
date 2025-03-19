@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   namespace :users do
     namespace :beneficiaries do
       resources :offers, only: %i[index show]
+      resources :reservations, only: %i[index create show]
     end
     namespace :food_provider do
       resources :offers
