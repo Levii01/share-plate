@@ -12,8 +12,6 @@ module Users
         @offer = Offer.includes(:food_provider).find(params[:id])
       end
 
-      private
-
       # def set_offer
       #   @offer = Offer.find(params[:id])
       # end

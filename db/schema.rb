@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_19_021944) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_19_024312) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -57,6 +57,17 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_19_021944) do
     t.datetime "updated_at", null: false
     t.integer "initial_quantity"
     t.index ["food_provider_id"], name: "index_offers_on_food_provider_id"
+  end
+
+  create_table "reservations", force: :cascade do |t|
+    t.bigint "offer_id", null: false
+    t.bigint "beneficiary_id", null: false
+    t.string "state"
+    t.datetime "picked_up"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["beneficiary_id"], name: "index_reservations_on_beneficiary_id"
+    t.index ["offer_id"], name: "index_reservations_on_offer_id"
   end
 
   create_table "roles", force: :cascade do |t|
@@ -121,4 +132,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_19_021944) do
   add_foreign_key "beneficiaries", "users"
   add_foreign_key "food_providers", "users"
   add_foreign_key "offers", "food_providers"
+  add_foreign_key "reservations", "beneficiaries"
+  add_foreign_key "reservations", "offers"
 end
