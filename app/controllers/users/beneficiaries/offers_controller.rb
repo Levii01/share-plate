@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Users
-  module Beneficiary
+  module Beneficiaries
     class OffersController < ApplicationController
       def index
         @q = Offer.available_today.ransack(params[:q])
