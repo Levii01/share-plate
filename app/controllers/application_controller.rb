@@ -1,6 +1,10 @@
 # frozen_string_literal: true
 
+require 'pagy/extras/bootstrap'
+
 class ApplicationController < ActionController::Base
+  include Pagy::Backend
+
   before_action :set_paper_trail_whodunnit
 
   before_action :finish_registration
