@@ -4,6 +4,9 @@ module Users
   module FoodProvider
     class OffersController < ApplicationController
       before_action :set_offer, only: %i[show edit update destroy]
+      before_action :require_food_provider
+
+      # TODO: redirect if not food provider
 
       def index
         @offers = current_user.food_provider.offers

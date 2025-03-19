@@ -40,4 +40,12 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:sign_up) { |u| u.permit(:fullname, :email, :password) }
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:first_name, :last_name, :email, :password) }
   end
+
+  private
+
+  def require_food_provider
+    return if current_user&.food_provider.present?
+
+    redirect_to root_path, alert: 'Nie masz dostępu do tej strony.'
+  end
 end

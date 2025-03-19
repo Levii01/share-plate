@@ -63,6 +63,10 @@
           .tab-btn
             %a.btn.btn-primary.btn-hover-dark{:href => new_users_food_provider_offer_path } Nowa oferta
       / Admin Courses Tab End
+      - if @pagy.pages > 1
+        = pagy_bootstrap_nav(@pagy).html_safe
+        = pagy_info(@pagy).html_safe
+      
       / Admin Courses Tab Content Start
       .admin-courses-tab-content
         .tab-content
