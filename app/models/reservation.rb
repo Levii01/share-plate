@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class Reservation < ApplicationRecord
+  has_paper_trail
+
   belongs_to :offer
   belongs_to :beneficiary
 
