@@ -11,7 +11,9 @@ FactoryBot.define do
     nip { Faker::Company.polish_taxpayer_identification_number }
     # phone { Faker::PhoneNumber.subscriber_number(length: 9) }
     phone { '504626402' }
-    opening_time { '8-16 pn-nd \n' * 10 }
+    opening_time do
+      "Poniedziałek 8-20\nWtorek 8-20\nŚroda 8-20\nCzwartek 8-20\nPiątek 8-20\nSobota 10-20\nNiedziela 10-18"
+    end
     description { Faker::Lorem.sentence(word_count: 30) }
 
     traits_for_enum :state, FoodProvider.state_machine.states.keys

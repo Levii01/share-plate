@@ -1,13 +1,17 @@
 .sidebar-wrapper
   .menu-list
-    - if current_user.food_provider.present?
+    - if current_user&.food_provider.present?
       %a.active{:href => users_food_provider_offers_path}
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
-    - if current_user.beneficiary.present?
+      %a.active{:href => edit_users_registrations_food_providers_path}
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
+    - if current_user&.beneficiary.present?
       %a{:href => users_beneficiaries_offers_path}
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
       %a{:href => users_beneficiaries_reservations_path}
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
+      %a.active{:href => edit_users_registrations_beneficiaries_path}
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
     
     %br
     %br

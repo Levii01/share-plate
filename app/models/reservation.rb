@@ -18,9 +18,9 @@ class Reservation < ApplicationRecord
       transition %i[active] => :completed
     end
 
-    event :activate do
-      transition %i[cancelled completed] => :active
-    end
+    # event :activate do
+    #   transition %i[cancelled] => :active
+    # end
 
     state :completed do
       validates :picked_up, presence: true
@@ -35,3 +35,4 @@ class Reservation < ApplicationRecord
     %w[beneficiary offer]
   end
 end
+# 

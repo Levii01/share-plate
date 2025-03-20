@@ -14,6 +14,7 @@ module Users
 
       def show
         @offer = @reservation.offer
+        @food_provider = @offer.food_provider
       end
 
       def create

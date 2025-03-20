@@ -74,7 +74,7 @@ module Users
       private
 
       def set_food_provider
-        @food_provider = FoodProvider.find_by!(user: current_user)
+        @food_provider = ::FoodProvider.find_by!(user: current_user)
       end
 
       def food_provider_params

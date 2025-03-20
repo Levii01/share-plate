@@ -91,24 +91,27 @@
             .col-lg-8
               / Courses Details Start
               .courses-details
-                .courses-details-images
+                -# %p Dziękujemy! Twoja rezerwacja została pomyślnie złożona.
+
+                -# .courses-details-images
                   %img{alt: "Courses Details", src: asset_path("courses/courses-details.jpg")}/
                   %span.tags Finance
                   .courses-play
                     %a.play.video-popup{href: "https://www.youtube.com/watch?v=Wif4ZkwC0AM"}
                       %i.icofont-ui-play
-                %h2.title= @offer.name
+                %h1 Potwierdzenie rezerwacji:
                 .courses-details-admin
                   .admin-author
                     .author-thumb
                       %img{alt: "Author", src: asset_path("author/author-01.jpg")}/
                     .author-content
                       %p.name
-                        By:
+                        Lokal:
                         %a{href: "#"}= @offer.food_provider.name
                       %span.enroll
-                        %span 286
-                        Enrolled Students
+                        %span Typ lokalu
+                        = t("activerecord.attributes.food_provider.provider_types.#{@food_provider.provider_type}")
+                        
                   .admin-rating
                     %span.rating-count 4.9
                     %span.rating-star
@@ -120,11 +123,11 @@
                   .details-tab-menu
                     %ul.nav.justify-content-center
                       %li
-                        %button.active{"data-bs-target" => "#description", "data-bs-toggle" => "tab"} Description
+                        %button.active{"data-bs-target" => "#description", "data-bs-toggle" => "tab"} Opis
                       %li
                         %button{"data-bs-target" => "#instructors", "data-bs-toggle" => "tab"} Instructors
                       %li
-                        %button{"data-bs-target" => "#reviews", "data-bs-toggle" => "tab"} Reviews
+                        %button{"data-bs-target" => "#reviews", "data-bs-toggle" => "tab"} Opinie
                   / Details Tab Menu End
 
                   / Details Tab Content Start
@@ -138,26 +141,15 @@
                             %p= @offer.description
 
                           .description-wrapper
-                            %h3.tab-title 🥘 Zarezerwuj darmową paczkę żywnościową!
-                            %p Czy wiesz, że codziennie wiele lokali gastronomicznych udostępnia darmowe paczki z jedzeniem dla potrzebujących? 🌍💚
-                            %p
-                              Dzięki naszej platformie możesz 
-                              %strong łatwo i szybko zarezerwować posiłek, 
-                              który został przygotowany specjalnie dla Ciebie.
-                          
+                            %h3.tab-title 📍 Adres odbioru
+                            %p To miejsce, gdzie możesz odebrać swoją paczkę żywnościową. Sprawdź dokładnie lokalizację i godziny otwarcia, aby uniknąć problemów. W razie wątpliwości skontaktuj się z lokalem! 😊
+                            %p 
+                              %strong= @food_provider.address
                           .description-wrapper
-                            %h3.tab-title 📌 Jak to działa?
-                            %p
-                              %strong 1️⃣ Wybierz lokal – 
-                              Sprawdź dostępne oferty i wybierz miejsce, z którego chcesz odebrać paczkę.
-                            %p
-                              %strong 2️⃣ Zarezerwuj paczkę – 
-                              Kliknij „Rezerwuj” i otrzymasz potwierdzenie.
-                            %p
-                              %strong 3️⃣ Odbierz jedzenie – 
-                              Udaj się do lokalu w podanym czasie i zgłoś się po paczkę.
-
-
+                            %h3.tab-title 🕒 Godziny otwarcia
+                            %p Sprawdź, w jakich godzinach lokal jest dostępny, aby odebrać rezerwację. Upewnij się, że przychodzisz w wyznaczonym czasie! ⏰😊
+                            %p 
+                              %strong= simple_format(@food_provider.opening_time).html_safe
                           .description-wrapper
                             %h3.tab-title ✅ Procedura odbioru paczki
                             %p 
@@ -401,7 +393,7 @@
                 / Sidebar Widget Information Start
                 .sidebar-widget.widget-information
                   .info-price
-                    %span.price Dostępne!
+                    %span.price Najważniejsze informacje
                   .info-list
                     %ul
                       %li
@@ -409,27 +401,38 @@
                         %strong Lokal
                         %span= @offer.food_provider.name
                       %li
+                        %i.icofont-chef
+                        %strong Działalność
+                        %span= t("activerecord.attributes.food_provider.provider_types.#{@food_provider.provider_type}")
+                      %li
                         %i.icofont-clock-time
-                        %strong Duration
-                        %span 08 hr 15 mins
+                        %strong Odbiór dnia
+                        %span= l(@reservation.created_at, format: :date)
                       %li
-                        %i.icofont-ui-video-play
-                        %strong Lectures
-                        %span 29
+                        %i.icofont-vehicle-delivery-van
+                        %strong Odebrano
+                        %span= @reservation.picked_up? ? l(@reservation.picked_up, format: :time) : "⏳"
                       %li
-                        %i.icofont-bars
-                        %strong Level
-                        %span Secondary
+                        %i.icofont-phone
+                        %strong Telefon
+                        %span= @food_provider.phone
                       %li
-                        %i.icofont-book-alt
-                        %strong Language
-                        %span English
+                        %i.icofont-email
+                        %strong Email
+                        %span= @food_provider.email
                       %li
                         %i.icofont-certificate-alt-1
-                        %strong Certificate
-                        %span Yes
-                  .info-btn
-                    = link_to 'Anuluj rezerwację', users_beneficiaries_reservation_path(@reservation), class: 'btn btn-danger btn-hover-primary"', data: { turbo_confirm: 'Czy na pewno chcesz anulować rezerwację?', turbo_method: :delete }
+                        %strong Weryfikacja
+                        %span= @food_provider.state
+                      %li
+                        %i.icofont-spinner-alt-5
+                        %strong Status
+                        %span= t("activerecord.attributes.reservation.states.#{@reservation.state}")
+                  - if @reservation.active?
+                    .info-btn
+                      = link_to 'Anuluj rezerwację', users_beneficiaries_reservation_path(@reservation), class: 'btn btn-danger btn-hover-primary"', data: { turbo_confirm: 'Czy na pewno chcesz anulować rezerwację?', turbo_method: :delete }
+                  - else
+                    %p.mt-2 Rezerwacja jest już zakończona lub odebrana.
                 / Sidebar Widget Information End
                 / Sidebar Widget Share Start
                 .sidebar-widget

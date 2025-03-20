@@ -56,6 +56,11 @@ pl:
         available_from: Dostępne od
         available_to: Dostępne do
         status: Status
+      reservation:
+        states:
+          active: Aktywna
+          completed: Odebrana
+          cancelled: Anulowana
     errors:
       messages:
         record_invalid: 'Negatywne sprawdzenie poprawności: %{errors}'
@@ -296,6 +301,7 @@ pl:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
       date: "%d-%m-%Y"
+      time: "%H:%M:%S"
     pm: po południu
   admin:
     home:
