@@ -26,7 +26,7 @@
         %td= beneficiary.state
         %td= link_to 'Show', beneficiary
         %td= link_to 'Edit', edit_beneficiary_path(beneficiary)
-        %td= link_to 'Destroy', beneficiary, method: :delete, data: { confirm: 'Are you sure?' }
+        %td= link_to 'Destroy', beneficiary, method: :delete, data: { turbo_confirm: 'Are you sure?', turbo_method: :delete }
 
 %br
 
