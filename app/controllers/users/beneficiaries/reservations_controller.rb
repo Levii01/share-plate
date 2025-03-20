@@ -6,8 +6,15 @@ module Users
       before_action :set_offer, only: [:create]
       before_action :set_reservation, only: %i[show update destroy]
 
-      # Pokazywanie rezerwacji
-      def show; end
+      def index
+        @beneficiary = current_user.beneficiary
+        @q = @beneficiary.reservations.includes(:offer).ransack(params[:q])
+        @pagy, @reservations = pagy(@q.result(distinct: true), limit: 5, items: 3)
+      end
+
+      def show
+        @offer = @reservation.offer
+      end
 
       # Tworzenie rezerwacji
       def create

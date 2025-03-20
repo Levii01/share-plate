@@ -1,2 +1,92 @@
-%h1 Users::Beneficiaries::Reservations#index
-%p Find me in app/views/users/beneficiaries/reservations/index.html.haml
+- q_params = params[:q]&.permit! || {}
+
+#wrapper.section.overflow-hidden.position-relative
+  = render "users/panel/sidebar"
+  .page-content-wrapper.py-0
+    / Admin Tab Menu Start
+    .nav.flex-column.nav-pills.admin-tab-menu
+      = link_to "Wszystkie", { q: q_params.except(:state_eq) }, class: ("active" if q_params[:state_eq].nil?)
+      = link_to "Aktywne", { q: q_params.merge(state_eq: :active) }, class: ("active" if q_params[:state_eq] == "active")
+      = link_to "Odebrane", { q: q_params.merge(state_eq: :completed) }, class: ("active" if q_params[:state_eq] == "completed")
+      = link_to "Anulowane", { q: q_params.merge(state_eq: :cancelled) }, class: ("active" if q_params[:state_eq] == "cancelled")
+    / Admin Tab Menu End
+
+    / Page Content Wrapper Start
+    .main-content-wrapper
+      .container-fluid
+        -# = search_form_for @q, url: users_beneficiaries_reservations_path, method: :get do |f|
+          .filters
+            = f.label :state_eq, "Filtruj po statusie"
+            = f.select :state_eq, Reservation.state_machine.states.keys.map { |s| [s, s] }, include_blank: "Wszystkie", class: "form-control"
+            = f.submit "Filtruj", class: "btn btn-primary"
+
+        / Admin Top Bar Start
+        -# .admin-top-bar.d-flex.flex-wrap
+          .courses-select
+            %select
+              %option{"data-display" => "All Courses"} All Courses
+              %option{value: "1"} option
+              %option{value: "2"} option
+              %option{value: "3"} option
+              %option{value: "4"} Potato
+          .months-select
+            %select
+              %option{"data-display" => "Last 12 months"} Last 12 months
+              %option{value: "1"} Last 6 months
+              %option{value: "1"} Last 3 months
+              %option{value: "1"} Last 2 months
+              %option{value: "1"} Last 1 months
+              %option{value: "1"} Last 1 week
+        / Admin Top Bar End
+
+        / Message Start
+        -# .message.mt-5
+          .message-icon
+            %img{alt: "", src: asset_path("menu-icon/icon-6.png")}/
+          .message-content
+            %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.
+        / Message End
+
+        / Engagement Courses End
+        - if @reservations.any?
+          .engagement-courses.table-responsive
+            .courses-top
+              %ul
+                %li Nazwa paczki
+                %li Status
+                %li= sort_link @q, :picked_up, "Data odbioru" 
+                %li= sort_link @q, :created_at, "Data zamówienia" 
+                %li
+            .courses-list
+              %ul
+                - @reservations.each do |reservation|
+                  %li
+                    .courses
+                      .thumb
+                        %img{alt: "Courses", src: asset_path("courses/admin-courses-01.jpg")}/
+                      .content
+                        %h4.title
+                          %a{href: users_beneficiaries_offer_path(reservation.offer)}= reservation.offer.name
+                    .taught
+                      %span= reservation.state
+                    .student
+                      %span= reservation.picked_up? ? l(reservation.picked_up, format: :short) : "ok"
+                    .student
+                      %span= l(reservation.created_at, format: :date)
+                    .button
+                      %a.btn.btn-light.btn-hover-secondary{href: users_beneficiaries_reservation_path(reservation)} 🔍
+          - if @pagy.pages > 1
+            %div.d-flex.flex-column.align-items-center
+              .mt-3= pagy_bootstrap_nav(@pagy).html_safe
+              .mt-2= pagy_info(@pagy).html_safe
+        - else
+          .vh-100
+            %h3.text-center.mt-5 Nie masz żadnych rezerwacji 🙁
+
+        / Engagement Courses End
+    / Page Content Wrapper End
+/ Courses Admin End
+
+/ Back To Start
+%a.back-to-top{href: "#"}
+  %i.icofont-simple-up

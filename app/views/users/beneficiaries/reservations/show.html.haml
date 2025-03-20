@@ -1,2 +1,460 @@
-%h1 Users::Beneficiaries::Reservations#show
-%p Find me in app/views/users/beneficiaries/reservations/show.html.haml
+#wrapper.section.overflow-hidden.position-relative
+  / Sidebar Wrapper Start
+  = render "users/panel/sidebar"
+  .page-content-wrapper
+    / Mobile Menu Start
+    .mobile-menu
+      / Menu Close Start
+      %a.menu-close{href: "javascript:void(0)"}
+        %i.icofont-close-line
+      / Menu Close End
+      / Mobile Menu Start
+      .mobile-menu-items
+        %ul.nav-menu
+          %li
+            %a.active{href: "index.html"} Home
+          %li
+            %a{href: "about.html"} About Us
+          %li
+            %a{href: "#"} All Course
+            %ul.sub-menu
+              %li
+                %a{href: "courses.html"} Courses
+              %li
+                %a{href: "my-courses.html"} My Courses
+              %li
+                %a{href: "#"} Courses Details
+                %ul.sub-menu
+                  %li
+                    %a{href: "courses-details-left-sidebar.html"} Courses Details Left Sidebar
+                  %li
+                    %a{href: "courses-details-right-sidebar.html"} Courses Details Right Sidebar
+          %li
+            %a{href: "#"} Pages
+            %ul.sub-menu
+              %li
+                %a{href: "after-enroll.html"} After Enroll
+              %li
+                %a{href: "courses-admin.html"} Instructor Dashboard (Course List)
+              %li
+                %a{href: "overview.html"} Instructor Dashboard (Performance)
+              %li
+                %a{href: "students.html"} Students
+              %li
+                %a{href: "reviews.html"} Reviews
+              %li
+                %a{href: "engagement.html"} Course engagement
+              %li
+                %a{href: "traffic-conversion.html"} Traffic &amp; conversion
+              %li
+                %a{href: "messages.html"} Messages
+              %li
+                %a{href: "register.html"} Register
+              %li
+                %a{href: "login.html"} Login
+              %li
+                %a{href: "faq.html"} FAQ
+              %li
+                %a{href: "404-error.html"} 404 Error
+          %li
+            %a{href: "#"} Blog
+            %ul.sub-menu
+              %li
+                %a{href: "#"} Blog
+                %ul.sub-menu
+                  %li
+                    %a{href: "blog-grid.html"} Blog Grid
+                  %li
+                    %a{href: "blog-left-sidebar.html"} Blog Left Sidebar
+                  %li
+                    %a{href: "blog-right-sidebar.html"} Blog Right Sidebar
+              %li
+                %a{href: "#"} Blog Details
+                %ul.sub-menu
+                  %li
+                    %a{href: "blog-details-left-sidebar.html"} Blog Details Left Sidebar
+                  %li
+                    %a{href: "blog-details-right-sidebar.html"} Blog Details Right Sidebar
+          %li
+            %a{href: "contact.html"} Contact
+      / Mobile Menu End
+    / Mobile Menu End
+    / Overlay Start
+    .overlay
+    / Overlay End
+
+    / Courses Details Start
+    .section.section-padding-01
+      .container
+        .courses-details-wrapper
+          .row.gx-xxl-5
+            .col-lg-8
+              / Courses Details Start
+              .courses-details
+                .courses-details-images
+                  %img{alt: "Courses Details", src: asset_path("courses/courses-details.jpg")}/
+                  %span.tags Finance
+                  .courses-play
+                    %a.play.video-popup{href: "https://www.youtube.com/watch?v=Wif4ZkwC0AM"}
+                      %i.icofont-ui-play
+                %h2.title= @offer.name
+                .courses-details-admin
+                  .admin-author
+                    .author-thumb
+                      %img{alt: "Author", src: asset_path("author/author-01.jpg")}/
+                    .author-content
+                      %p.name
+                        By:
+                        %a{href: "#"}= @offer.food_provider.name
+                      %span.enroll
+                        %span 286
+                        Enrolled Students
+                  .admin-rating
+                    %span.rating-count 4.9
+                    %span.rating-star
+                      %span.rating-bar{style: "width: 80%;"}
+                    %span.rating-text (5,764 Rating)
+                / Courses Details Tab Start
+                .courses-details-tab
+                  / Details Tab Menu Start
+                  .details-tab-menu
+                    %ul.nav.justify-content-center
+                      %li
+                        %button.active{"data-bs-target" => "#description", "data-bs-toggle" => "tab"} Description
+                      %li
+                        %button{"data-bs-target" => "#instructors", "data-bs-toggle" => "tab"} Instructors
+                      %li
+                        %button{"data-bs-target" => "#reviews", "data-bs-toggle" => "tab"} Reviews
+                  / Details Tab Menu End
+
+                  / Details Tab Content Start
+                  .details-tab-content
+                    .tab-content
+                      #description.tab-pane.fade.show.active
+                        / Tab Description Start
+                        .tab-description
+                          .description-wrapper
+                            %h3.tab-title 🛍️ Opis paczki:
+                            %p= @offer.description
+
+                          .description-wrapper
+                            %h3.tab-title 🥘 Zarezerwuj darmową paczkę żywnościową!
+                            %p Czy wiesz, że codziennie wiele lokali gastronomicznych udostępnia darmowe paczki z jedzeniem dla potrzebujących? 🌍💚
+                            %p
+                              Dzięki naszej platformie możesz 
+                              %strong łatwo i szybko zarezerwować posiłek, 
+                              który został przygotowany specjalnie dla Ciebie.
+                          
+                          .description-wrapper
+                            %h3.tab-title 📌 Jak to działa?
+                            %p
+                              %strong 1️⃣ Wybierz lokal – 
+                              Sprawdź dostępne oferty i wybierz miejsce, z którego chcesz odebrać paczkę.
+                            %p
+                              %strong 2️⃣ Zarezerwuj paczkę – 
+                              Kliknij „Rezerwuj” i otrzymasz potwierdzenie.
+                            %p
+                              %strong 3️⃣ Odbierz jedzenie – 
+                              Udaj się do lokalu w podanym czasie i zgłoś się po paczkę.
+
+
+                          .description-wrapper
+                            %h3.tab-title ✅ Procedura odbioru paczki
+                            %p 
+                              %strong 🟢 Sprawdź godziny odbioru – 
+                              Paczki są wydawane w określonym czasie, dlatego przyjdź punktualnie.
+                            %p 
+                              %strong 🟢 Zgłoś się do obsługi – 
+                              Poinformuj personel, że masz rezerwację i podaj swoje imię.
+                            %p 
+                              %strong 🟢 Zachowaj kulturę – 
+                              Lokale działają charytatywnie, więc warto podziękować i być uprzejmym.
+
+                          .description-wrapper
+                            %h3.tab-title ℹ️ O czym warto pamiętać?
+                            %p 
+                              %strong 🔹 Nie rezerwuj, jeśli nie możesz odebrać – 
+                              Jeśli Twoje plany się zmieniły, 
+                              %strong koniecznie anuluj rezerwację. 
+                              Dzięki temu paczka trafi do kogoś innego!
+                            %p 
+                              %strong 🔹 Paczki są ograniczone – 
+                              Zarezerwuj jak najszybciej, by mieć pewność, że jedzenie będzie na Ciebie czekało.
+                            %p 
+                              %strong 🔹 Każdy może skorzystać – 
+                              Pomoc jest dostępna dla każdego, kto jej potrzebuje.
+
+                          .description-wrapper
+                            %h3.tab-title 📞 Masz pytania? Chcesz anulować rezerwację?
+                            %p Jeśli nie możesz odebrać paczki lub masz jakiekolwiek pytania, 
+                              %strong skontaktuj się bezpośrednio z lokalem. 
+                              Numery kontaktowe znajdziesz w opisie oferty.
+
+                            %p Dziękujemy, że wspólnie pomagamy zmniejszać marnowanie żywności i wspieramy potrzebujących! 💚♻️
+                            %br
+                            %br
+                        / Tab Description End
+
+                      #instructors.tab-pane.fade
+                        / Tab Instructors Start
+                        .tab-instructors
+                          %h3.tab-title Course Instructor:
+                          .row
+                            .col-md-3.col-6
+                              / Single Team Start
+                              .single-team
+                                .team-thumb
+                                  %img{alt: "Author", src: asset_path("author/author-01.jpg")}/
+                                .team-content
+                                  .rating
+                                    %span.count 4.9
+                                    %i.icofont-star
+                                    %span.text (rating)
+                                  %h4.name Margarita James
+                                  %span.designation MSC, Instructor
+                              / Single Team End
+                            .col-md-3.col-6
+                              / Single Team Start
+                              .single-team
+                                .team-thumb
+                                  %img{alt: "Author", src: asset_path("author/author-02.jpg")}/
+                                .team-content
+                                  .rating
+                                    %span.count 4.9
+                                    %i.icofont-star
+                                    %span.text (rating)
+                                  %h4.name Mitchell Colon
+                                  %span.designation BBA, Instructor
+                              / Single Team End
+                            .col-md-3.col-6
+                              / Single Team Start
+                              .single-team
+                                .team-thumb
+                                  %img{alt: "Author", src: asset_path("author/author-03.jpg")}/
+                                .team-content
+                                  .rating
+                                    %span.count 4.9
+                                    %i.icofont-star
+                                    %span.text (rating)
+                                  %h4.name Sonya Gordon
+                                  %span.designation MBA, Instructor
+                              / Single Team End
+                            .col-md-3.col-6
+                              / Single Team Start
+                              .single-team
+                                .team-thumb
+                                  %img{alt: "Author", src: asset_path("author/author-04.jpg")}/
+                                .team-content
+                                  .rating
+                                    %span.count 4.9
+                                    %i.icofont-star
+                                    %span.text (rating)
+                                  %h4.name Archie Neal
+                                  %span.designation BBS, Instructor
+                              / Single Team End
+                          .row.gx-xxl-5
+                            .col-lg-6
+                              .tab-rating-content
+                                %h3.tab-title Rating:
+                                %p Lorem Ipsum is simply dummy text of printing and typesetting industry. Lorem Ipsum has been the i dustry's standard dummy text ever since the 1500 unknown printer took a galley of type.
+                                %p Lorem Ipsum is simply dummy text of printing and typesetting industry text ever since
+                                %p Lorem Ipsum is simply dummy text of printing and dustry's standard dummy text ever since the 1500 unknown printer took a galley of type.
+                            .col-lg-6
+                              .tab-rating-box
+                                %span.count
+                                  4.8
+                                  %i.icofont-star
+                                %p Rating (86K+)
+                                .rating-box-wrapper
+                                  .single-rating
+                                    %span.rating-star
+                                      %span.rating-bar{style: "width: 100%;"}
+                                    .rating-progress-bar
+                                      .rating-line{style: "width: 75%;"}
+                                  .single-rating
+                                    %span.rating-star
+                                      %span.rating-bar{style: "width: 80%;"}
+                                    .rating-progress-bar
+                                      .rating-line{style: "width: 90%;"}
+                                  .single-rating
+                                    %span.rating-star
+                                      %span.rating-bar{style: "width: 60%;"}
+                                    .rating-progress-bar
+                                      .rating-line{style: "width: 500%;"}
+                                  .single-rating
+                                    %span.rating-star
+                                      %span.rating-bar{style: "width: 40%;"}
+                                    .rating-progress-bar
+                                      .rating-line{style: "width: 80%;"}
+                                  .single-rating
+                                    %span.rating-star
+                                      %span.rating-bar{style: "width: 20%;"}
+                                    .rating-progress-bar
+                                      .rating-line{style: "width: 40%;"}
+                        / Tab Instructors End
+                      #reviews.tab-pane.fade
+                        / Tab Reviews Start
+                        .tab-reviews
+                          %h3.tab-title Student Reviews:
+                          .reviews-wrapper.reviews-active
+                            .swiper-container
+                              .swiper-wrapper
+                                / Single Reviews Start
+                                .single-review.swiper-slide
+                                  .review-author
+                                    .author-thumb
+                                      %img{alt: "Author", src: asset_path("author/author-06.jpg")}/
+                                      %i.icofont-quote-left
+                                    .author-content
+                                      %h4.name Sara Alexander
+                                      %span.designation Product Designer, USA
+                                      %span.rating-star
+                                        %span.rating-bar{style: "width: 80%;"}
+                                  %p Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.
+                                / Single Reviews End
+                                / Single Reviews Start
+                                .single-review.swiper-slide
+                                  .review-author
+                                    .author-thumb
+                                      %img{alt: "Author", src: asset_path("author/author-07.jpg")}/
+                                      %i.icofont-quote-left
+                                    .author-content
+                                      %h4.name Karol Bachman
+                                      %span.designation Product Designer, USA
+                                      %span.rating-star
+                                        %span.rating-bar{style: "width: 60%;"}
+                                  %p Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.
+                                / Single Reviews End
+                                / Single Reviews Start
+                                .single-review.swiper-slide
+                                  .review-author
+                                    .author-thumb
+                                      %img{alt: "Author", src: asset_path("author/author-03.jpg")}/
+                                      %i.icofont-quote-left
+                                    .author-content
+                                      %h4.name Gertude Culbertson
+                                      %span.designation Product Designer, USA
+                                      %span.rating-star
+                                        %span.rating-bar{style: "width: 80%;"}
+                                  %p Lorem Ipsum has been the industry's standard dummy text since the 1500 when unknown printer took a galley of type and scrambled to make type specimen book has survived not five centuries but also the leap into electronic type and book.
+                                / Single Reviews End
+                              / Add Pagination
+                              .swiper-pagination
+                          .reviews-btn
+                            %button.btn.btn-dark.btn-hover-primary{"data-bs-target" => "#reviewsModal", "data-bs-toggle" => "modal", type: "button"} Write A Review
+                          / Reviews Form Modal Start
+                          #reviewsModal.modal.fade
+                            .modal-dialog.modal-dialog-centered
+                              .modal-content
+                                .modal-header
+                                  %h5.modal-title Add a Review
+                                  %button.btn-close{"aria-label" => "Close", "data-bs-dismiss" => "modal", type: "button"}
+                                / Reviews Form Start
+                                .modal-body.reviews-form
+                                  %form{action: "#"}
+                                    .row
+                                      .col-md-6
+                                        / Single Form Start
+                                        .single-form
+                                          %input{placeholder: "Enter your name", type: "text"}/
+                                        / Single Form End
+                                      .col-md-6
+                                        / Single Form Start
+                                        .single-form
+                                          %input{placeholder: "Enter your Email", type: "text"}/
+                                        / Single Form End
+                                      .col-md-12
+                                        / Single Form Start
+                                        .reviews-rating
+                                          %label Rating
+                                          %ul#rating.rating
+                                            %li.star{"data-value" => "1", title: "Poor"}
+                                              %i.icofont-star
+                                            %li.star{"data-value" => "2", title: "Poor"}
+                                              %i.icofont-star
+                                            %li.star{"data-value" => "3", title: "Poor"}
+                                              %i.icofont-star
+                                            %li.star{"data-value" => "4", title: "Poor"}
+                                              %i.icofont-star
+                                            %li.star{"data-value" => "5", title: "Poor"}
+                                              %i.icofont-star
+                                        / Single Form End
+                                      .col-md-12
+                                        / Single Form Start
+                                        .single-form
+                                          %textarea{placeholder: "Write your comments here"}
+                                        / Single Form End
+                                      .col-md-12
+                                        / Single Form Start
+                                        .single-form
+                                          %button.btn.btn-dark.btn-hover-primary Submit Review
+                                        / Single Form End
+                                / Reviews Form End
+                          / Reviews Form Modal End
+                        / Tab Reviews End
+                  / Details Tab Content End
+                / Courses Details Tab End
+              / Courses Details End
+            .col-lg-4
+              / Courses Details Sidebar Start
+              .sidebar
+                / Sidebar Widget Information Start
+                .sidebar-widget.widget-information
+                  .info-price
+                    %span.price Dostępne!
+                  .info-list
+                    %ul
+                      %li
+                        %i.icofont-man-in-glasses
+                        %strong Instructor
+                        %span= @offer.food_provider.name
+                      %li
+                        %i.icofont-clock-time
+                        %strong Duration
+                        %span 08 hr 15 mins
+                      %li
+                        %i.icofont-ui-video-play
+                        %strong Lectures
+                        %span 29
+                      %li
+                        %i.icofont-bars
+                        %strong Level
+                        %span Secondary
+                      %li
+                        %i.icofont-book-alt
+                        %strong Language
+                        %span English
+                      %li
+                        %i.icofont-certificate-alt-1
+                        %strong Certificate
+                        %span Yes
+                  .info-btn
+                    = simple_form_for Reservation.new, url: users_beneficiaries_reservations_path, method: :post do |f|
+                      = f.hidden_field :offer_id, value: @offer.hashid
+                      = f.button :submit, "Zarezerwuj teraz!", class: "btn btn-secondary btn-hover-primary"
+                / Sidebar Widget Information End
+                / Sidebar Widget Share Start
+                .sidebar-widget
+                  %h4.widget-title Udostępnij:
+                  %ul.social
+                    %li
+                      %a{href: "#"}
+                        %i.icofont-facebook
+                    %li
+                      %a{href: "#"}
+                        %i.icofont-skype
+                    %li
+                      %a{href: "#"}
+                        %i.icofont-twitter
+                    %li
+                      %a{href: "#"}
+                        %i.icofont-linkedin
+                / Sidebar Widget Share End
+              / Courses Details Sidebar End
+    / Courses Details End
+    
+    / Back To Start
+    %a.back-to-top{href: "#"}
+      %i.icofont-simple-up
+    / Back To End
+  /

@@ -1746,6 +1746,7 @@
                 padding: 15px;
                 white-space: nowrap;
                 display: block;
+                text-align: center;
 
                 @media #{$desktop-device, $tablet-device}{
                     font-size: 14px;
@@ -1778,6 +1779,13 @@
                 &:nth-of-type(3){
                     width: 170px;
                     text-align: center;
+
+                    @media #{$desktop-device, $tablet-device, $large-mobile}{
+                        width: auto;
+                    }
+                }
+                &:last-of-type{
+                    width: 5rem;
 
                     @media #{$desktop-device, $tablet-device, $large-mobile}{
                         width: auto;

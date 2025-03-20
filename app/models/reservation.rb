@@ -6,24 +6,32 @@ class Reservation < ApplicationRecord
   belongs_to :offer
   belongs_to :beneficiary
 
-  # validates :status, presence: true, inclusion: { in: %w[pending confirmed cancelled completed] }
+  # validates :status, presence: true, inclusion: { in: %w[active confirmed cancelled completed] }
   # validates :picked_up, presence: true, if: :completed?
 
-  state_machine :state, initial: :pending do
+  state_machine :state, initial: :active do
     event :cancel do
-      transition %i[pending completed] => :cancelled
+      transition %i[active completed] => :cancelled
     end
 
     event :complete do
-      transition %i[pending] => :completed
+      transition %i[active] => :completed
     end
 
-    event :process do
-      transition %i[cancelled completed] => :pending
+    event :activate do
+      transition %i[cancelled completed] => :active
     end
 
     state :completed do
       validates :picked_up, presence: true
     end
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[beneficiary_id created_at id id_value offer_id picked_up state updated_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[beneficiary offer]
   end
 end

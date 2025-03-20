@@ -3,6 +3,16 @@
     - if current_user.food_provider.present?
       %a.active{:href => users_food_provider_offers_path}
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
+    - if current_user.beneficiary.present?
+      %a{:href => users_beneficiaries_offers_path}
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
+      %a{:href => users_beneficiaries_reservations_path}
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
+    
+    %br
+    %br
+    %br
+    %br
     %a.active{:href => "courses-admin.html"}
       %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
     %a{:href => "messages.html"}
