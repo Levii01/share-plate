@@ -1,0 +1,18 @@
+.form-wrapper
+  = simple_form_for(@food_provider, url: users_registrations_food_providers_path) do |f|
+    = f.error_notification
+    = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
+
+    .form-inputs
+      = f.input :name
+      = f.input :provider_type, as: :select, collection: FoodProvider.select_provider_type, multiple: false,
+                            include_blank: false
+      = f.input :address, placeholder: "ul. Wilcza 14, 00-000 XXX"
+      = f.input :nip, placeholder: "xxxxxxxxxx"
+      = f.input :phone
+      = f.input :email, hint: "Może być inny niż użyty w przy logowaniu"
+      = f.input :description
+      = f.input :opening_time
+
+    .form-actions
+      = f.submit "Zapisz dane", class: "btn btn-secondary btn-hover-dark w-100"

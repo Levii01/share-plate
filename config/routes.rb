@@ -21,6 +21,8 @@ Rails.application.routes.draw do
     namespace :food_provider do
       resources :offers
     end
+    resource :food_provider, only: %i[edit update]
+
     namespace :registrations do
       resource :account_types, only: %i[edit update]
       resource :food_providers

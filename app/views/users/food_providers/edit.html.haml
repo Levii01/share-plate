@@ -1,7 +1,6 @@
 #wrapper.section.overflow-hidden.position-relative
   = render "users/panel/sidebar"
   .page-content-wrapper.p-0
-    -# .section.section-padding
     .section
       .container
         .register-login-wrapper
@@ -9,9 +8,8 @@
             .col-lg-6.col-xl-10
               .register-login-form
                 %h3.title
-                  Edytuj
-                  %span oferte
+                  Dane
+                  %span lokalu
                   %br
+
                 = render 'form'
-                %br
-                = link_to 'Powrót', users_food_provider_offers_path, class: "btn btn-light btn-hover-dark"
