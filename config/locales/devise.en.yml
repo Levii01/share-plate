@@ -67,3 +67,4 @@ en:
       not_saved:
         one: "1 error prohibited this %{resource} from being saved:"
         other: "%{count} errors prohibited this %{resource} from being saved:"
+  rezerwacja_zosta_a_anulowana: "The reservation has been canceled."

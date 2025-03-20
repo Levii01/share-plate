@@ -30,3 +30,15 @@
 en:
   global:
     back: Back
+  users:
+    beneficiaries:
+      reservations:
+        create:
+          success: Reservation was successfully created.
+          failure: Failed to create the reservation.
+        update:
+          success: Reservation was successfully updated.
+          failure: Failed to update the reservation.
+        destroy:
+          success: Reservation was successfully canceled.
+          failure: Failed to cancel the reservation.

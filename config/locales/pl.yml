@@ -1,4 +1,18 @@
 pl:
+  users:
+    beneficiaries:
+      reservations:
+        create:
+          success: Rezerwacja została pomyślnie utworzona.
+          failure: Nie udało się utworzyć rezerwacji.
+        update:
+          success: Rezerwacja została zaktualizowana.
+          failure: Nie udało się zaktualizować rezerwacji.
+        destroy:
+          success: Rezerwacja została anulowana.
+          failure: Nie udało się anulować rezerwacji.
+
+
   global:
     back: Powrót
   activerecord:
@@ -409,4 +423,5 @@ pl:
         default_col_sep: ","
         col_sep: "Separator kolumny"
         col_sep_help: "Zostw puste dla domyślnej wartości ('%{value}')" # value is default_col_sep
+  rezerwacja_zosta_a_anulowana: "Rezerwacja została anulowana."
 

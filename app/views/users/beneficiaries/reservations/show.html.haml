@@ -406,7 +406,7 @@
                     %ul
                       %li
                         %i.icofont-man-in-glasses
-                        %strong Instructor
+                        %strong Lokal
                         %span= @offer.food_provider.name
                       %li
                         %i.icofont-clock-time
@@ -429,9 +429,7 @@
                         %strong Certificate
                         %span Yes
                   .info-btn
-                    = simple_form_for Reservation.new, url: users_beneficiaries_reservations_path, method: :post do |f|
-                      = f.hidden_field :offer_id, value: @offer.hashid
-                      = f.button :submit, "Zarezerwuj teraz!", class: "btn btn-secondary btn-hover-primary"
+                    = link_to 'Anuluj rezerwację', users_beneficiaries_reservation_path(@reservation), class: 'btn btn-danger btn-hover-primary"', data: { turbo_confirm: 'Czy na pewno chcesz anulować rezerwację?', turbo_method: :delete }
                 / Sidebar Widget Information End
                 / Sidebar Widget Share Start
                 .sidebar-widget

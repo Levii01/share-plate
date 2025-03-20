@@ -16,34 +16,29 @@ module Users
         @offer = @reservation.offer
       end
 
-      # Tworzenie rezerwacji
       def create
         @reservation = current_user.beneficiary.reservations.new(offer: @offer)
 
         if @reservation.save
-          redirect_to users_beneficiaries_reservation_path(@reservation),
-                      notice: 'Rezerwacja została pomyślnie utworzona.'
+          redirect_to users_beneficiaries_reservation_path(@reservation), notice: t('.success')
         else
-          redirect_to users_beneficiaries_offer_path(@offer), alert: 'Nie udało się utworzyć rezerwacji.'
-          # render :new, alert: 'Nie udało się utworzyć rezerwacji.'
+          redirect_to users_beneficiaries_offer_path(@offer), alert: t('.failure')
         end
       end
 
-      # Oznaczanie rezerwacji jako odebraną
       def update
         if @reservation.update(picked_up_datetime: Time.current, status: 'completed')
-          redirect_to @reservation, notice: 'Rezerwacja została oznaczona jako odebrana.'
+          redirect_to users_beneficiaries_reservation_path(@reservation), notice: t('.success')
         else
-          render :show, alert: 'Nie udało się zaktualizować rezerwacji.'
+          redirect_to users_beneficiaries_reservation_path(@reservation), alert: t('.failure')
         end
       end
 
-      # Anulowanie rezerwacji
       def destroy
-        if @reservation.update(status: 'cancelled')
-          redirect_to offers_path, notice: 'Rezerwacja została anulowana.'
+        if !@reservation.cancelled? && @reservation.cancel!
+          redirect_to users_beneficiaries_reservation_path(@reservation), notice: t('.success')
         else
-          redirect_to offers_path, alert: 'Nie udało się anulować rezerwacji.'
+          redirect_to users_beneficiaries_reservation_path(@reservation), alert: t('.failure')
         end
       end
 
