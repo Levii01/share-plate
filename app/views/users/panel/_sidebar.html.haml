@@ -1,16 +1,16 @@
 .sidebar-wrapper
   .menu-list
     - if current_user&.food_provider.present?
-      %a.active{:href => users_food_providers_offers_path}
+      %a{:href => users_food_providers_offers_path, class: active_class(users_food_providers_offers_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
-      %a.active{:href => edit_users_food_provider_path}
+      %a{:href => edit_users_food_provider_path, class: active_class(edit_users_food_provider_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
     - if current_user&.beneficiary.present?
-      %a{:href => users_beneficiaries_offers_path}
+      %a{:href => users_beneficiaries_offers_path, class: active_class(users_beneficiaries_offers_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
-      %a{:href => users_beneficiaries_reservations_path}
+      %a{:href => users_beneficiaries_reservations_path, class: active_class(users_beneficiaries_reservations_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
-      %a.active{:href => edit_users_registrations_beneficiaries_path}
+      %a{:href => edit_users_registrations_beneficiaries_path, class: active_class(edit_users_registrations_beneficiaries_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
     
     %br
