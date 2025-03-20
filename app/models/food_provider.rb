@@ -18,6 +18,7 @@ class FoodProvider < ApplicationRecord
 
   belongs_to :user
   has_many :offers, dependent: :destroy
+  has_many :reservations, through: :offers
 
   state_machine :state, initial: :initialized
 

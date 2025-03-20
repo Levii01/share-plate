@@ -1,28 +1,26 @@
-%table
-  %thead
-    %tr
-      %th= t("activerecord.attributes.offer.name")
-      %th= t("activerecord.attributes.offer.description")
-      %th= t("activerecord.attributes.offer.available_from")
-      %th= t("activerecord.attributes.offer.available_to")
-      %th= t("activerecord.attributes.offer.status")
-      %th
-      %th
-      %th
+-# %table
+-#   %thead
+-#     %tr
+-#       %th= t("activerecord.attributes.offer.name")
+-#       %th= t("activerecord.attributes.offer.description")
+-#       %th= t("activerecord.attributes.offer.available_from")
+-#       %th= t("activerecord.attributes.offer.available_to")
+-#       %th= t("activerecord.attributes.offer.status")
+-#       %th
+-#       %th
+-#       %th
 
-  %tbody
-    - @offers.each do |offer|
-      %tr
-        %td= offer.name
-        %td= offer.description
-        %td= offer.available_from
-        %td= offer.available_to
-        %td= offer.status
-        %td= link_to 'Show', users_food_providers_offer_path(offer)
-        %td= link_to 'Edit', edit_users_food_providers_offer_path(offer)
-        %td= link_to 'Destroy', users_food_providers_offer_path(offer), method: :delete, data: { turbo_confirm: 'Jesteś pewny?', turbo_method: :delete }
-%br
-
+-#   %tbody
+-#     - @offers.each do |offer|
+-#       %tr
+-#         %td= offer.name
+-#         %td= offer.description
+-#         %td= offer.available_from
+-#         %td= offer.available_to
+-#         %td= offer.status
+-#         %td= link_to 'Show', users_food_providers_offer_path(offer)
+-#         %td= link_to 'Edit', edit_users_food_providers_offer_path(offer)
+-#         %td= link_to 'Destroy', users_food_providers_offer_path(offer), method: :delete, data: { turbo_confirm: 'Jesteś pewny?', turbo_method: :delete }
 
 #wrapper.section.overflow-hidden.position-relative
   / Sidebar Wrapper Start

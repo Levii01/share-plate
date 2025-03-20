@@ -74,7 +74,7 @@
                     .student
                       %span= l(reservation.created_at, format: :date)
                     .button
-                      %a.btn.btn-light.btn-hover-secondary{href: users_beneficiaries_reservation_path(reservation)} 🔍
+                      %a.btn.btn-light.btn-hover-secondary{href: users_food_providers_reservation_path(reservation)} 🔍
           = render "users/panel/pagination"
         - else
           .vh-100

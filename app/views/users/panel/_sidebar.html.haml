@@ -1,29 +1,33 @@
 .sidebar-wrapper
   .menu-list
     - if current_user&.food_provider.present?
-      %a{:href => users_food_providers_offers_path, class: active_class(users_food_providers_offers_path) }
+      %a{ href: users_food_providers_offers_path, class: active_class(users_food_providers_offers_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
-      %a{:href => edit_users_food_provider_path, class: active_class(edit_users_food_provider_path) }
-        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
-    - if current_user&.beneficiary.present?
-      %a{:href => users_beneficiaries_offers_path, class: active_class(users_beneficiaries_offers_path) }
-        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
-      %a{:href => users_beneficiaries_reservations_path, class: active_class(users_beneficiaries_reservations_path) }
+      %a{ href: users_food_providers_reservations_path,
+          class: active_class(users_food_providers_reservations_path, users_food_providers_reservation_path("x")) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
-      %a{:href => edit_users_beneficiary_path, class: active_class(edit_users_beneficiary_path) }
+      %a{ href: edit_users_food_provider_path, class: active_class(edit_users_food_provider_path) }
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
+        
+    - if current_user&.beneficiary.present?
+      %a{ href: users_beneficiaries_offers_path, class: active_class(users_beneficiaries_offers_path) }
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
+      %a{ href: users_beneficiaries_reservations_path, class: active_class(users_beneficiaries_reservations_path) }
+        %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
+      %a{ href: edit_users_beneficiary_path, class: active_class(edit_users_beneficiary_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
     
-    %br
-    %br
-    %br
-    %br
-    %a.active{:href => "courses-admin.html"}
-      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
-    %a{:href => "messages.html"}
-      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-2.png")}/
-    %a{:href => "overview.html"}
-      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
-    %a{:href => "engagement.html"}
-      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
-    %a{:href => "traffic-conversion.html"}
-      %img{:alt => "Icon", :src => asset_path("menu-icon/icon-5.png")}/
+    -# %br
+    -# %br
+    -# %br
+    -# %br
+    -# %a.active{:href => "courses-admin.html"}
+    -#   %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
+    -# %a{:href => "messages.html"}
+    -#   %img{:alt => "Icon", :src => asset_path("menu-icon/icon-2.png")}/
+    -# %a{:href => "overview.html"}
+    -#   %img{:alt => "Icon", :src => asset_path("menu-icon/icon-3.png")}/
+    -# %a{:href => "engagement.html"}
+    -#   %img{:alt => "Icon", :src => asset_path("menu-icon/icon-4.png")}/
+    -# %a{:href => "traffic-conversion.html"}
+    -#   %img{:alt => "Icon", :src => asset_path("menu-icon/icon-5.png")}/

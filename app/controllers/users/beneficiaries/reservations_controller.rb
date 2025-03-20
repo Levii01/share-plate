@@ -31,14 +31,6 @@ module Users
         end
       end
 
-      def update
-        if @reservation.update(picked_up_datetime: Time.current, status: 'completed')
-          redirect_to users_beneficiaries_reservation_path(@reservation), notice: t('.success')
-        else
-          redirect_to users_beneficiaries_reservation_path(@reservation), alert: t('.failure')
-        end
-      end
-
       def destroy
         if !@reservation.cancelled? && @reservation.cancel!
           @reservation.offer.increment!(:remaining_quantity) # rubocop:disable Rails/SkipsModelValidations

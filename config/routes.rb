@@ -14,12 +14,13 @@ Rails.application.routes.draw do
   namespace :users do
     namespace :beneficiaries do
       resources :offers, only: %i[index show]
-      resources :reservations, only: %i[index create show update destroy]
+      resources :reservations, only: %i[index show create destroy]
     end
     resource :beneficiary, only: %i[edit update]
 
     namespace :food_providers do
       resources :offers
+      resources :reservations, only: %i[index show update destroy]
     end
     resource :food_provider, only: %i[edit update]
 

@@ -21,8 +21,6 @@
 -#         %td= link_to 'Show', users_food_providers_offer_path(offer)
 -#         %td= link_to 'Edit', edit_users_food_providers_offer_path(offer)
 -#         %td= link_to 'Destroy', users_food_providers_offer_path(offer), method: :delete, data: { turbo_confirm: 'Jesteś pewny?', turbo_method: :delete }
--# %br
-
 
 #wrapper.section.overflow-hidden.position-relative
   / Sidebar Wrapper Start
@@ -62,10 +60,6 @@
                 %i.icofont-eye-blocked
           .tab-btn
             %a.btn.btn-primary.btn-hover-dark{:href => new_users_food_providers_offer_path } Nowa oferta
-      / Admin Courses Tab End
-      - if @pagy.pages > 1
-        = pagy_bootstrap_nav(@pagy).html_safe
-        = pagy_info(@pagy).html_safe
       
       / Admin Courses Tab Content Start
       .admin-courses-tab-content
@@ -108,6 +102,7 @@
                         %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
                         %li.option{"data-value" => "1"} This Year
                         %li.option{"data-value" => "2"} This Week
+            = render "users/panel/pagination"
             / Courses Item End
             / Courses Item Start
 

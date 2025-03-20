@@ -3,7 +3,7 @@
 module ApplicationHelper
   include Pagy::Frontend
 
-  def active_class(path)
-    'active' if current_page?(path)
+  def active_class(*paths)
+    'active' if paths.any? { |path| request.path.start_with?(path) }
   end
 end

@@ -13,6 +13,14 @@ pl:
         destroy:
           success: Rezerwacja została anulowana.
           failure: Nie udało się anulować rezerwacji.
+    food_providers:
+      reservations:
+        update:
+          success: Rezerwacja została potwierdzona.
+          failure: Nie udało się potwierdzić rezerwacji.
+        destroy:
+          success: Rezerwacja została anulowana.
+          failure: Nie udało się anulować rezerwacji.
 
 
   global:
