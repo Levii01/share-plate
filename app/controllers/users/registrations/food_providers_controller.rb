@@ -3,78 +3,56 @@
 module Users
   module Registrations
     class FoodProvidersController < ApplicationController
-      before_action :set_food_provider, only: %i[show edit update]
+      before_action :food_provider, only: %i[show edit]
 
-      # # GET /food_providers or /food_providers.json
-      # def index
-      #   @food_providers = FoodProvider.all
-      # end
-
-      # GET /food_providers/1 or /food_providers/1.json
       def show; end
 
-      # GET /food_providers/new
       def new
         return redirect_to edit_users_registrations_food_providers_path if current_user.food_provider
 
         @food_provider = current_user.build_food_provider
       end
 
-      # GET /food_providers/1/edit
       def edit; end
 
-      # POST /food_providers or /food_providers.json
-      def create
+      def create # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         @food_provider = current_user.build_food_provider(food_provider_params)
-        @food_provider.email = current_user.email unless @food_provider.email?
-        @food_provider.user.state_event = :verify unless current_user.verifying?
+        food_provider.email = current_user.email unless food_provider.email?
+        food_provider.user.state_event = :verify unless current_user.verifying?
 
         respond_to do |format|
-          if @food_provider.save
+          if food_provider.save
             format.html do
-              redirect_to users_registrations_food_providers_path(@food_provider),
+              redirect_to users_registrations_food_providers_path(food_provider),
                           notice: 'Dane lokalu zostały zapisane'
             end
-            format.json { render :new, status: :created, location: @food_provider }
+            format.json { render :new, status: :created, location: food_provider }
           else
             format.html { render :new, status: :unprocessable_entity }
-            format.json { render json: @food_provider.errors, status: :unprocessable_entity }
+            format.json { render json: food_provider.errors, status: :unprocessable_entity }
           end
         end
       end
 
-      # PATCH/PUT /food_providers/1 or /food_providers/1.json
-      def update
-        @food_provider.assign_attributes(food_provider_params)
-
+      def update # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
         respond_to do |format|
-          if @food_provider.save
+          if food_provider.update(food_provider_params)
             format.html do
-              redirect_to users_registrations_food_providers_path(@food_provider),
+              redirect_to users_registrations_food_providers_path(food_provider),
                           notice: 'Dane lokalu zostały zapisane'
             end
-            format.json { render :new, status: :ok, location: @food_provider }
+            format.json { render :new, status: :ok, location: food_provider }
           else
             format.html { render :edit, status: :unprocessable_entity }
-            format.json { render json: @food_provider.errors, status: :unprocessable_entity }
+            format.json { render json: food_provider.errors, status: :unprocessable_entity }
           end
         end
       end
-
-      # DELETE /food_providers/1 or /food_providers/1.json
-      # def destroy
-      #   @food_provider.destroy!
-      #
-      #   respond_to do |format|
-      #     format.html { redirect_to food_providers_url, notice: 'Food provider was successfully destroyed.' }
-      #     format.json { head :no_content }
-      #   end
-      # end
 
       private
 
-      def set_food_provider
-        @food_provider = ::FoodProvider.find_by!(user: current_user)
+      def food_provider
+        @food_provider ||= ::FoodProvider.find_by!(user: current_user)
       end
 
       def food_provider_params

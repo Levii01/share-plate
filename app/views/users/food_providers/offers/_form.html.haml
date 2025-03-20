@@ -1,5 +1,5 @@
 .form-wrapper
-  = simple_form_for(@offer, url: @offer.persisted? ? users_food_provider_offer_path(@offer.hashid) : users_food_provider_offers_path) do |f|
+  = simple_form_for(@offer, url: @offer.persisted? ? users_food_providers_offer_path(@offer.hashid) : users_food_providers_offers_path) do |f|
     = f.error_notification
     = f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present?
 

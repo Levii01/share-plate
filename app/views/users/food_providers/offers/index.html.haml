@@ -18,9 +18,9 @@
         %td= offer.available_from
         %td= offer.available_to
         %td= offer.status
-        %td= link_to 'Show', users_food_provider_offer_path(offer)
-        %td= link_to 'Edit', edit_users_food_provider_offer_path(offer)
-        %td= link_to 'Destroy', users_food_provider_offer_path(offer), method: :delete, data: { turbo_confirm: 'Jesteś pewny?', turbo_method: :delete }
+        %td= link_to 'Show', users_food_providers_offer_path(offer)
+        %td= link_to 'Edit', edit_users_food_providers_offer_path(offer)
+        %td= link_to 'Destroy', users_food_providers_offer_path(offer), method: :delete, data: { turbo_confirm: 'Jesteś pewny?', turbo_method: :delete }
 %br
 
 
@@ -61,7 +61,7 @@
               %button{"aria-selected" => "false", "data-bs-target" => "#tab3", "data-bs-toggle" => "tab", :role => "tab", :tabindex => "-1"}
                 %i.icofont-eye-blocked
           .tab-btn
-            %a.btn.btn-primary.btn-hover-dark{:href => new_users_food_provider_offer_path } Nowa oferta
+            %a.btn.btn-primary.btn-hover-dark{:href => new_users_food_providers_offer_path } Nowa oferta
       / Admin Courses Tab End
       / Admin Courses Tab Content Start
       .admin-courses-tab-content
@@ -79,7 +79,7 @@
                     %a.action{:href => "#"} Free
                     %a.action{:href => "#"} Public
                   %h3.title
-                    %a{:href => edit_users_food_provider_offer_path(offer)}= offer.name || "Brak nazwy"
+                    %a{:href => edit_users_food_providers_offer_path(offer)}= offer.name || "Brak nazwy"
                 .content-wrapper
                   .content-box
                     %p= t("activerecord.attributes.offer.available_from")
