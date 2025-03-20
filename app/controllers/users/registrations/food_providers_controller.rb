@@ -3,6 +3,7 @@
 module Users
   module Registrations
     class FoodProvidersController < ApplicationController
+      before_action :validate_user_access, only: %i[new create]
       before_action :food_provider, only: %i[show edit]
 
       def show; end
@@ -58,6 +59,12 @@ module Users
       def food_provider_params
         params.require(:food_provider).permit(:name, :provider_type, :address, :nip, :phone, :email,
                                               :description, :opening_time)
+      end
+
+      def validate_user_access
+        return unless current_user.beneficiary.present? || !current_user.initialized?
+
+        redirect_to root_path, alert: 'Nie masz dostępu do tej strony'
       end
     end
   end

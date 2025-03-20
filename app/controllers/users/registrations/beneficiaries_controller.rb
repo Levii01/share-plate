@@ -3,6 +3,8 @@
 module Users
   module Registrations
     class BeneficiariesController < ApplicationController
+      before_action :validate_user_access, only: %i[new create]
+
       def show
         beneficiary
       end
@@ -19,7 +21,7 @@ module Users
         set_beneficiary
       end
 
-      def create
+      def create # rubocop:disable Metrics/AbcSize,Metrics/MethodLength
         @beneficiary = current_user.build_beneficiary(beneficiary_params)
         beneficiary.email = current_user.email unless beneficiary.email?
         beneficiary.user.state_event = :verify unless current_user.verifying?
@@ -37,7 +39,7 @@ module Users
         end
       end
 
-      def update
+      def update # rubocop:disable Metrics/MethodLength
         respond_to do |format|
           if beneficiary.update(beneficiary_params)
             format.html do
@@ -59,6 +61,12 @@ module Users
 
       def beneficiary_params
         params.require(:beneficiary).permit(:name, :address, :description, :phone, :email, :state)
+      end
+
+      def validate_user_access
+        return unless current_user.food_provider.present? || !current_user.initialized?
+
+        redirect_to root_path, alert: 'Nie masz dostępu do tej strony'
       end
     end
   end
