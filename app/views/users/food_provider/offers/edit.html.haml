@@ -1,10 +1,9 @@
 #wrapper.section.overflow-hidden.position-relative
-  / Sidebar Wrapper Start
   = render "users/panel/sidebar"
   .page-content-wrapper.p-0
     -# .section.section-padding
     .sectiond
-      .containerd
+      .container
         .register-login-wrapper
           .row.justify-content-center
             .col-lg-6.col-xl-10
@@ -15,4 +14,4 @@
                   %br
                 = render 'form'
                 %br
-                = link_to 'Powrót', users_food_provider_offers_path
+                = link_to 'Powrót', users_food_provider_offers_path, class: "btn btn-light btn-hover-dark"

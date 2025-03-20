@@ -31,7 +31,7 @@ module Users
 
       def update
         @offer.lock!
-        if @offer.update(offer_params.merge(remaining_quantity: offer.reservation_conut))
+        if @offer.update(offer_params)
           redirect_to edit_users_food_provider_offer_path(@offer), notice: 'Offer was successfully updated.'
         else
           render :edit
