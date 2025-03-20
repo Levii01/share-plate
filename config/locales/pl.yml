@@ -56,7 +56,8 @@ pl:
         name: Nazwa
         description: Opis
         initial_quantity: Ilość paczek
-        available_from: Dostępne od
+        # available_from: Dostępne od
+        available_from: Dostępne dnia
         available_to: Dostępne do
         status: Status
       reservation:
