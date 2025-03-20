@@ -5,6 +5,8 @@ pl:
         create:
           success: Rezerwacja została pomyślnie utworzona.
           failure: Nie udało się utworzyć rezerwacji.
+          no_packages: Brak dostępnych paczek.
+          error: "Nie udało się zarezerwować paczki: %{error_message}"
         update:
           success: Rezerwacja została zaktualizowana.
           failure: Nie udało się zaktualizować rezerwacji.
@@ -53,6 +55,7 @@ pl:
       offer:
         name: Nazwa
         description: Opis
+        initial_quantity: Ilość paczek
         available_from: Dostępne od
         available_to: Dostępne do
         status: Status

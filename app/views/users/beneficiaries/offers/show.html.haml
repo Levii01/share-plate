@@ -414,8 +414,12 @@
                         %span 08 hr 15 mins
                       %li
                         %i.icofont-ui-video-play
-                        %strong Lectures
-                        %span 29
+                        %strong Ilość paczek
+                        %span= @offer.initial_quantity
+                      %li
+                        %i.icofont-ui-video-play
+                        %strong Dostępne paczki
+                        %span= @offer.remaining_quantity
                       %li
                         %i.icofont-bars
                         %strong Level
@@ -429,9 +433,12 @@
                         %strong Certificate
                         %span Yes
                   .info-btn
-                    = simple_form_for Reservation.new, url: users_beneficiaries_reservations_path, method: :post do |f|
-                      = f.hidden_field :offer_id, value: @offer.hashid
-                      = f.button :submit, "Zarezerwuj teraz!", class: "btn btn-secondary btn-hover-primary"
+                    - if @offer.remaining_quantity.positive?
+                      = simple_form_for Reservation.new, url: users_beneficiaries_reservations_path, method: :post do |f|
+                        = f.hidden_field :offer_id, value: @offer.hashid
+                        = f.button :submit, "Zarezerwuj teraz!", class: "btn btn-secondary btn-hover-primary"
+                    - else
+                      %p.mt-2 Wszystkie paczki zostały odebrane!
                 / Sidebar Widget Information End
                 / Sidebar Widget Share Start
                 .sidebar-widget

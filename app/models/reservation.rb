@@ -35,4 +35,3 @@ class Reservation < ApplicationRecord
     %w[beneficiary offer]
   end
 end
-# 

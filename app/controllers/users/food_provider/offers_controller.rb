@@ -21,7 +21,7 @@ module Users
       def edit; end
 
       def create
-        @offer = current_user.food_provider.offers.build(offer_params)
+        @offer = current_user.food_provider.offers.build(offer_create_params)
         if @offer.save
           redirect_to edit_users_food_provider_offer_path(@offer), notice: 'Offer was successfully created.'
         else
@@ -30,7 +30,8 @@ module Users
       end
 
       def update
-        if @offer.update(offer_params)
+        @offer.lock!
+        if @offer.update(offer_params.merge(remaining_quantity: offer.reservation_conut))
           redirect_to edit_users_food_provider_offer_path(@offer), notice: 'Offer was successfully updated.'
         else
           render :edit
@@ -48,8 +49,12 @@ module Users
         @offer = current_user.food_provider.offers.find(params[:id])
       end
 
+      def offer_create_params
+        offer_params.merge(remaining_quantity: offer_params[:initial_quantity])
+      end
+
       def offer_params
-        params.require(:offer).permit(:name, :description, :available_from, :available_to, :status)
+        params.require(:offer).permit(:name, :description, :available_from, :available_to, :status, :initial_quantity)
       end
     end
   end

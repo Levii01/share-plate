@@ -432,7 +432,7 @@
                     .info-btn
                       = link_to 'Anuluj rezerwację', users_beneficiaries_reservation_path(@reservation), class: 'btn btn-danger btn-hover-primary"', data: { turbo_confirm: 'Czy na pewno chcesz anulować rezerwację?', turbo_method: :delete }
                   - else
-                    %p.mt-2 Rezerwacja jest już zakończona lub odebrana.
+                    %p.mt-2 Rezerwacja jest już odebrana lub anulowana.
                 / Sidebar Widget Information End
                 / Sidebar Widget Share Start
                 .sidebar-widget
