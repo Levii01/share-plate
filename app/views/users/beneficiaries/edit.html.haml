@@ -1,0 +1,15 @@
+#wrapper.section.overflow-hidden.position-relative
+  = render "users/panel/sidebar"
+  .page-content-wrapper.p-0
+    .section
+      .container
+        .register-login-wrapper
+          .row.justify-content-center
+            .col-lg-6.col-xl-10
+              .register-login-form
+                %h3.title
+                  Dane
+                  %span Beneficjenta
+                  %br
+
+                = render 'form'

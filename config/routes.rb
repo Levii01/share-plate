@@ -16,6 +16,8 @@ Rails.application.routes.draw do
       resources :offers, only: %i[index show]
       resources :reservations, only: %i[index create show update destroy]
     end
+    resource :beneficiary, only: %i[edit update]
+
     namespace :food_providers do
       resources :offers
     end
@@ -24,7 +26,7 @@ Rails.application.routes.draw do
     namespace :registrations do
       resource :account_types, only: %i[edit update]
       resource :food_providers, only: %i[show new edit create update]
-      resource :beneficiaries
+      resource :beneficiaries, only: %i[show new edit create update]
     end
     resources :panel, only: %i[index]
   end
