@@ -7,8 +7,10 @@
       = f.input :name
       = f.input :description
       = f.input :initial_quantity, input_html: { min: 1 }
-      = f.input :available_from, as: :date, html5: true
+      = f.input :available_from, as: :date, html5: true, input_html: { value: Date.today }
+      = f.input :main_image, as: :file
+      = image_tag @offer.main_image if @offer.main_image.attached?
       -# = f.input :available_to
 
-    .form-actions
+    .form-actions.mt-3
       = f.button :submit, "Zapisz ofertę", class: "btn btn-secondary btn-hover-dark w-100"

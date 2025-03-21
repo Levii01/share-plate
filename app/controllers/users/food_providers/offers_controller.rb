@@ -54,7 +54,8 @@ module Users
       end
 
       def offer_params
-        params.require(:offer).permit(:name, :description, :available_from, :available_to, :status, :initial_quantity)
+        params.require(:offer).permit(:name, :description, :available_from, :available_to, :status, :initial_quantity,
+                                      :main_image)
       end
     end
   end

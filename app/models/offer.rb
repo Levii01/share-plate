@@ -5,6 +5,7 @@ class Offer < ApplicationRecord
 
   belongs_to :food_provider
   has_many :reservations, dependent: :destroy
+  has_one_attached :main_image
 
   validates :name, presence: true
   validates :description, presence: true
@@ -21,5 +22,9 @@ class Offer < ApplicationRecord
 
   def reservation_conut
     reservations.without_state(:cancelled).count
+  end
+
+  def main_image_square
+    main_image.variant(resize_to_fill: [160.0, 160.0]).processed
   end
 end
