@@ -9,17 +9,17 @@
           .header-wrapper
             / Header Logo Start
             .header-logo
-              %a{:href => "index.html"}
+              %a{:href => root_path}
                 %img{:alt => "Logo", :src => asset_path("logo.png")}/
             / Header Logo End
             / Header Menu Start
             .header-menu.d-none.d-lg-flex
               %ul.nav-menu
                 %li
-                  %a.active{:href => "index.html"} Strona główna
+                  %a.active{:href => root_path} Strona główna
                 %li
-                  %a{:href => "about.html"} About Us
-                %li
+                  %a{:href => "#"} O nas
+                -# %li
                   %a{:href => "#"} All Course
                   %ul.sub-menu
                     %li
@@ -33,7 +33,7 @@
                           %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
                         %li
                           %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
-                %li
+                -# %li
                   %a{:href => "#"} Pages
                   %ul.sub-menu
                     %li
@@ -60,7 +60,7 @@
                       %a{:href => "faq.html"} FAQ
                     %li
                       %a{:href => "404-error.html"} 404 Error
-                %li
+                -# %li
                   %a{:href => "#"} Blog
                   %ul.sub-menu
                     %li
@@ -80,17 +80,17 @@
                         %li
                           %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
                 %li
-                  %a{:href => "contact.html"} Contact
+                  %a{:href => "#"} Kontakt
               .header-btn
-                %a.btn.btn-secondary.btn-hover-primary{:href => new_user_registration_path} Sign Up
+                %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
+                %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
             / Header Menu End
             / Header Toggle Start
             .header-toggle.d-lg-none
-              %a.btn.btn-secondary.btn-hover-primary{:href => new_user_registration_path} Sign Up
-              %a.menu-toggle{:href => "#"}
-                %span
-                %span
-                %span
+              %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
+              %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
+
+
             / Header Toggle End
           / Header Wrapper End
       / Header Main End
@@ -105,7 +105,7 @@
       .mobile-menu-items
         %ul.nav-menu
           %li
-            %a.active{:href => "index.html"} Strona główna
+            %a.active{:href => root_path} Strona główna
           %li
             %a{:href => "about.html"} About Us
           %li
@@ -193,7 +193,7 @@
             .slider-social
               .container
                 .social-wrapper
-                  %p Connect with us:
+                  %p Dołącz do nas:
                   %ul.social
                     %li
                       %a{:href => "#"}
@@ -669,105 +669,7 @@
           / download App End
         / Download Wrapper End
     / Download Section End
-    / Footer Start
-    .section.footer-section
-      / Footer Widget Section Start
-      .footer-widget-section.section-padding
-        %img.shape-01.animation-rotate{:alt => "Shape", :src => asset_path("shape/shape-9.png")}/
-        .container
-          / Footer Widget Wrapper Start
-          .footer-widget-wrapper
-            .row
-              .col-lg-4
-                / Footer Widget Start
-                .footer-widget
-                  %h3.footer-widget-title Subscribe Newsletter
-                  .widget-newsletter
-                    %p Lorem Ipsum has been them an industry printer took a galley make book.
-                    .newsletter-form
-                      %form{:action => "#"}
-                        %input{:placeholder => "Enter email", :type => "text"}/
-                        %button.btn.btn-primary.btn-hover-white Subscribe Now
-                / Footer Widget End
-              .col-lg-8
-                / Footer Widget Start
-                .widget-wrapper
-                  / Footer Widget Start
-                  .footer-widget
-                    %h3.footer-widget-title All Courses
-                    %ul.widget-link
-                      %li
-                        %a{:href => "#"} Daily Exercise
-                      %li
-                        %a{:href => "#"} Find Your Balance
-                      %li
-                        %a{:href => "#"} Personal Program
-                      %li
-                        %a{:href => "#"} Natural Process
-                      %li
-                        %a{:href => "#"} Immune System
-                      %li
-                        %a{:href => "#"} Gives You Energy
-                  / Footer Widget End
-                  / Footer Widget Start
-                  .footer-widget
-                    %h3.footer-widget-title Help Links
-                    %ul.widget-link
-                      %li
-                        %a{:href => "#"} Privacy Policy
-                      %li
-                        %a{:href => "#"} Discussion
-                      %li
-                        %a{:href => "#"} Terms & Conditions
-                      %li
-                        %a{:href => "#"} Customer Support
-                      %li
-                        %a{:href => "#"} Course FAQ’s
-                      %li
-                        %a{:href => "#"} Online Classes
-                  / Footer Widget End
-                  / Footer Widget Start
-                  .footer-widget
-                    %h3.footer-widget-title Opening Hours
-                    %ul.widget-link
-                      %li
-                        %a{:href => "#"} Mon-Fri: 9 AM – 6 PM
-                      %li
-                        %a{:href => "#"} Saturday: 9 AM – 4 PM
-                      %li
-                        %a{:href => "#"} Sunday: Closed
-                    .widget-location
-                      %h3.footer-widget-title Location
-                      %p
-                        176 W street name, New
-                        %br/
-                        York, NY 10014
-                  / Footer Widget End
-                / Footer Widget End
-          / Footer Widget Wrapper End
-        %img.shape-02.animation-rotate{:alt => "Shape", :src => asset_path("shape/shape-9.png")}/
-      / Footer Widget Section End
-      / Footer Copyright Section Start
-      .footer-copyright
-        .container
-          / Copyright Wrapper Start
-          .copyright-wrapper
-            .copyright-text
-              %p
-                © 2023
-                %span Nutras
-                Made with
-                %i.icofont-heart-alt
-                by
-                %a{:href => "https://hasthemes.com/", :target => "_blank"} HasThemes
-            .copyright-link
-              %a{:href => "#"} Terms of Service
-              %a{:href => "#"} Privacy Policy
-              %a{:href => "#"} Sitemap
-              %a{:href => "#"} Security
-          / Copyright Wrapper End
-      / Footer Copyright Section End
-    / Footer End
+
     / Back To Start
     %a.back-to-top{:href => "#"}
       %i.icofont-simple-up

@@ -8,11 +8,12 @@
     / Header Logo End
     / Header Search Start
     .login-header-search.dropdown
-      %button.search-toggle{"data-bs-toggle" => "dropdown"}
-        %i.icofont-search
-      .search-input.dropdown-menu
-        %form{:action => "#"}
-          %input{:placeholder => "Search here", :type => "text"}/
+      - if current_user
+        %button.search-toggle{"data-bs-toggle" => "dropdown"}
+          %i.icofont-search
+        .search-input.dropdown-menu
+          %form{:action => "#"}
+            %input{:placeholder => "Search here", :type => "text"}/
     / Header Search End
     / Header Action Start
     .login-header-action.ml-auto
