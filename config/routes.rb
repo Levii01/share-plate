@@ -8,7 +8,16 @@ Rails.application.routes.draw do
                omniauth_callbacks: 'users/omniauth_callbacks'
              }
   get 'up' => 'rails/health#show', as: :rails_health_check
-  root to: 'home#index'
+
+  devise_scope :user do
+    authenticated do
+      root to: 'users/panel#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root to: 'home#index'
+    end
+  end
 
   get 'home/index'
   namespace :users do
