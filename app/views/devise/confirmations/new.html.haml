@@ -1,12 +1,28 @@
-.devise-bootstrap-form
-  .devise-bootstrap-form-row
-    .devise-bootstrap-form-col
-      %h2.text-center Resend confirmation instructions
-      = bootstrap_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
-        = render "devise/shared/error_messages", resource: resource
-        = f.email_field :email, autofocus: true, autocomplete: "email",
-                                value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
-        = f.form_group do
-          = f.submit "Resend confirmation instructions", class: 'btn btn-primary btn-lg btn-block'
-      .text-center
-        = render "devise/shared/links"
+.section.page-banner-section{style: "background-image: url(#{asset_path('page-banner.jpg')});"}
+  .container
+    .page-banner-content
+      %h2.page-title Instrukcja aktywacji
+      %ul.breadcrumb
+        %li.breadcrumb-item
+          %a{href: root_path} Strona główna
+        %li.breadcrumb-item.active Aktywacja
+
+.section.section-padding
+  .container
+    / Register & Login Wrapper Start
+    .register-login-wrapper
+      .row.justify-content-center
+        .col-lg-6.col-xl-5
+          / Register & Login Form Start
+          .register-login-form
+            %h3.title
+              = t(".resend_confirmation_instructions")
+            .form-wrapper.text-center
+              = bootstrap_form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f|
+                = render "devise/shared/error_messages", resource: resource
+                = f.email_field :email, autofocus: true, autocomplete: "email",
+                                        value: (resource.pending_reconfirmation? ? resource.unconfirmed_email : resource.email)
+                = f.form_group do
+                  = f.submit t(".resend_confirmation_instructions"), class: 'btn btn-primary btn-lg btn-block'
+              .text-center
+                = render "devise/shared/links"

@@ -1,37 +1,3 @@
-%nav.navbar.navbar-dark.bg-dark.navbar-expand-lg.navbar-light.bg-light
-  .container-fluid
-    %a.navbar-brand{href: root_path} SharePlate
-    %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :type => "button"}
-      %span.navbar-toggler-icon
-    #navbarNav.collapse.navbar-collapse
-      %ul.navbar-nav
-        %li.nav-item
-          %a.nav-link.active{"aria-current" => "page", href: root_path} Home
-        %li.nav-item
-          %a.nav-link{href: users_panel_index_path} Test
-        %li.nav-item
-          %a.nav-link{:href => "#"} Pricing
-        %li.nav-item
-          %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
-      %ul.navbar-nav.ms-auto
-        - if current_user
-          %li.nav-item.dropdown
-            %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
-              .fa.fa-user
-              %b= current_user.email
-            %ul.dropdown-menu{"aria-labelledby" => "navbarDropdown"}
-              = link_to edit_user_registration_path, class: "dropdown-item #{'active fw-bold' if current_page?(edit_user_registration_path)}" do
-                .fa.fa-cog
-                %b Ustawienia konta
-              = link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" do
-                .fa.fa-sign-out-alt
-                %b= t("admin.misc.log_out")
-        - else
-          = link_to "Zaloguj się", new_user_session_path, class: "nav-link #{'active fw-bold' if current_page?(new_user_session_path)}"
-          = link_to "Dołącz!", new_user_registration_path, class: "nav-link #{'active fw-bold' if current_page?(new_user_registration_path)}"
-
-
-
 .section.login-header
   / Login Header Wrapper Start
   .login-header-wrapper.navbar.navbar-expand
@@ -50,7 +16,7 @@
     / Header Search End
     / Header Action Start
     .login-header-action.ml-auto
-      .dropdown
+      -# .dropdown
         %button.action.notification{"data-bs-toggle" => "dropdown"}
           %i.flaticon-notification
           %span.active
@@ -110,25 +76,70 @@
           %a.all-notification{:href => "#"}
             See all notifications
             %i.icofont-simple-right
-      %a.action.author{:href => "#"}
-        %img{:alt => "Author", :src => asset_path("author/author-07.jpg")}/
+      - if current_user
+        %a.action.author{:href => "#"}
+          %img{:alt => "Author", :src => asset_path("author/author-07.jpg")}/
       .dropdown
         %button.action.more{"data-bs-toggle" => "dropdown"}
           %span
           %span
           %span
         %ul.dropdown-menu
-          %li
-            %a{:href => "#"}
-              %i.icofont-user
-              Profile
-          %li
-            %a{:href => "#"}
-              %i.icofont-inbox
-              Inbox
-          %li
-            %a{:href => "#"}
-              %i.icofont-logout
-              Sign Out
+          - if current_user
+            %li
+              %a{:href => "#"}
+              = link_to edit_user_registration_path do
+                %i.icofont-user
+                Konto
+            %li
+              = link_to users_panel_index_path do
+                %i.icofont-inbox
+                Panel
+            %li
+              = link_to destroy_user_session_path, data: { turbo_method: :delete } do
+                %i.icofont-logout
+                = t("admin.misc.log_out")
+          - else
+            %li
+              = link_to new_user_session_path do
+                %i.icofont-inbox
+                Zaloguj się
+            %li
+              = link_to new_user_registration_path do
+                %i.icofont-logout
+                Dołącz
     / Header Action End
   / Login Header Wrapper End
+
+
+-# %nav.navbar.navbar-dark.bg-dark.navbar-expand-lg.navbar-light.bg-light
+-#   .container-fluid
+-#     %a.navbar-brand{href: root_path} SharePlate
+-#     %button.navbar-toggler{"aria-controls" => "navbarNav", "aria-expanded" => "false", "aria-label" => "Toggle navigation", "data-bs-target" => "#navbarNav", "data-bs-toggle" => "collapse", :type => "button"}
+-#       %span.navbar-toggler-icon
+-#     #navbarNav.collapse.navbar-collapse
+-#       %ul.navbar-nav
+-#         %li.nav-item
+-#           %a.nav-link.active{"aria-current" => "page", href: root_path} Strona główna
+-#         %li.nav-item
+-#           %a.nav-link{href: users_panel_index_path} Test
+-#         %li.nav-item
+-#           %a.nav-link{:href => "#"} Pricing
+-#         %li.nav-item
+-#           %a.nav-link.disabled{"aria-disabled" => "true", :href => "#", :tabindex => "-1"} Disabled
+-#       %ul.navbar-nav.ms-auto
+-#         - if current_user
+-#           %li.nav-item.dropdown
+-#             %a#navbarDropdown.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", :href => "#", :role => "button"}
+-#               .fa.fa-user
+-#               %b= current_user.email
+-#             %ul.dropdown-menu{"aria-labelledby" => "navbarDropdown"}
+-#               = link_to edit_user_registration_path, class: "dropdown-item #{'active fw-bold' if current_page?(edit_user_registration_path)}" do
+-#                 .fa.fa-cog
+-#                 %b Ustawienia konta
+-#               -# = link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" do
+-#                 .fa.fa-sign-out-alt
+-#                 %b= t("admin.misc.log_out")
+-#         - else
+-#           = link_to "Zaloguj się", new_user_session_path, class: "nav-link #{'active fw-bold' if current_page?(new_user_session_path)}"
+-#           = link_to "Dołącz!", new_user_registration_path, class: "nav-link #{'active fw-bold' if current_page?(new_user_registration_path)}"

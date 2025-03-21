@@ -84,7 +84,8 @@
                     %span.count= l(offer.available_from, format: :short)
                   .content-box
                     %p= t("activerecord.attributes.offer.available_to")
-                    %span.count= l(offer.available_to, format: :short)
+                    %span.count
+                    -# %span.count= l(offer.available_to, format: :short)
                   .content-box
                     %p= t("activerecord.attributes.offer.status")
                     %span.count

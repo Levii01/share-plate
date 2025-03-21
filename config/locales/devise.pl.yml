@@ -27,6 +27,8 @@ pl:
       failure: "Logowanie przez konto %{kind} zakończyło się błędem: \"%{reason}\"."
       success: "Zalogowałeś się pomyślnie przez konto %{kind}."
     passwords:
+      new:
+        info: Proszę wpisać swój adres e-mail, a my wyślemy Ci link umożliwiający zresetowanie hasła.
       no_token: "Dostęp do tej strony jest możliwy jedynie poprzez użycie prawidłowego adresu z emaila z instrukcjami o resecie hasłą. Jeżeli właśnie skorzystałeś z tego adresu, sprawdź czy użyty adres jest zgodny z tym w emailu."
       send_instructions: "Za chwilę otrzymasz emaila z instrukcją jak zresetować hasło."
       send_paranoid_instructions: "Jeżeli Twój adres istnieje w naszej bazie, otrzymasz za chwilę emaila z instrukcją zmiany hasła."
