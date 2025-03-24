@@ -92,9 +92,12 @@
               / Courses Details Start
               .courses-details
                 .courses-details-images
-                  %img{alt: "Courses Details", src: asset_path("courses/courses-details.jpg")}/
-                  %span.tags Finance
-                  .courses-play
+                  - if @offer.main_image.attached?
+                    = image_tag @offer.main_image_rectangle
+                  - else
+                    %img{alt: "Courses Details", src: asset_path("courses/courses-details.jpg")}/
+                  %span.tags= t("activerecord.attributes.food_provider.provider_types.#{@food_provider.provider_type}")
+                  -# .courses-play
                     %a.play.video-popup{href: "https://www.youtube.com/watch?v=Wif4ZkwC0AM"}
                       %i.icofont-ui-play
                 %h2.title= @offer.name
@@ -105,7 +108,7 @@
                     .author-content
                       %p.name
                         By:
-                        %a{href: "#"}= @offer.food_provider.name
+                        %a{href: "#"}= @food_provider.name
                       %span.enroll
                         %span 286
                         Enrolled Students
@@ -407,7 +410,7 @@
                       %li
                         %i.icofont-man-in-glasses
                         %strong Instructor
-                        %span= @offer.food_provider.name
+                        %span= @food_provider.name
                       %li
                         %i.icofont-clock-time
                         %strong Duration

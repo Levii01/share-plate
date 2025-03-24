@@ -4,7 +4,7 @@ module Users
   module Beneficiaries
     class ReservationsController < ApplicationController
       before_action :set_offer, only: [:create]
-      before_action :set_reservation, only: %i[show update destroy]
+      before_action :set_reservation, only: %i[show destroy]
 
       def index
         @beneficiary = current_user.beneficiary

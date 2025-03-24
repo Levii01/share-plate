@@ -69,10 +69,10 @@
             - @offers.each do |offer|
               .courses-item
                 .item-thumb
-                  - if offer.main_image.attached?
-                    = image_tag offer.main_image_square
-                  - else
-                    %a{:href => "#"}
+                  %a{:href => "#"}
+                    - if offer.main_image.attached?
+                      = image_tag offer.main_image_square
+                    - else
                       %img{:alt => "Courses", :src => asset_path("courses/admin-courses-01.jpg")}/
                 .content-title
                   .meta
@@ -105,6 +105,7 @@
                         %li.option.selected{"data-display" => "This Month", "data-value" => "This Month"} This Month
                         %li.option{"data-value" => "1"} This Year
                         %li.option{"data-value" => "2"} This Week
+            = render "users/panel/pagination"
             / Courses Item End
             / Courses Item Start
 

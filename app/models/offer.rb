@@ -15,6 +15,7 @@ class Offer < ApplicationRecord
   before_update :recalculate_remaining_quantity, if: :initial_quantity_changed?
 
   scope :available_today, -> { where(available_from: Time.zone.today.all_day) }
+  scope :available_from_today, -> { where(available_from: Time.zone.today.beginning_of_day) }
 
   def recalculate_remaining_quantity
     self.remaining_quantity = initial_quantity - reservation_conut
@@ -26,5 +27,9 @@ class Offer < ApplicationRecord
 
   def main_image_square
     main_image.variant(resize_to_fill: [160.0, 160.0]).processed
+  end
+
+  def main_image_rectangle
+    main_image.variant(resize_to_fill: [516.0, 268.0]).processed
   end
 end

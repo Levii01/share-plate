@@ -9,7 +9,8 @@ module Users
       # TODO: redirect if not food provider
 
       def index
-        @offers = current_user.food_provider.offers
+        @q = current_user.food_provider.offers.available_from_today.ransack(params[:q])
+        @pagy, @offers = pagy(@q.result(distinct: true), limit: 10)
       end
 
       def show; end
