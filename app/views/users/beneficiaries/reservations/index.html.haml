@@ -63,7 +63,10 @@
                   %li
                     .courses
                       .thumb
-                        %img{alt: "Courses", src: asset_path("courses/admin-courses-01.jpg")}/
+                        - if reservation.offer.main_image.attached?
+                          = image_tag reservation.offer.main_image_square
+                        - else
+                          %img{alt: "Courses", src: asset_path("courses/admin-courses-01.jpg")}/
                       .content
                         %h4.title
                           %a{href: users_beneficiaries_offer_path(reservation.offer)}= reservation.offer.name
