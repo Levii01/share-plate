@@ -24,7 +24,7 @@ module Users
       def create
         @offer = current_user.food_provider.offers.build(offer_create_params)
         if @offer.save
-          redirect_to edit_users_food_providers_offer_path(@offer), notice: 'Offer was successfully created.'
+          redirect_to users_food_providers_offers_path, notice: 'Offer was successfully created.'
         else
           render :new
         end
