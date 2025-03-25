@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_21_015755) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_25_111106) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -85,6 +85,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_015755) do
     t.datetime "updated_at", null: false
     t.integer "initial_quantity", default: 1, null: false
     t.integer "remaining_quantity", default: 0, null: false
+    t.datetime "deleted_at"
     t.index ["food_provider_id"], name: "index_offers_on_food_provider_id"
   end
 
@@ -95,6 +96,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_015755) do
     t.datetime "picked_up"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.datetime "deleted_at"
     t.index ["beneficiary_id"], name: "index_reservations_on_beneficiary_id"
     t.index ["offer_id"], name: "index_reservations_on_offer_id"
   end
@@ -135,6 +137,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_015755) do
     t.string "avatar_url"
     t.string "state", default: "initialized", null: false
     t.string "account_type"
+    t.datetime "deleted_at"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
@@ -142,6 +145,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_21_015755) do
   create_table "users_roles", id: false, force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "role_id"
+    t.datetime "deleted_at"
     t.index ["role_id"], name: "index_users_roles_on_role_id"
     t.index ["user_id", "role_id"], name: "index_users_roles_on_user_id_and_role_id"
     t.index ["user_id"], name: "index_users_roles_on_user_id"
