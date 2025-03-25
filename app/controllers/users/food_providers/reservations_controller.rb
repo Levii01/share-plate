@@ -14,7 +14,6 @@ module Users
       end
 
       def update
-        binding.pry
         if reservation.update(picked_up: Time.current, state: 'completed')
           redirect_to_reservation(notice: t('.success'))
         else
