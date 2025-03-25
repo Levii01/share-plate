@@ -1,40 +1,17 @@
--# %table
--#   %thead
--#     %tr
--#       %th= t("activerecord.attributes.offer.name")
--#       %th= t("activerecord.attributes.offer.description")
--#       %th= t("activerecord.attributes.offer.available_from")
--#       %th= t("activerecord.attributes.offer.available_to")
--#       %th= t("activerecord.attributes.offer.status")
--#       %th
--#       %th
--#       %th
-
--#   %tbody
--#     - @offers.each do |offer|
--#       %tr
--#         %td= offer.name
--#         %td= offer.description
--#         %td= offer.available_from
--#         %td= offer.available_to
--#         %td= offer.status
--#         %td= link_to 'Show', users_food_providers_offer_path(offer)
--#         %td= link_to 'Edit', edit_users_food_providers_offer_path(offer)
--#         %td= link_to 'Destroy', users_food_providers_offer_path(offer), method: :delete, data: { turbo_confirm: 'Jesteś pewny?', turbo_method: :delete }
-
 #wrapper.section.overflow-hidden.position-relative
-  / Sidebar Wrapper Start
   = render "users/panel/sidebar"
-  / Page Content Wrapper Start
+
   .page-content-wrapper
     .container-fluid
+
       / Message Start
-      .message
+      -# .message
         .message-icon
           %img{:alt => "", :src => asset_path("menu-icon/icon-6.png")}/
         .message-content
           %p Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic.
       / Message End
+
       / Admin Courses Tab Start
       .admin-courses-tab
         %h3.title Oferty
@@ -79,23 +56,29 @@
                     %a.action{:href => "#"} Live
                     %a.action{:href => "#"} Free
                     %a.action{:href => "#"} Public
-                  %h3.title
-                    %a{:href => users_beneficiaries_offer_path(offer)}= offer.name || "Brak nazwy"
+                  %h4.title.mt-1
+                    %a{ href: users_beneficiaries_offer_path(offer) }
+                      = "Dostawca - #{offer.food_provider.name}"
+                      - if offer.name?
+                        %br
+                        = offer.name
                 .content-wrapper
                   .content-box
                     %p= t("activerecord.attributes.offer.available_from")
-                    %span.count= l(offer.available_from, format: :short)
+                    %span.count= l(offer.available_from, format: :short_date)
                   .content-box
-                    %p= t("activerecord.attributes.offer.available_to")
-                    %span.count
-                    -# %span.count= l(offer.available_to, format: :short)
+                    %p= t("activerecord.attributes.offer.initial_quantity")
+                    %span.count= "#{offer.remaining_quantity} / #{offer.initial_quantity}"
                   .content-box
                     %p= t("activerecord.attributes.offer.status")
                     %span.count
                       = offer.status || "Ok"
                       %span.rating-star
                         %span.rating-bar{:style => "width: 80%;"}
-                  .courses-select
+                  .content-box
+                    .tab-btn
+                      %a.btn.btn-primary.btn-hover-dark.rounded-3{ href: users_beneficiaries_offer_path(offer) } Oferta
+                  -# .courses-select
                     %select{:style => "display: none;"}
                       %option{"data-display" => "This Month"} This Month
                       %option{:value => "1"} This Year

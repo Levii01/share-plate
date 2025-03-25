@@ -313,6 +313,7 @@ pl:
       long: "%B %d, %Y %H:%M"
       short: "%d %b %H:%M"
       date: "%d-%m-%Y"
+      short_date: "%d %b"
       time: "%H:%M:%S"
     pm: po południu
   admin:
