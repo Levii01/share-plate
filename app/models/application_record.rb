@@ -5,4 +5,6 @@ class ApplicationRecord < ActiveRecord::Base
 
   include Hashid::Rails
   primary_abstract_class
+
+  after_create -> { update_column(:hashid, hashid) if self.class.column_names.include?('hashid') } # rubocop:disable Rails/SkipsModelValidations
 end
