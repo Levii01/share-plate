@@ -102,7 +102,8 @@
                   -# .courses-play
                     %a.play.video-popup{href: "https://www.youtube.com/watch?v=Wif4ZkwC0AM"}
                       %i.icofont-ui-play
-                %h1 Potwierdzenie rezerwacji:
+                %h1= "Potwierdzenie rezerwacji: #{@offer.name}"
+                %p= "Id: #{@reservation.hashid}"
                 .courses-details-admin
                   .admin-author
                     .author-thumb
@@ -402,6 +403,10 @@
                     %span.price Najważniejsze informacje
                   .info-list
                     %ul
+                      %li
+                        %i.icofont-numbered
+                        %strong Id rezerwacji
+                        %span= @reservation.hashid
                       %li
                         %i.icofont-man-in-glasses
                         %strong Lokal

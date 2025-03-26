@@ -100,7 +100,9 @@
                   -# .courses-play
                     %a.play.video-popup{href: "https://www.youtube.com/watch?v=Wif4ZkwC0AM"}
                       %i.icofont-ui-play
-                %h2.title= @offer.name
+                %h1= "Oferta: #{@offer.name}"
+                %p= "Id: #{@offer.hashid}"
+                -# %h3= 
                 .courses-details-admin
                   .admin-author
                     .author-thumb
@@ -139,6 +141,17 @@
                           .description-wrapper
                             %h3.tab-title 🛍️ Opis paczki:
                             %p= @offer.description
+
+                          .description-wrapper
+                            %h3.tab-title 📍 Adres odbioru
+                            %p To miejsce, gdzie możesz odebrać swoją paczkę żywnościową. Sprawdź dokładnie lokalizację i godziny otwarcia, aby uniknąć problemów. W razie wątpliwości skontaktuj się z lokalem! 😊
+                            %p 
+                              %strong= @food_provider.address
+                          .description-wrapper
+                            %h3.tab-title 🕒 Godziny otwarcia
+                            %p Sprawdź, w jakich godzinach lokal jest dostępny, aby odebrać rezerwację. Upewnij się, że przychodzisz w wyznaczonym czasie! ⏰😊
+                            %p 
+                              %strong= simple_format(@food_provider.opening_time).html_safe
 
                           .description-wrapper
                             %h3.tab-title 🥘 Zarezerwuj darmową paczkę żywnościową!
@@ -407,30 +420,34 @@
                 / Sidebar Widget Information Start
                 .sidebar-widget.widget-information
                   .info-price
-                    %span.price Dostępne!
+                    %span.price= @offer.status
                   .info-list
                     %ul
                       %li
+                        %i.icofont-numbered
+                        %strong Id oferty
+                        %span= @offer.hashid
+                      %li
                         %i.icofont-man-in-glasses
-                        %strong Instructor
+                        %strong Lokal
                         %span= @food_provider.name
                       %li
-                        %i.icofont-clock-time
-                        %strong Duration
-                        %span 08 hr 15 mins
+                        %i.icofont-chef
+                        %strong Działalność
+                        %span= t("activerecord.attributes.food_provider.provider_types.#{@food_provider.provider_type}")
                       %li
-                        %i.icofont-ui-video-play
-                        %strong Ilość paczek
-                        %span= @offer.initial_quantity
+                        %i.icofont-clock-time
+                        %strong Odbiór dnia
+                        %span= l(@offer.available_from, format: :date)
                       %li
                         %i.icofont-ui-video-play
                         %strong Dostępne paczki
-                        %span= @offer.remaining_quantity
-                      %li
+                        %span= "#{@offer.remaining_quantity} / #{@offer.initial_quantity}"
+                      -# %li
                         %i.icofont-bars
                         %strong Level
                         %span Secondary
-                      %li
+                      -# %li
                         %i.icofont-book-alt
                         %strong Language
                         %span English
