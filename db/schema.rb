@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2025_03_25_153900) do
+ActiveRecord::Schema[7.1].define(version: 2025_03_26_105534) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -98,6 +98,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_03_25_153900) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "deleted_at"
+    t.string "hashid"
     t.index ["beneficiary_id"], name: "index_reservations_on_beneficiary_id"
     t.index ["offer_id"], name: "index_reservations_on_offer_id"
   end
