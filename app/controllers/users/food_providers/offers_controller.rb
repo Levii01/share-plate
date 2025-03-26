@@ -9,8 +9,8 @@ module Users
       # TODO: redirect if not food provider
 
       def index
-        @q = current_user.food_provider.offers.available_from_today.ransack(params[:q])
-        @pagy, @offers = pagy(@q.result(distinct: true), limit: 10)
+        @q = current_user.food_provider.offers.ransack(params[:q])
+        @pagy, @offers = pagy(@q.result(distinct: true).order(available_from: :desc), limit: 10)
       end
 
       def show; end
@@ -24,7 +24,7 @@ module Users
       def create
         @offer = current_user.food_provider.offers.build(offer_create_params)
         if @offer.save
-          redirect_to users_food_providers_offers_path, notice: 'Offer was successfully created.'
+          redirect_to users_food_providers_offers_path(q: { active: 1 }), notice: 'Offer was successfully created.'
         else
           render :new
         end

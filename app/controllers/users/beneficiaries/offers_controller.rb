@@ -4,7 +4,7 @@ module Users
   module Beneficiaries
     class OffersController < ApplicationController
       def index
-        @q = Offer.available_from_today.ransack(params[:q])
+        @q = Offer.active.ransack(params[:q])
         @pagy, @offers = pagy(@q.result(distinct: true), limit: 10)
       end
 

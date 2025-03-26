@@ -1,7 +1,7 @@
 .sidebar-wrapper
   .menu-list
     - if current_user&.food_provider.present?
-      %a{ href: users_food_providers_offers_path, class: active_class(users_food_providers_offers_path) }
+      %a{ href: users_food_providers_offers_path(q: { active: 1 }), class: active_class(users_food_providers_offers_path) }
         %img{:alt => "Icon", :src => asset_path("menu-icon/icon-1.png")}/
       %a{ href: users_food_providers_reservations_path,
           class: active_class(users_food_providers_reservations_path, users_food_providers_reservation_path("x")) }

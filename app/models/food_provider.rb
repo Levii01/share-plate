@@ -25,4 +25,8 @@ class FoodProvider < ApplicationRecord
   def self.select_provider_type
     PROVIDER_TYPES.index_by { |k| I18n.t("activerecord.attributes.food_provider.provider_types.#{k}") }
   end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[name email]
+  end
 end

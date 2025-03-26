@@ -14,8 +14,8 @@ class Offer < ApplicationRecord
 
   before_update :recalculate_remaining_quantity, if: :initial_quantity_changed?
 
-  scope :available_today, -> { where(available_from: Time.zone.today.all_day) }
-  scope :available_from_today, -> { where(available_from: Time.zone.today.beginning_of_day) }
+  scope :active, -> { where(available_from: Time.current.beginning_of_day..) }
+  scope :expired, -> { where(available_from: ...Time.current.beginning_of_day) }
 
   def recalculate_remaining_quantity
     self.remaining_quantity = initial_quantity - reservation_conut
@@ -31,5 +31,24 @@ class Offer < ApplicationRecord
 
   def main_image_rectangle
     main_image.variant(resize_to_fill: [516.0, 268.0]).processed
+  end
+
+  def self.ransackable_attributes(_auth_object = nil)
+    %w[id hashid name available_from created_at]
+  end
+
+  def self.ransackable_associations(_auth_object = nil)
+    %w[food_provider reservations]
+  end
+
+  def self.ransackable_scopes(_auth_object = nil)
+    %i[active expired available]
+  end
+
+  def status
+    return 'Rozdane' if remaining_quantity.zero?
+    return 'Dostępne' if available_from.today?
+
+    'Zakończone'
   end
 end
