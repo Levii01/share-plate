@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'contact/new'
+  get 'contact/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :user,
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   resources :home, only: %i[index]
+  resources :contacts, only: %i[new create]
   namespace :users do
     namespace :beneficiaries do
       resources :offers, only: %i[index show]

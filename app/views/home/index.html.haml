@@ -1,678 +1,677 @@
-%body
-  .main-wrapper
-    / Header Section Start
-    .header.section
-      / Header Main Start
-      .header-main
-        .container
-          / Header Wrapper Start
-          .header-wrapper
-            / Header Logo Start
-            .header-logo
-              %a{:href => root_path}
-                %img{:alt => "Logo", :src => asset_path("logo.png")}/
-            / Header Logo End
-            / Header Menu Start
-            .header-menu.d-none.d-lg-flex
-              %ul.nav-menu
-                %li
-                  %a.active{:href => home_index_path} Strona główna
-                %li
-                  %a{:href => "#"} O nas
-                -# %li
-                  %a{:href => "#"} All Course
-                  %ul.sub-menu
-                    %li
-                      %a{:href => "courses.html"} Courses
-                    %li
-                      %a{:href => "my-courses.html"} My Courses
-                    %li
-                      %a{:href => "#"} Courses Details
-                      %ul.sub-menu
-                        %li
-                          %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
-                        %li
-                          %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
-                -# %li
-                  %a{:href => "#"} Pages
-                  %ul.sub-menu
-                    %li
-                      %a{:href => "after-enroll.html"} After Enroll
-                    %li
-                      %a{:href => "courses-admin.html"} Instructor Dashboard (Course List)
-                    %li
-                      %a{:href => "overview.html"} Instructor Dashboard (Performance)
-                    %li
-                      %a{:href => "students.html"} Students
-                    %li
-                      %a{:href => "reviews.html"} Reviews
-                    %li
-                      %a{:href => "engagement.html"} Course engagement
-                    %li
-                      %a{:href => "traffic-conversion.html"} Traffic & conversion
-                    %li
-                      %a{:href => "messages.html"} Messages
-                    %li
-                      %a{:href => "register.html"} Register
-                    %li
-                      %a{:href => "login.html"} Login
-                    %li
-                      %a{:href => "faq.html"} FAQ
-                    %li
-                      %a{:href => "404-error.html"} 404 Error
-                -# %li
-                  %a{:href => "#"} Blog
-                  %ul.sub-menu
-                    %li
-                      %a{:href => "#"} Blog
-                      %ul.sub-menu
-                        %li
-                          %a{:href => "blog-grid.html"} Blog Grid
-                        %li
-                          %a{:href => "blog-left-sidebar.html"} Blog Left Sidebar
-                        %li
-                          %a{:href => "blog-right-sidebar.html"} Blog Right Sidebar
-                    %li
-                      %a{:href => "#"} Blog Details
-                      %ul.sub-menu
-                        %li
-                          %a{:href => "blog-details-left-sidebar.html"} Blog Details Left Sidebar
-                        %li
-                          %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
-                %li
-                  %a{:href => "#"} Kontakt
-              .header-btn
-                %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
-                %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
-            / Header Menu End
-            / Header Toggle Start
-            .header-toggle.d-lg-none
-              %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
-              %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
-
-
-            / Header Toggle End
-          / Header Wrapper End
-      / Header Main End
-    / Header Section End
-    / Mobile Menu Start
-    .mobile-menu
-      / Menu Close Start
-      %a.menu-close{:href => "javascript:void(0)"}
-        %i.icofont-close-line
-      / Menu Close End
-      / Mobile Menu Start
-      .mobile-menu-items
-        %ul.nav-menu
-          %li
-            %a.active{:href => root_path} Strona główna
-          %li
-            %a{:href => "about.html"} About Us
-          %li
-            %a{:href => "#"} All Course
-            %ul.sub-menu
+.main-wrapper
+  / Header Section Start
+  .header.section
+    / Header Main Start
+    .header-main
+      .container
+        / Header Wrapper Start
+        .header-wrapper
+          / Header Logo Start
+          .header-logo
+            %a{:href => root_path}
+              %img{:alt => "Logo", :src => asset_path("logo.png")}/
+          / Header Logo End
+          / Header Menu Start
+          .header-menu.d-none.d-lg-flex
+            %ul.nav-menu
               %li
-                %a{:href => "courses.html"} Courses
+                %a.active{:href => home_index_path} Strona główna
               %li
-                %a{:href => "my-courses.html"} My Courses
-              %li
-                %a{:href => "#"} Courses Details
+                %a{:href => "#"} O nas
+              -# %li
+                %a{:href => "#"} All Course
                 %ul.sub-menu
                   %li
-                    %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
+                    %a{:href => "courses.html"} Courses
                   %li
-                    %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
-          %li
-            %a{:href => "#"} Pages
-            %ul.sub-menu
-              %li
-                %a{:href => "after-enroll.html"} After Enroll
-              %li
-                %a{:href => "courses-admin.html"} Instructor Dashboard (Course List)
-              %li
-                %a{:href => "overview.html"} Instructor Dashboard (Performance)
-              %li
-                %a{:href => "students.html"} Students
-              %li
-                %a{:href => "reviews.html"} Reviews
-              %li
-                %a{:href => "engagement.html"} Course engagement
-              %li
-                %a{:href => "traffic-conversion.html"} Traffic & conversion
-              %li
-                %a{:href => "messages.html"} Messages
-              %li
-                %a{:href => "register.html"} Register
-              %li
-                %a{:href => "login.html"} Login
-              %li
-                %a{:href => "faq.html"} FAQ
-              %li
-                %a{:href => "404-error.html"} 404 Error
-          %li
-            %a{:href => "#"} Blog
-            %ul.sub-menu
-              %li
+                    %a{:href => "my-courses.html"} My Courses
+                  %li
+                    %a{:href => "#"} Courses Details
+                    %ul.sub-menu
+                      %li
+                        %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
+                      %li
+                        %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
+              -# %li
+                %a{:href => "#"} Pages
+                %ul.sub-menu
+                  %li
+                    %a{:href => "after-enroll.html"} After Enroll
+                  %li
+                    %a{:href => "courses-admin.html"} Instructor Dashboard (Course List)
+                  %li
+                    %a{:href => "overview.html"} Instructor Dashboard (Performance)
+                  %li
+                    %a{:href => "students.html"} Students
+                  %li
+                    %a{:href => "reviews.html"} Reviews
+                  %li
+                    %a{:href => "engagement.html"} Course engagement
+                  %li
+                    %a{:href => "traffic-conversion.html"} Traffic & conversion
+                  %li
+                    %a{:href => "messages.html"} Messages
+                  %li
+                    %a{:href => "register.html"} Register
+                  %li
+                    %a{:href => "login.html"} Login
+                  %li
+                    %a{:href => "faq.html"} FAQ
+                  %li
+                    %a{:href => "404-error.html"} 404 Error
+              -# %li
                 %a{:href => "#"} Blog
                 %ul.sub-menu
                   %li
-                    %a{:href => "blog-grid.html"} Blog Grid
+                    %a{:href => "#"} Blog
+                    %ul.sub-menu
+                      %li
+                        %a{:href => "blog-grid.html"} Blog Grid
+                      %li
+                        %a{:href => "blog-left-sidebar.html"} Blog Left Sidebar
+                      %li
+                        %a{:href => "blog-right-sidebar.html"} Blog Right Sidebar
                   %li
-                    %a{:href => "blog-left-sidebar.html"} Blog Left Sidebar
-                  %li
-                    %a{:href => "blog-right-sidebar.html"} Blog Right Sidebar
+                    %a{:href => "#"} Blog Details
+                    %ul.sub-menu
+                      %li
+                        %a{:href => "blog-details-left-sidebar.html"} Blog Details Left Sidebar
+                      %li
+                        %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
               %li
-                %a{:href => "#"} Blog Details
-                %ul.sub-menu
-                  %li
-                    %a{:href => "blog-details-left-sidebar.html"} Blog Details Left Sidebar
-                  %li
-                    %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
-          %li
-            %a{:href => "contact.html"} Contact
-      / Mobile Menu End
-    / Mobile Menu End
-    / Overlay Start
-    .overlay
-    / Overlay End
-    / Slider Section Start
-    .slider-section.slider-active.section
-      .swiper-container
-        .swiper-wrapper
-          / Single Slider Start
-          .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-1.jpg')});"}
-            .container
-              / Slider Content Start
-              .slider-content
-                %h6.sub-title Fitness & Nutrition
-                %h1.main-title This life style for your fitness, not only diet.
-                %p It has survived not only five centuries but also
-                %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
-              / Slider Content End
-            / Slider Social Start
-            .slider-social
-              .container
-                .social-wrapper
-                  %p Dołącz do nas:
-                  %ul.social
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-facebook
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-skype
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-twitter
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-linkedin
-            / Slider Social End
-          / Single Slider End
-          / Single Slider Start
-          .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-2.jpg')});"}
-            .container
-              / Slider Content Start
-              .slider-content
-                %h6.sub-title Fitness & Nutrition
-                %h1.main-title This life style for your fitness, not only diet.
-                %p It has survived not only five centuries but also
-                %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
-              / Slider Content End
-            / Slider Social Start
-            .slider-social
-              .container
-                .social-wrapper
-                  %p Connect with us:
-                  %ul.social
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-facebook
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-skype
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-twitter
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-linkedin
-            / Slider Social End
-          / Single Slider End
-          / Single Slider Start
-          .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-3.jpg')});"}
-            .container
-              / Slider Content Start
-              .slider-content
-                %h6.sub-title Fitness & Nutrition
-                %h1.main-title This life style for your fitness, not only diet.
-                %p It has survived not only five centuries but also
-                %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
-              / Slider Content End
-            / Slider Social Start
-            .slider-social
-              .container
-                .social-wrapper
-                  %p Connect with us:
-                  %ul.social
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-facebook
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-skype
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-twitter
-                    %li
-                      %a{:href => "#"}
-                        %i.icofont-linkedin
-            / Slider Social End
-          / Single Slider End
-    / Slider Section End
-    / Features Section Start
-    .section.section-padding
-      .container
-        .features-wrapper
-          .row
-            .col-lg-4.col-md-6
-              / Single Feature Start
-              .single-feature
-                .feature-icon
-                  %span
-                    %i.flaticon-lunges
-                .feature-content
-                  .content-wrapper
-                    %h4.title
-                      %a{:href => "#"} Ratuj Jedzenie, Ratuj Planetę
-                    %p Każdego dnia marnuje się ogromna ilość żywności, która mogłaby trafić do osób potrzebujących. Dzięki naszej aplikacji masz możliwość aktywnego udziału w ratowaniu jedzenia i dbaniu o środowisko. Dołącz do naszej misji, pomagaj w zmniejszaniu odpadów i twórz lepszą przyszłość dla nas wszystkich!
-                  %a.arrow{:href => "#"}
-                    %i.icofont-long-arrow-right
-              / Single Feature End
-            .col-lg-4.col-md-6
-              / Single Feature Start
-              .single-feature.active
-                .feature-icon
-                  %span
-                    %i.flaticon-lotus
-                .feature-content
-                  .content-wrapper
-                    %h4.title
-                      %a{:href => "#"} Nie Marnuj Żywności
-                    %p Wspólnie Zmieniamy Świat na Lepsze! Marnowanie jedzenia to problem globalny, który dotyka każdego z nas. Jako społeczność możemy to zmienić. Z naszą pomocą możesz przekazywać nadwyżki jedzenia tam, gdzie jest najbardziej potrzebne. Zrób krok ku lepszemu światu, w którym jedzenie nie trafia na wysypisko, lecz do tych, którzy go potrzebują!
-                  %a.arrow{:href => "#"}
-                    %i.icofont-long-arrow-right
-              / Single Feature End
-            .col-lg-4.col-md-6
-              / Single Feature Start
-              .single-feature
-                .feature-icon
-                  %span
-                    %i.flaticon-computer
-                .feature-content
-                  .content-wrapper
-                    %h4.title
-                      %a{:href => "#"} Pomagaj
-                    %p Wspieraj Potrzebujących Każdego Dnia! Każdego dnia masz szansę zmieniać życie innych. Nasza platforma umożliwia szybkie i łatwe przekazywanie żywności, która nie trafi do kosza, a zamiast tego pomoże osobom w trudnej sytuacji. Dołącz do naszej społeczności i stań się częścią pozytywnej zmiany, wspierając tych, którzy najbardziej tego potrzebują.
-                  %a.arrow{:href => "#"}
-                    %i.icofont-long-arrow-right
-              / Single Feature End
-    / Features Section End
-    / About Section Start
-    .section.section-padding.bg-grey.overflow-hidden
-      .container
-        / About Wrapper Start
-        .about-wrapper
-          .row.align-items-center.gx-xxl-5
-            .col-lg-5
-              / About Images Start
-              .about-images
-                %img.shape{:alt => "shape", :src => asset_path("shape/shape-2.png")}/
-                .images
-                  %img{:alt => "About", :src => asset_path("about.jpg")}/
-                .about-btn
-                  %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Poznaj ekspertów
-              / About Images End
-            .col-lg-7
-              / About Content Start
-              .about-content.bg-white
-                %img.shape{:alt => "shape", :src => asset_path("shape/shape-1.png")}/
-                .content-wrapper
-                  %h6.sub-title 25+ lat doświadczenia
-                  %h2.main-title Nasi eksperci pomogą Ci w ratowaniu jedzenia.
-                  %p Dzięki naszemu wieloletniemu doświadczeniu, doskonale wiemy, jak skutecznie ratować żywność i zmieniać świat na lepsze. Nasza platforma opiera się na wiedzy ekspertów i pasjonatów, którzy angażują się w walkę z marnowaniem jedzenia.
-                  %span.count 100+ Udanych współpracy
-                  %p Nasze doświadczenie w pracy z różnymi organizacjami i społecznościami pozwala nam skutecznie działać na rzecz ratowania jedzenia. Współpracujemy z wieloma partnerami, aby dotrzeć tam, gdzie pomoc jest najbardziej potrzebna, i zmieniać życie osób w trudnej sytuacji.
+                %a{ href: new_contact_path } Kontakt
+            .header-btn
+              %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
+              %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
+          / Header Menu End
+          / Header Toggle Start
+          .header-toggle.d-lg-none
+            %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
+            %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
 
-              / About Content End
-        / About Wrapper End
-    / About Section End
-    / Courses Section Start
-    .section.section-padding
-      .container
+
+          / Header Toggle End
+        / Header Wrapper End
+    / Header Main End
+  / Header Section End
+  / Mobile Menu Start
+  .mobile-menu
+    / Menu Close Start
+    %a.menu-close{:href => "javascript:void(0)"}
+      %i.icofont-close-line
+    / Menu Close End
+    / Mobile Menu Start
+    .mobile-menu-items
+      %ul.nav-menu
+        %li
+          %a.active{:href => root_path} Strona główna
+        %li
+          %a{:href => "about.html"} About Us
+        %li
+          %a{:href => "#"} All Course
+          %ul.sub-menu
+            %li
+              %a{:href => "courses.html"} Courses
+            %li
+              %a{:href => "my-courses.html"} My Courses
+            %li
+              %a{:href => "#"} Courses Details
+              %ul.sub-menu
+                %li
+                  %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
+                %li
+                  %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
+        %li
+          %a{:href => "#"} Pages
+          %ul.sub-menu
+            %li
+              %a{:href => "after-enroll.html"} After Enroll
+            %li
+              %a{:href => "courses-admin.html"} Instructor Dashboard (Course List)
+            %li
+              %a{:href => "overview.html"} Instructor Dashboard (Performance)
+            %li
+              %a{:href => "students.html"} Students
+            %li
+              %a{:href => "reviews.html"} Reviews
+            %li
+              %a{:href => "engagement.html"} Course engagement
+            %li
+              %a{:href => "traffic-conversion.html"} Traffic & conversion
+            %li
+              %a{:href => "messages.html"} Messages
+            %li
+              %a{:href => "register.html"} Register
+            %li
+              %a{:href => "login.html"} Login
+            %li
+              %a{:href => "faq.html"} FAQ
+            %li
+              %a{:href => "404-error.html"} 404 Error
+        %li
+          %a{:href => "#"} Blog
+          %ul.sub-menu
+            %li
+              %a{:href => "#"} Blog
+              %ul.sub-menu
+                %li
+                  %a{:href => "blog-grid.html"} Blog Grid
+                %li
+                  %a{:href => "blog-left-sidebar.html"} Blog Left Sidebar
+                %li
+                  %a{:href => "blog-right-sidebar.html"} Blog Right Sidebar
+            %li
+              %a{:href => "#"} Blog Details
+              %ul.sub-menu
+                %li
+                  %a{:href => "blog-details-left-sidebar.html"} Blog Details Left Sidebar
+                %li
+                  %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
+        %li
+          %a{:href => "contact.html"} Contact
+    / Mobile Menu End
+  / Mobile Menu End
+  / Overlay Start
+  .overlay
+  / Overlay End
+  / Slider Section Start
+  .slider-section.slider-active.section
+    .swiper-container
+      .swiper-wrapper
+        / Single Slider Start
+        .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-1.jpg')});"}
+          .container
+            / Slider Content Start
+            .slider-content
+              %h6.sub-title Fitness & Nutrition
+              %h1.main-title This life style for your fitness, not only diet.
+              %p It has survived not only five centuries but also
+              %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
+            / Slider Content End
+          / Slider Social Start
+          .slider-social
+            .container
+              .social-wrapper
+                %p Dołącz do nas:
+                %ul.social
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-facebook
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-skype
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-twitter
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-linkedin
+          / Slider Social End
+        / Single Slider End
+        / Single Slider Start
+        .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-2.jpg')});"}
+          .container
+            / Slider Content Start
+            .slider-content
+              %h6.sub-title Fitness & Nutrition
+              %h1.main-title This life style for your fitness, not only diet.
+              %p It has survived not only five centuries but also
+              %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
+            / Slider Content End
+          / Slider Social Start
+          .slider-social
+            .container
+              .social-wrapper
+                %p Connect with us:
+                %ul.social
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-facebook
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-skype
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-twitter
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-linkedin
+          / Slider Social End
+        / Single Slider End
+        / Single Slider Start
+        .swiper-slide.animation-style-01.single-slider.d-flex.align-items-center{:style => "background-image: url(#{asset_path('slider/slider-3.jpg')});"}
+          .container
+            / Slider Content Start
+            .slider-content
+              %h6.sub-title Fitness & Nutrition
+              %h1.main-title This life style for your fitness, not only diet.
+              %p It has survived not only five centuries but also
+              %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Start Course
+            / Slider Content End
+          / Slider Social Start
+          .slider-social
+            .container
+              .social-wrapper
+                %p Connect with us:
+                %ul.social
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-facebook
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-skype
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-twitter
+                  %li
+                    %a{:href => "#"}
+                      %i.icofont-linkedin
+          / Slider Social End
+        / Single Slider End
+  / Slider Section End
+  / Features Section Start
+  .section.section-padding
+    .container
+      .features-wrapper
+        .row
+          .col-lg-4.col-md-6
+            / Single Feature Start
+            .single-feature
+              .feature-icon
+                %span
+                  %i.flaticon-lunges
+              .feature-content
+                .content-wrapper
+                  %h4.title
+                    %a{:href => "#"} Ratuj Jedzenie, Ratuj Planetę
+                  %p Każdego dnia marnuje się ogromna ilość żywności, która mogłaby trafić do osób potrzebujących. Dzięki naszej aplikacji masz możliwość aktywnego udziału w ratowaniu jedzenia i dbaniu o środowisko. Dołącz do naszej misji, pomagaj w zmniejszaniu odpadów i twórz lepszą przyszłość dla nas wszystkich!
+                %a.arrow{:href => "#"}
+                  %i.icofont-long-arrow-right
+            / Single Feature End
+          .col-lg-4.col-md-6
+            / Single Feature Start
+            .single-feature.active
+              .feature-icon
+                %span
+                  %i.flaticon-lotus
+              .feature-content
+                .content-wrapper
+                  %h4.title
+                    %a{:href => "#"} Nie Marnuj Żywności
+                  %p Wspólnie Zmieniamy Świat na Lepsze! Marnowanie jedzenia to problem globalny, który dotyka każdego z nas. Jako społeczność możemy to zmienić. Z naszą pomocą możesz przekazywać nadwyżki jedzenia tam, gdzie jest najbardziej potrzebne. Zrób krok ku lepszemu światu, w którym jedzenie nie trafia na wysypisko, lecz do tych, którzy go potrzebują!
+                %a.arrow{:href => "#"}
+                  %i.icofont-long-arrow-right
+            / Single Feature End
+          .col-lg-4.col-md-6
+            / Single Feature Start
+            .single-feature
+              .feature-icon
+                %span
+                  %i.flaticon-computer
+              .feature-content
+                .content-wrapper
+                  %h4.title
+                    %a{:href => "#"} Pomagaj
+                  %p Wspieraj Potrzebujących Każdego Dnia! Każdego dnia masz szansę zmieniać życie innych. Nasza platforma umożliwia szybkie i łatwe przekazywanie żywności, która nie trafi do kosza, a zamiast tego pomoże osobom w trudnej sytuacji. Dołącz do naszej społeczności i stań się częścią pozytywnej zmiany, wspierając tych, którzy najbardziej tego potrzebują.
+                %a.arrow{:href => "#"}
+                  %i.icofont-long-arrow-right
+            / Single Feature End
+  / Features Section End
+  / About Section Start
+  .section.section-padding.bg-grey.overflow-hidden
+    .container
+      / About Wrapper Start
+      .about-wrapper
+        .row.align-items-center.gx-xxl-5
+          .col-lg-5
+            / About Images Start
+            .about-images
+              %img.shape{:alt => "shape", :src => asset_path("shape/shape-2.png")}/
+              .images
+                %img{:alt => "About", :src => asset_path("about.jpg")}/
+              .about-btn
+                %a.btn.btn-primary.btn-hover-secondary{:href => "#"} Poznaj ekspertów
+            / About Images End
+          .col-lg-7
+            / About Content Start
+            .about-content.bg-white
+              %img.shape{:alt => "shape", :src => asset_path("shape/shape-1.png")}/
+              .content-wrapper
+                %h6.sub-title 25+ lat doświadczenia
+                %h2.main-title Nasi eksperci pomogą Ci w ratowaniu jedzenia.
+                %p Dzięki naszemu wieloletniemu doświadczeniu, doskonale wiemy, jak skutecznie ratować żywność i zmieniać świat na lepsze. Nasza platforma opiera się na wiedzy ekspertów i pasjonatów, którzy angażują się w walkę z marnowaniem jedzenia.
+                %span.count 100+ Udanych współpracy
+                %p Nasze doświadczenie w pracy z różnymi organizacjami i społecznościami pozwala nam skutecznie działać na rzecz ratowania jedzenia. Współpracujemy z wieloma partnerami, aby dotrzeć tam, gdzie pomoc jest najbardziej potrzebna, i zmieniać życie osób w trudnej sytuacji.
+
+            / About Content End
+      / About Wrapper End
+  / About Section End
+  / Courses Section Start
+  .section.section-padding
+    .container
+      / Section Title Start
+      .section-title
+        %h6.sub-title 100+ courses available
+        %h2.main-title Fitness & Nutrition Courses
+      / Section Title End
+      / Courses Wrapper Start
+      .courses-wrapper
+        .row.gx-xxl-5
+          .col-lg-4.col-sm-6
+            / Single Courses Start
+            .single-courses
+              .courses-images
+                %a{:href => "courses-details-left-sidebar.html"}
+                  %img{:alt => "courses", :src => asset_path("courses/courses-1.jpg")}/
+              .courses-content
+                .courses-price
+                  %span.price $98
+                .content-wrapper
+                  %p.author
+                    By:
+                    %a{:href => "#"} Ryan Patterson
+                  %h4.title
+                    %a{:href => "courses-details-left-sidebar.html"} Children Nutrition and Cooking
+                  %ul.meta
+                    %li 08 hr 20 mins
+                    %li 28 Lectures
+            / Single Courses End
+          .col-lg-4.col-sm-6
+            / Single Courses Start
+            .single-courses
+              .courses-images
+                %a{:href => "courses-details-left-sidebar.html"}
+                  %img{:alt => "courses", :src => asset_path("courses/courses-2.jpg")}/
+              .courses-content
+                .courses-price
+                  %span.price $72
+                .content-wrapper
+                  %p.author
+                    By:
+                    %a{:href => "courses-details-left-sidebar.html"} Arlene Daniels
+                  %h4.title
+                    %a{:href => "#"} Introduction to Food and Health.
+                  %ul.meta
+                    %li 09 hr 25 mins
+                    %li 16 Lectures
+            / Single Courses End
+          .col-lg-4.col-sm-6
+            / Single Courses Start
+            .single-courses
+              .courses-images
+                %a{:href => "courses-details-left-sidebar.html"}
+                  %img{:alt => "courses", :src => asset_path("courses/courses-3.jpg")}/
+              .courses-content
+                .courses-price
+                  %span.price $68
+                .content-wrapper
+                  %p.author
+                    By:
+                    %a{:href => "#"} Selina Benton
+                  %h4.title
+                    %a{:href => "courses-details-left-sidebar.html"} Nutrition and Lifestyle in Pregnancy
+                  %ul.meta
+                    %li 03 hr 38 mins
+                    %li 18 Lectures
+            / Single Courses End
+          .col-lg-4.col-sm-6
+            / Single Courses Start
+            .single-courses
+              .courses-images
+                %a{:href => "courses-details-left-sidebar.html"}
+                  %img{:alt => "courses", :src => asset_path("courses/courses-4.jpg")}/
+              .courses-content
+                .courses-price
+                  %span.price $98
+                .content-wrapper
+                  %p.author
+                    By:
+                    %a{:href => "#"} Ryan Patterson
+                  %h4.title
+                    %a{:href => "courses-details-left-sidebar.html"}
+                      Expertise on Fitness, Nutrition and Health
+                  %ul.meta
+                    %li 02 hr 16 mins
+                    %li 14 Lectures
+            / Single Courses End
+          .col-lg-4.col-sm-6
+            / Single Courses Start
+            .single-courses
+              .courses-images
+                %a{:href => "courses-details-left-sidebar.html"}
+                  %img{:alt => "courses", :src => asset_path("courses/courses-5.jpg")}/
+              .courses-content
+                .courses-price
+                  %span.price $72
+                .content-wrapper
+                  %p.author
+                    By:
+                    %a{:href => "#"} Arlene Daniels
+                  %h4.title
+                    %a{:href => "courses-details-left-sidebar.html"} Hacking exercise for health new science of fitness
+                  %ul.meta
+                    %li 06 hr 12 mins
+                    %li 35 Lectures
+            / Single Courses End
+          .col-lg-4.col-sm-6
+            / Single Courses Start
+            .single-courses
+              .courses-images
+                %a{:href => "courses-details-left-sidebar.html"}
+                  %img{:alt => "courses", :src => asset_path("courses/courses-6.jpg")}/
+              .courses-content
+                .courses-price
+                  %span.price $68
+                .content-wrapper
+                  %p.author
+                    By:
+                    %a{:href => "#"} Selina Benton
+                  %h4.title
+                    %a{:href => "courses-details-left-sidebar.html"} Designing Your Personal Weight Loss Plan
+                  %ul.meta
+                    %li 09 hr 34 mins
+                    %li 28 Lectures
+            / Single Courses End
+      / Courses Wrapper End
+  / Courses Section End
+  / Testimonial Section Start
+  .section.section-padding.testimonial-section.testimonial-active
+    %img.shape-01.animation-down{:alt => "Shape", :src => asset_path("shape/shape-5.png")}/
+    %img.shape-02.animation-up{:alt => "Shape", :src => asset_path("shape/shape-6.png")}/
+    .container
+      / Section Title Start
+      .section-title.section-title-white
+        %h6.sub-title zadowoleni studenci
+        %h2.main-title Co nasi użytkownicy mówią o nas
+      / Section Title End
+      / Testimonial Wrapper End
+      .testimonial-wrapper
+        .swiper-container
+          .swiper-wrapper
+            / Single Testimonial Start
+            .single-testimonial.swiper-slide
+              .testimonial-author
+                %img{:alt => "Author", :src => asset_path("author/author-01.jpg")}/
+                %i.flaticon-left-quote
+              %p Ta aplikacja zmieniła moje życie! Dzięki niej codziennie otrzymuję jedzenie, które w przeciwnym razie poszłoby na zmarnowanie. Dziękuję!
+              %h4.name Pollock Austin
+              %span.designation Student Politechniki Warsawskiej
+            / Single Testimonial End
+            / Single Testimonial Start
+            .single-testimonial.swiper-slide
+              .testimonial-author
+                %img{:alt => "Author", :src => asset_path("author/author-02.jpg")}/
+                %i.flaticon-left-quote
+              %p Lorem Ipsum is simply dummy text of the printing typesetting industry has been the industry's standard dummy text ever ince the 1500s when unknown printer took a galley of type and scrambled it to
+              %h4.name Pollock Austin
+              %span.designation UI/UX DESIGNER
+            / Single Testimonial End
+            / Single Testimonial Start
+            .single-testimonial.swiper-slide
+              .testimonial-author
+                %img{:alt => "Author", :src => asset_path("author/author-03.jpg")}/
+                %i.flaticon-left-quote
+              %p Lorem Ipsum is simply dummy text of the printing typesetting industry has been the industry's standard dummy text ever ince the 1500s when unknown printer took a galley of type and scrambled it to
+              %h4.name Pollock Austin
+              %span.designation UI/UX DESIGNER
+            / Single Testimonial End
+      / Testimonial Wrapper End
+    .arrow
+      .swiper-button-next
+        %i.fa.fa-long-arrow-right
+      .swiper-button-prev
+        %i.fa.fa-long-arrow-left
+  / Testimonial Section End
+  / Brand Section Start
+  .section.section-padding-02.overflow-hidden
+    .container
+      / Brand Wrapper Start
+      .brand-wrapper
+        %img.shape{:alt => "Shape", :src => asset_path("shape/shape-12.png")}/
         / Section Title Start
-        .section-title
-          %h6.sub-title 100+ courses available
-          %h2.main-title Fitness & Nutrition Courses
+        .section-title.shape-none
+          %h6.sub-title Zaufało nam już wielu potrzebujących i lokali gastronomicznych
+          %h2.main-title Ponad 8 000+ osób jest już z nami.
+          %p Nasza aplikacja pomaga w ratowaniu żywności i walce z marnowaniem jedzenia.
         / Section Title End
-        / Courses Wrapper Start
-        .courses-wrapper
-          .row.gx-xxl-5
-            .col-lg-4.col-sm-6
-              / Single Courses Start
-              .single-courses
-                .courses-images
-                  %a{:href => "courses-details-left-sidebar.html"}
-                    %img{:alt => "courses", :src => asset_path("courses/courses-1.jpg")}/
-                .courses-content
-                  .courses-price
-                    %span.price $98
-                  .content-wrapper
-                    %p.author
-                      By:
-                      %a{:href => "#"} Ryan Patterson
-                    %h4.title
-                      %a{:href => "courses-details-left-sidebar.html"} Children Nutrition and Cooking
-                    %ul.meta
-                      %li 08 hr 20 mins
-                      %li 28 Lectures
-              / Single Courses End
-            .col-lg-4.col-sm-6
-              / Single Courses Start
-              .single-courses
-                .courses-images
-                  %a{:href => "courses-details-left-sidebar.html"}
-                    %img{:alt => "courses", :src => asset_path("courses/courses-2.jpg")}/
-                .courses-content
-                  .courses-price
-                    %span.price $72
-                  .content-wrapper
-                    %p.author
-                      By:
-                      %a{:href => "courses-details-left-sidebar.html"} Arlene Daniels
-                    %h4.title
-                      %a{:href => "#"} Introduction to Food and Health.
-                    %ul.meta
-                      %li 09 hr 25 mins
-                      %li 16 Lectures
-              / Single Courses End
-            .col-lg-4.col-sm-6
-              / Single Courses Start
-              .single-courses
-                .courses-images
-                  %a{:href => "courses-details-left-sidebar.html"}
-                    %img{:alt => "courses", :src => asset_path("courses/courses-3.jpg")}/
-                .courses-content
-                  .courses-price
-                    %span.price $68
-                  .content-wrapper
-                    %p.author
-                      By:
-                      %a{:href => "#"} Selina Benton
-                    %h4.title
-                      %a{:href => "courses-details-left-sidebar.html"} Nutrition and Lifestyle in Pregnancy
-                    %ul.meta
-                      %li 03 hr 38 mins
-                      %li 18 Lectures
-              / Single Courses End
-            .col-lg-4.col-sm-6
-              / Single Courses Start
-              .single-courses
-                .courses-images
-                  %a{:href => "courses-details-left-sidebar.html"}
-                    %img{:alt => "courses", :src => asset_path("courses/courses-4.jpg")}/
-                .courses-content
-                  .courses-price
-                    %span.price $98
-                  .content-wrapper
-                    %p.author
-                      By:
-                      %a{:href => "#"} Ryan Patterson
-                    %h4.title
-                      %a{:href => "courses-details-left-sidebar.html"}
-                        Expertise on Fitness, Nutrition and Health
-                    %ul.meta
-                      %li 02 hr 16 mins
-                      %li 14 Lectures
-              / Single Courses End
-            .col-lg-4.col-sm-6
-              / Single Courses Start
-              .single-courses
-                .courses-images
-                  %a{:href => "courses-details-left-sidebar.html"}
-                    %img{:alt => "courses", :src => asset_path("courses/courses-5.jpg")}/
-                .courses-content
-                  .courses-price
-                    %span.price $72
-                  .content-wrapper
-                    %p.author
-                      By:
-                      %a{:href => "#"} Arlene Daniels
-                    %h4.title
-                      %a{:href => "courses-details-left-sidebar.html"} Hacking exercise for health new science of fitness
-                    %ul.meta
-                      %li 06 hr 12 mins
-                      %li 35 Lectures
-              / Single Courses End
-            .col-lg-4.col-sm-6
-              / Single Courses Start
-              .single-courses
-                .courses-images
-                  %a{:href => "courses-details-left-sidebar.html"}
-                    %img{:alt => "courses", :src => asset_path("courses/courses-6.jpg")}/
-                .courses-content
-                  .courses-price
-                    %span.price $68
-                  .content-wrapper
-                    %p.author
-                      By:
-                      %a{:href => "#"} Selina Benton
-                    %h4.title
-                      %a{:href => "courses-details-left-sidebar.html"} Designing Your Personal Weight Loss Plan
-                    %ul.meta
-                      %li 09 hr 34 mins
-                      %li 28 Lectures
-              / Single Courses End
-        / Courses Wrapper End
-    / Courses Section End
-    / Testimonial Section Start
-    .section.section-padding.testimonial-section.testimonial-active
-      %img.shape-01.animation-down{:alt => "Shape", :src => asset_path("shape/shape-5.png")}/
-      %img.shape-02.animation-up{:alt => "Shape", :src => asset_path("shape/shape-6.png")}/
-      .container
-        / Section Title Start
-        .section-title.section-title-white
-          %h6.sub-title zadowoleni studenci
-          %h2.main-title Co nasi użytkownicy mówią o nas
-        / Section Title End
-        / Testimonial Wrapper End
-        .testimonial-wrapper
+        / Brand Logo Wrapper Start
+        .brand-logo-wrapper.brand-active
           .swiper-container
             .swiper-wrapper
-              / Single Testimonial Start
-              .single-testimonial.swiper-slide
-                .testimonial-author
-                  %img{:alt => "Author", :src => asset_path("author/author-01.jpg")}/
-                  %i.flaticon-left-quote
-                %p Ta aplikacja zmieniła moje życie! Dzięki niej codziennie otrzymuję jedzenie, które w przeciwnym razie poszłoby na zmarnowanie. Dziękuję!
-                %h4.name Pollock Austin
-                %span.designation Student Politechniki Warsawskiej
-              / Single Testimonial End
-              / Single Testimonial Start
-              .single-testimonial.swiper-slide
-                .testimonial-author
-                  %img{:alt => "Author", :src => asset_path("author/author-02.jpg")}/
-                  %i.flaticon-left-quote
-                %p Lorem Ipsum is simply dummy text of the printing typesetting industry has been the industry's standard dummy text ever ince the 1500s when unknown printer took a galley of type and scrambled it to
-                %h4.name Pollock Austin
-                %span.designation UI/UX DESIGNER
-              / Single Testimonial End
-              / Single Testimonial Start
-              .single-testimonial.swiper-slide
-                .testimonial-author
-                  %img{:alt => "Author", :src => asset_path("author/author-03.jpg")}/
-                  %i.flaticon-left-quote
-                %p Lorem Ipsum is simply dummy text of the printing typesetting industry has been the industry's standard dummy text ever ince the 1500s when unknown printer took a galley of type and scrambled it to
-                %h4.name Pollock Austin
-                %span.designation UI/UX DESIGNER
-              / Single Testimonial End
-        / Testimonial Wrapper End
-      .arrow
-        .swiper-button-next
-          %i.fa.fa-long-arrow-right
-        .swiper-button-prev
-          %i.fa.fa-long-arrow-left
-    / Testimonial Section End
-    / Brand Section Start
-    .section.section-padding-02.overflow-hidden
-      .container
-        / Brand Wrapper Start
-        .brand-wrapper
-          %img.shape{:alt => "Shape", :src => asset_path("shape/shape-12.png")}/
-          / Section Title Start
-          .section-title.shape-none
-            %h6.sub-title Zaufało nam już wielu potrzebujących i lokali gastronomicznych
-            %h2.main-title Ponad 8 000+ osób jest już z nami.
-            %p Nasza aplikacja pomaga w ratowaniu żywności i walce z marnowaniem jedzenia.
-          / Section Title End
-          / Brand Logo Wrapper Start
-          .brand-logo-wrapper.brand-active
-            .swiper-container
-              .swiper-wrapper
-                .swiper-slide
-                  / Single Brand Start
-                  .single-brand
-                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-1.png")}/
-                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-1.png")}/
-                  / Single Brand End
-                .swiper-slide
-                  / Single Brand Start
-                  .single-brand
-                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-2.png")}/
-                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-2.png")}/
-                  / Single Brand End
-                .swiper-slide
-                  / Single Brand Start
-                  .single-brand
-                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-3.png")}/
-                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-3.png")}/
-                  / Single Brand End
-                .swiper-slide
-                  / Single Brand Start
-                  .single-brand
-                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-4.png")}/
-                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-4.png")}/
-                  / Single Brand End
-                .swiper-slide
-                  / Single Brand Start
-                  .single-brand
-                    %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-5.png")}/
-                    %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-5.png")}/
-                  / Single Brand End
-          / Brand Logo Wrapper End
-        / Brand Wrapper End
-    / Brand Section End
-    / Blog Section End
-    .section.section-padding-02
-      .container
+              .swiper-slide
+                / Single Brand Start
+                .single-brand
+                  %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-1.png")}/
+                  %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-1.png")}/
+                / Single Brand End
+              .swiper-slide
+                / Single Brand Start
+                .single-brand
+                  %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-2.png")}/
+                  %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-2.png")}/
+                / Single Brand End
+              .swiper-slide
+                / Single Brand Start
+                .single-brand
+                  %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-3.png")}/
+                  %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-3.png")}/
+                / Single Brand End
+              .swiper-slide
+                / Single Brand Start
+                .single-brand
+                  %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-4.png")}/
+                  %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-4.png")}/
+                / Single Brand End
+              .swiper-slide
+                / Single Brand Start
+                .single-brand
+                  %img.brand{:alt => "Brand", :src => asset_path("brand/brand-1-5.png")}/
+                  %img.brand-hover{:alt => "Brand", :src => asset_path("brand/brand-2-5.png")}/
+                / Single Brand End
+        / Brand Logo Wrapper End
+      / Brand Wrapper End
+  / Brand Section End
+  / Blog Section End
+  .section.section-padding-02
+    .container
+      / Section Title Start
+      .section-title
+        %h6.sub-title Our Blog Post
+        %h2.main-title Latest Article of Nutrition
+      / Section Title End
+      / Blog Wrapper Start
+      .blog-wrapper
+        .row.gx-xxl-5
+          .col-lg-4
+            / Single Blog Start
+            .single-blog
+              .blog
+                .blog-date-meta
+                  %span
+                    %strong 24
+                    Feb
+                  .meta
+                    %p.author
+                      By:
+                      %a{:href => "#"} Maddie Rife
+                    %ul
+                      %li 87 Likes
+                      %li 58 Share
+                %h4.title
+                  %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
+                %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
+            / Single Blog End
+          .col-lg-4
+            / Single Blog Start
+            .single-blog
+              .blog
+                .blog-date-meta
+                  %span
+                    %strong 24
+                    Feb
+                  .meta
+                    %p.author
+                      By:
+                      %a{:href => "#"} Maddie Rife
+                    %ul
+                      %li 87 Likes
+                      %li 58 Share
+                %h4.title
+                  %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
+                %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
+            / Single Blog End
+          .col-lg-4
+            / Single Blog Start
+            .single-blog
+              .blog
+                .blog-date-meta
+                  %span
+                    %strong 24
+                    Feb
+                  .meta
+                    %p.author
+                      By:
+                      %a{:href => "#"} Maddie Rife
+                    %ul
+                      %li 87 Likes
+                      %li 58 Share
+                %h4.title
+                  %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
+                %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
+            / Single Blog End
+      / Blog Wrapper End
+  / Blog Section End
+  \.
+  / Download Section Start
+  .section.section-padding
+    .container
+      / Download Wrapper Start
+      .download-wrapper
+        %img.shape-01{:alt => "Shape", :src => asset_path("shape/shape-7.png")}/
+        %img.shape-02{:alt => "Shape", :src => asset_path("shape/shape-8.png")}/
         / Section Title Start
-        .section-title
-          %h6.sub-title Our Blog Post
-          %h2.main-title Latest Article of Nutrition
+        .section-title.shape-none
+          %h6.sub-title Aplikacja do ratowania żywności już wkrótce dostępna
+          %h2.main-title
+            Pobierz naszą aplikację
+            %br/
+            i zacznij ratować żywność w każdej chwili.
         / Section Title End
-        / Blog Wrapper Start
-        .blog-wrapper
-          .row.gx-xxl-5
-            .col-lg-4
-              / Single Blog Start
-              .single-blog
-                .blog
-                  .blog-date-meta
-                    %span
-                      %strong 24
-                      Feb
-                    .meta
-                      %p.author
-                        By:
-                        %a{:href => "#"} Maddie Rife
-                      %ul
-                        %li 87 Likes
-                        %li 58 Share
-                  %h4.title
-                    %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
-                  %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
-              / Single Blog End
-            .col-lg-4
-              / Single Blog Start
-              .single-blog
-                .blog
-                  .blog-date-meta
-                    %span
-                      %strong 24
-                      Feb
-                    .meta
-                      %p.author
-                        By:
-                        %a{:href => "#"} Maddie Rife
-                      %ul
-                        %li 87 Likes
-                        %li 58 Share
-                  %h4.title
-                    %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
-                  %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
-              / Single Blog End
-            .col-lg-4
-              / Single Blog Start
-              .single-blog
-                .blog
-                  .blog-date-meta
-                    %span
-                      %strong 24
-                      Feb
-                    .meta
-                      %p.author
-                        By:
-                        %a{:href => "#"} Maddie Rife
-                      %ul
-                        %li 87 Likes
-                        %li 58 Share
-                  %h4.title
-                    %a{:href => "blog-details-left-sidebar.html"} It was popularised sheets the release contain
-                  %p Lorem sum same dummy text theme industry psum have been them industry the leaf into type setting.
-              / Single Blog End
-        / Blog Wrapper End
-    / Blog Section End
-    \.
-    / Download Section Start
-    .section.section-padding
-      .container
-        / Download Wrapper Start
-        .download-wrapper
-          %img.shape-01{:alt => "Shape", :src => asset_path("shape/shape-7.png")}/
-          %img.shape-02{:alt => "Shape", :src => asset_path("shape/shape-8.png")}/
-          / Section Title Start
-          .section-title.shape-none
-            %h6.sub-title Aplikacja do ratowania żywności już wkrótce dostępna
-            %h2.main-title
-              Pobierz naszą aplikację
-              %br/
-              i zacznij ratować żywność w każdej chwili.
-          / Section Title End
-          / download App End
-          .download-app
-            %ul
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "Play Store", :src => asset_path("play-store.jpg")}/
-              %li
-                %a{:href => "#"}
-                  %img{:alt => "App Store", :src => asset_path("app-store.jpg")}/
-          / download App End
-        / Download Wrapper End
-    / Download Section End
+        / download App End
+        .download-app
+          %ul
+            %li
+              %a{:href => "#"}
+                %img{:alt => "Play Store", :src => asset_path("play-store.jpg")}/
+            %li
+              %a{:href => "#"}
+                %img{:alt => "App Store", :src => asset_path("app-store.jpg")}/
+        / download App End
+      / Download Wrapper End
+  / Download Section End
 
-    / Back To Start
-    %a.back-to-top{:href => "#"}
-      %i.icofont-simple-up
-    / Back To End
-  /
+  / Back To Start
+  %a.back-to-top{:href => "#"}
+    %i.icofont-simple-up
+  / Back To End
+/
