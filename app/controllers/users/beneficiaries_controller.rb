@@ -2,6 +2,7 @@
 
 module Users
   class BeneficiariesController < ApplicationController
+    before_action :authenticate_user!
     before_action :beneficiary, only: %i[edit update]
 
     def edit; end

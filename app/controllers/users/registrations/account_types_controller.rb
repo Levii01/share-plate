@@ -3,7 +3,6 @@
 module Users
   module Registrations
     class AccountTypesController < ApplicationController
-      before_action :authenticate_user!
       before_action :user
 
       def edit; end
