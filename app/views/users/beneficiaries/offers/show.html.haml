@@ -2,88 +2,6 @@
   / Sidebar Wrapper Start
   = render "users/panel/sidebar"
   .page-content-wrapper
-    / Mobile Menu Start
-    .mobile-menu
-      / Menu Close Start
-      %a.menu-close{href: "javascript:void(0)"}
-        %i.icofont-close-line
-      / Menu Close End
-      / Mobile Menu Start
-      .mobile-menu-items
-        %ul.nav-menu
-          %li
-            %a.active{href: "index.html"} Strona główna
-          %li
-            %a{href: "about.html"} About Us
-          %li
-            %a{href: "#"} All Course
-            %ul.sub-menu
-              %li
-                %a{href: "courses.html"} Courses
-              %li
-                %a{href: "my-courses.html"} My Courses
-              %li
-                %a{href: "#"} Courses Details
-                %ul.sub-menu
-                  %li
-                    %a{href: "courses-details-left-sidebar.html"} Courses Details Left Sidebar
-                  %li
-                    %a{href: "courses-details-right-sidebar.html"} Courses Details Right Sidebar
-          %li
-            %a{href: "#"} Pages
-            %ul.sub-menu
-              %li
-                %a{href: "after-enroll.html"} After Enroll
-              %li
-                %a{href: "courses-admin.html"} Instructor Dashboard (Course List)
-              %li
-                %a{href: "overview.html"} Instructor Dashboard (Performance)
-              %li
-                %a{href: "students.html"} Students
-              %li
-                %a{href: "reviews.html"} Reviews
-              %li
-                %a{href: "engagement.html"} Course engagement
-              %li
-                %a{href: "traffic-conversion.html"} Traffic &amp; conversion
-              %li
-                %a{href: "messages.html"} Messages
-              %li
-                %a{href: "register.html"} Register
-              %li
-                %a{href: "login.html"} Login
-              %li
-                %a{href: "faq.html"} FAQ
-              %li
-                %a{href: "404-error.html"} 404 Error
-          %li
-            %a{href: "#"} Blog
-            %ul.sub-menu
-              %li
-                %a{href: "#"} Blog
-                %ul.sub-menu
-                  %li
-                    %a{href: "blog-grid.html"} Blog Grid
-                  %li
-                    %a{href: "blog-left-sidebar.html"} Blog Left Sidebar
-                  %li
-                    %a{href: "blog-right-sidebar.html"} Blog Right Sidebar
-              %li
-                %a{href: "#"} Blog Details
-                %ul.sub-menu
-                  %li
-                    %a{href: "blog-details-left-sidebar.html"} Blog Details Left Sidebar
-                  %li
-                    %a{href: "blog-details-right-sidebar.html"} Blog Details Right Sidebar
-          %li
-            %a{href: "contact.html"} Contact
-      / Mobile Menu End
-    / Mobile Menu End
-    / Overlay Start
-    .overlay
-    / Overlay End
-
-    / Courses Details Start
     .section.section-padding-01
       .container
         .courses-details-wrapper
@@ -102,14 +20,13 @@
                       %i.icofont-ui-play
                 %h1= "Oferta: #{@offer.name}"
                 %p= "Id: #{@offer.hashid}"
-                -# %h3= 
                 .courses-details-admin
                   .admin-author
                     .author-thumb
                       %img{alt: "Author", src: asset_path("author/author-01.jpg")}/
                     .author-content
                       %p.name
-                        By:
+                        Lokal:
                         %a{href: "#"}= @food_provider.name
                       %span.enroll
                         %span 286
@@ -125,11 +42,11 @@
                   .details-tab-menu
                     %ul.nav.justify-content-center
                       %li
-                        %button.active{"data-bs-target" => "#description", "data-bs-toggle" => "tab"} Description
+                        %button.active{"data-bs-target" => "#description", "data-bs-toggle" => "tab"} Opis
                       %li
-                        %button{"data-bs-target" => "#instructors", "data-bs-toggle" => "tab"} Instructors
+                        %button{"data-bs-target" => "#instructors", "data-bs-toggle" => "tab"} Pracownicy
                       %li
-                        %button{"data-bs-target" => "#reviews", "data-bs-toggle" => "tab"} Reviews
+                        %button{"data-bs-target" => "#reviews", "data-bs-toggle" => "tab"} Opinie
                   / Details Tab Menu End
 
                   / Details Tab Content Start
@@ -451,7 +368,7 @@
                         %i.icofont-book-alt
                         %strong Language
                         %span English
-                      %li
+                      -# %li
                         %i.icofont-certificate-alt-1
                         %strong Certificate
                         %span Yes
