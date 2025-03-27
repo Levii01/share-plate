@@ -33,8 +33,12 @@ class Ability
 
     return unless user
 
-    can :manage, :all
-    can :access, :rails_admin
-    can :manage, :dashboard
+    if user.has_role? :admin
+      can :manage, :all
+      can :access, :rails_admin
+      can :manage, :dashboard
+    end
+
+    can %i[edit update], [User] if user.persisted?
   end
 end

@@ -5,7 +5,7 @@ class Reservation < ApplicationRecord
 
   belongs_to :offer
   belongs_to :beneficiary
-  has_one :food_provider, through: :offers
+  has_one :food_provider, through: :offer
 
   validates :picked_up, presence: true, if: :completed?
 

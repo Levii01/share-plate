@@ -5,6 +5,7 @@ module Users
     class ApplicationController < ::ApplicationController
       before_action :authenticate_user!
       before_action :require_food_provider!
+      load_and_authorize_resource
     end
   end
 end
