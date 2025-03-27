@@ -7,6 +7,7 @@ pl:
         create:
           success: Rezerwacja została pomyślnie utworzona.
           failure: Nie udało się utworzyć rezerwacji.
+          not_available: Oferta nie jest już dostępna
           no_packages: Brak dostępnych paczek.
           error: "Nie udało się zarezerwować paczki: %{error_message}"
         update:

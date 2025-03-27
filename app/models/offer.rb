@@ -45,9 +45,13 @@ class Offer < ApplicationRecord
     %w[active expired available]
   end
 
+  def abailable?
+    available_from >= Time.current.beginning_of_day
+  end
+
   def status
     return 'Rozdane' if remaining_quantity.zero?
-    return 'Dostępne' if available_from.today?
+    return 'Dostępne' if abailable?
 
     'Zakończone'
   end
