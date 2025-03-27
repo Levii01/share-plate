@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     end
   end
 
-  get 'home/index'
+  resources :home, only: %i[index]
   namespace :users do
     namespace :beneficiaries do
       resources :offers, only: %i[index show]
