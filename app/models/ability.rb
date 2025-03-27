@@ -39,6 +39,14 @@ class Ability
       can :manage, :dashboard
     end
 
-    can %i[edit update], [User] if user.persisted?
+    can %i[update], [User] if user.persisted?
+
+    if user&.food_provider.present?
+      can :manage, [FoodProvider, Offer]
+      can %i[read update destroy], [Reservation]
+    elsif user&.beneficiary.present?
+      can :manage, [Beneficiary, Reservation]
+      can :read, [Offer]
+    end
   end
 end

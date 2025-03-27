@@ -11,6 +11,7 @@ module Users
       end
 
       def show
+        food_provider
         @offer = reservation.offer
         @beneficiary = reservation.beneficiary
       end

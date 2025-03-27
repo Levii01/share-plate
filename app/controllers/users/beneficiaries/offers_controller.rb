@@ -6,7 +6,7 @@ module Users
       def index
         @q = Offer.ransack(params[:q])
         @pagy, @offers = pagy(
-          @q.result(distinct: true).includes(:offer, :food_provider).order(created_at: :desc), limit: 10
+          @q.result(distinct: true).includes(:food_provider).order(created_at: :desc), limit: 10
         )
       end
 
