@@ -17,9 +17,9 @@
               %li
                 %a{:href => home_index_path} Strona główna
               %li
-                %a.active{ href: new_contact_path } Kontakt
+                %a{ href: new_contact_path } Kontakt
               %li
-                %a{:href => faq_index_path} FAQ
+                %a.active{:href => faq_index_path} FAQ
             .header-btn
               - if current_user
                 %a.btn.btn-success.btn-hover-primary{ href: users_panel_index_path } Panel
@@ -89,7 +89,7 @@
             %li
               %a{:href => "login.html"} Login
             %li
-              %a{:href => "faq.html"} FAQ
+              %a{:href => faq_index_path} FAQ
             %li
               %a{:href => "404-error.html"} 404 Error
         %li
@@ -112,7 +112,7 @@
                 %li
                   %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
         %li
-          %a{href: new_contact_path} Kontakt
+          %a{:href => "contact.html"} Contact
     / Mobile Menu End
   / Mobile Menu End
   / Overlay Start
@@ -123,79 +123,67 @@
     .container
       / Page banner Section Start
       .page-banner-content
-        %h2.page-title Skontaktuj się z nami
+        %h2.page-title FAQ
         %ul.breadcrumb
           %li.breadcrumb-item
             %a{href: home_index_path} Strona główna
-          %li.breadcrumb-item.active Kontakt
+          %li.breadcrumb-item.active FAQ
       / Page banner Section End
   / Page banner Section End
-  / Contact Map Start
-  .section.section-padding-02
-    .container
-      / Contact Map Wrapper Start
-      .contact-map-wrapper
-        %iframe#gmap_canvas{src: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4887.271206153421!2d21.001129457600932!3d52.23183789997865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc8c92692e49%3A0xc2e97ae5311f2dc2!2sPa%C5%82ac%20Kultury%20i%20Nauki!5e0!3m2!1spl!2sus!4v1743078383266!5m2!1spl!2sus", allowfullscreen: "", loading: "lazy", referrerpolicy: "no-referrer-when-downgrade"}
-      / Contact Map Wrapper End
-  / Contact Map End
-  / Contact Section Start
+  / FAQ Section Start
   .section.section-padding
     .container
-      / Contact Wrapper Start
-      .contact-wrapper
+      / FAQ Wrapper Start
+      .faq-wrapper
+        / Section Title Start
+        .section-title
+          %h6.sub-title Pytania i Odpowiedzi
+          %h2.main-title Znajdź odpowiedź na swoje pytanie
+        / Section Title End
         .row.justify-content-center
-          .col-lg-6
-            / Contact Content Start
-            .contact-content
-              / Contact Title Start
-              .contact-title
-                %h4.sub-title Masz jakieś pytania?
-                %h2.main-title Napisz do nas
-              / Contact Title End
-              / Contact Form Start
-              .contact-form
-                = simple_form_for @contact, url: contacts_path, method: :post, html: { class: "contact-form" } do |f|
-                  - if flash[:error].present?
-                    .alert.alert-info{:role => "alert"}
-                      %p.text-center= flash[:error]&.html_safe
-                  .row.gx-3
-                    .col-md-6
-                      .single-form
-                        = f.text_field :name, placeholder: "Imie", required: true, autofocus: true
-                    .col-md-6
-                      .single-form
-                        = f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "Email", type: "email", required: true
-                    .col-md-12
-                      .single-form
-                        = f.text_field :subject, placeholder: "Tytuł", autofocus: true, required: true
-                    .col-md-12
-                      .single-form
-                        = f.text_area :message, as: :text, placeholder: "Treść", autofocus: true, required: true
-                    %p.form-message
-                    .col-md-12
-                      .single-form
-                        = f.submit 'Wyślij', class: 'btn btn-secondary btn-hover-primary'
-
-          .col-lg-6
-            / Contact Information Start
-            .contact-information
-              .information-wrapper
-                %img.shape{alt: "", src: asset_path("shape/shape-11.png")}/
-                .single-info
-                  %h3.info-title Phone:
-                  %p +48 184364942
-                  %p +48 515210222
-                .single-info
-                  %h3.info-title Email:
-                  %p kontakt@shareplate.pl
-                  %p dok@shareplate.pl
-                .single-info
-                  %h3.info-title Adres:
-                  %p Pałac Kultury i Nauki, Plac Defilad 1
-                  %p 00-901 Warszawa, Polska
-            / Contact Information End
-      / Contact Wrapper End
-  / Contact Section End
+          .col-lg-9
+            / FAQ Accordion Start
+            .faq-accordion
+              #accordionFaq.accordion
+                .accordion-item
+                  %button{"data-bs-target" => "#collapseOne", "data-bs-toggle" => "collapse", type: "button"}
+                    Jak mogę oddać nadwyżkę jedzenia?
+                  #collapseOne.accordion-collapse.collapse.show{"data-bs-parent" => "#accordionFaq"}
+                    .accordion-body
+                      %p Możesz dodać ofertę przez naszą aplikację, a my połączymy Cię z osobami, które tego jedzenia potrzebują.
+                      %p Wystarczy, że wypełnisz formularz i określisz, co masz do oddania.
+                .accordion-item
+                  %button.collapsed{"data-bs-target" => "#collapseTwo", "data-bs-toggle" => "collapse", type: "button"}
+                    Kto może odebrać jedzenie?
+                  #collapseTwo.accordion-collapse.collapse{"data-bs-parent" => "#accordionFaq"}
+                    .accordion-body
+                      %p Jedzenie mogą odebrać osoby potrzebujące, organizacje charytatywne oraz instytucje wspierające walkę z marnowaniem żywności.
+                      %p System automatycznie łączy darczyńców z odbiorcami w ich okolicy.
+                .accordion-item
+                  %button.collapsed{"data-bs-target" => "#collapseThree", "data-bs-toggle" => "collapse", type: "button"}
+                    Czy odbiór jedzenia jest darmowy?
+                  #collapseThree.accordion-collapse.collapse{"data-bs-parent" => "#accordionFaq"}
+                    .accordion-body
+                      %p Tak, nasza platforma działa non-profit i umożliwia przekazywanie jedzenia za darmo.
+                .accordion-item
+                  %button.collapsed{"data-bs-target" => "#collapseFour", "data-bs-toggle" => "collapse", type: "button"}
+                    Jakie produkty mogę oddać?
+                  #collapseFour.accordion-collapse.collapse{"data-bs-parent" => "#accordionFaq"}
+                    .accordion-body
+                      %p Możesz przekazać świeże i nadające się do spożycia produkty spożywcze, które nie przekroczyły terminu ważności.
+                .accordion-item
+                  %button.collapsed{"data-bs-target" => "#collapseFive", "data-bs-toggle" => "collapse", type: "button"}
+                    Jak mogę śledzić status mojej oferty?
+                  #collapseFive.accordion-collapse.collapse{"data-bs-parent" => "#accordionFaq"}
+                    .accordion-body
+                      %p Wystarczy zalogować się na swoje konto i przejść do sekcji „Moje oferty”. Tam znajdziesz informacje o statusie ogłoszenia i ewentualnych rezerwacjach.
+            / FAQ Accordion End
+            / FAQ Button Start
+            .faq-btn
+              %a.btn.btn-primary.btn-hover-secondary{href: new_contact_path} Masz jeszcze jakieś pytania?
+            / FAQ Button End
+      / FAQ Wrapper End
+  / FAQ Section End
   / Download App Start
   / Download Section Start
   .section.section-padding.download-section
@@ -221,4 +209,4 @@
         / Download App Button End
       / Download App Wrapper End
   / Download App End
-
+  

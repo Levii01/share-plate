@@ -17,77 +17,23 @@
               %li
                 %a.active{:href => home_index_path} Strona główna
               %li
-                %a{:href => "#"} O nas
-              -# %li
-                %a{:href => "#"} All Course
-                %ul.sub-menu
-                  %li
-                    %a{:href => "courses.html"} Courses
-                  %li
-                    %a{:href => "my-courses.html"} My Courses
-                  %li
-                    %a{:href => "#"} Courses Details
-                    %ul.sub-menu
-                      %li
-                        %a{:href => "courses-details-left-sidebar.html"} Courses Details Left Sidebar
-                      %li
-                        %a{:href => "courses-details-right-sidebar.html"} Courses Details Right Sidebar
-              -# %li
-                %a{:href => "#"} Pages
-                %ul.sub-menu
-                  %li
-                    %a{:href => "after-enroll.html"} After Enroll
-                  %li
-                    %a{:href => "courses-admin.html"} Instructor Dashboard (Course List)
-                  %li
-                    %a{:href => "overview.html"} Instructor Dashboard (Performance)
-                  %li
-                    %a{:href => "students.html"} Students
-                  %li
-                    %a{:href => "reviews.html"} Reviews
-                  %li
-                    %a{:href => "engagement.html"} Course engagement
-                  %li
-                    %a{:href => "traffic-conversion.html"} Traffic & conversion
-                  %li
-                    %a{:href => "messages.html"} Messages
-                  %li
-                    %a{:href => "register.html"} Register
-                  %li
-                    %a{:href => "login.html"} Login
-                  %li
-                    %a{:href => "faq.html"} FAQ
-                  %li
-                    %a{:href => "404-error.html"} 404 Error
-              -# %li
-                %a{:href => "#"} Blog
-                %ul.sub-menu
-                  %li
-                    %a{:href => "#"} Blog
-                    %ul.sub-menu
-                      %li
-                        %a{:href => "blog-grid.html"} Blog Grid
-                      %li
-                        %a{:href => "blog-left-sidebar.html"} Blog Left Sidebar
-                      %li
-                        %a{:href => "blog-right-sidebar.html"} Blog Right Sidebar
-                  %li
-                    %a{:href => "#"} Blog Details
-                    %ul.sub-menu
-                      %li
-                        %a{:href => "blog-details-left-sidebar.html"} Blog Details Left Sidebar
-                      %li
-                        %a{:href => "blog-details-right-sidebar.html"} Blog Details Right Sidebar
-              %li
                 %a{ href: new_contact_path } Kontakt
+              %li
+                %a{:href => faq_index_path} FAQ
             .header-btn
-              %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
-              %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
+              - if current_user
+                %a.btn.btn-success.btn-hover-primary{ href: users_panel_index_path } Panel
+              - else
+                %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
+                %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
           / Header Menu End
           / Header Toggle Start
           .header-toggle.d-lg-none
-            %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
-            %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
+            - if current_user
+              %a.btn.btn-success.btn-hover-primary{ href: users_panel_index_path } Panel
+            - else
+              %a.btn.btn-success.btn-hover-primary{ href: new_user_registration_path } Dołącz
+              %a.btn.btn-secondary.btn-hover-primary{ href: new_user_session_path } Zaloguj się
 
 
           / Header Toggle End

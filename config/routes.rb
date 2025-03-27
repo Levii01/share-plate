@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  get 'faq/index'
   get 'contact/new'
   get 'contact/create'
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
 
   resources :home, only: %i[index]
   resources :contacts, only: %i[new create]
+  resources :faq, only: %i[index]
   namespace :users do
     namespace :beneficiaries do
       resources :offers, only: %i[index show]
