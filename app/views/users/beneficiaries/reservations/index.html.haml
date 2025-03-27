@@ -14,12 +14,34 @@
     / Page Content Wrapper Start
     .main-content-wrapper
       .container-fluid
-        -# = search_form_for @q, url: users_beneficiaries_reservations_path, method: :get do |f|
-          .filters
-            = f.label :state_eq, "Filtruj po statusie"
-            = f.select :state_eq, Reservation.state_machine.states.keys.map { |s| [s, s] }, include_blank: "Wszystkie", class: "form-control"
-            = f.submit "Filtruj", class: "btn btn-primary"
+        %h2.mb-3 Rezerwacje
 
+        / Admin Top Bar Start
+        .admin-top-bar.d-flex.flex-wrap
+          = search_form_for @q, url: users_beneficiaries_reservations_path, method: :get do |f|
+            = hidden_field_tag "q[state_eq]", q_params["state_eq"] if q_params["state_eq"].present?
+            %ul.nav
+              %li
+                = f.search_field :hashid_or_offer_name_cont, placeholder: "Nazwa lub hashid", class: "mt-0"
+              %li
+                .tab-btn.pt-0
+                  = f.submit "Szukaj 🔍", class: "btn btn-primary btn-hover-dark rounded-3 px-4"
+          -# .courses-select
+            %select
+              %option{"data-display" => "All Courses"} All Courses
+              %option{value: "1"} option
+              %option{value: "2"} option
+              %option{value: "3"} option
+              %option{value: "4"} Potato
+          -# .months-select
+            %select
+              %option{"data-display" => "Last 12 months"} Last 12 months
+              %option{value: "1"} Last 6 months
+              %option{value: "1"} Last 3 months
+              %option{value: "1"} Last 2 months
+              %option{value: "1"} Last 1 months
+              %option{value: "1"} Last 1 week
+        / Admin Top Bar End
         / Admin Top Bar Start
         -# .admin-top-bar.d-flex.flex-wrap
           .courses-select
@@ -49,7 +71,6 @@
 
         / Engagement Courses End
         - if @reservations.any?
-          %h2 Rezerwacje
           .engagement-courses.table-responsive
             .courses-top
               %ul
@@ -69,10 +90,12 @@
                         - else
                           %img{alt: "Courses", src: asset_path("courses/admin-courses-01.jpg")}/
                       .content
-                        %h4.title
-                          %a{href: users_beneficiaries_offer_path(reservation.offer)}= reservation.offer.name
+                        %a{href: users_beneficiaries_reservation_path(reservation.offer)}
+                          %h4.title= reservation.offer.name
+                          %p= reservation.offer.food_provider.name
+                          %p= "Id: #{reservation.hashid}"
                     .taught
-                      %span= reservation.state
+                      %span= t("activerecord.attributes.reservation.states.#{reservation.state}")
                     .student
                       %span= reservation.picked_up? ? l(reservation.picked_up, format: :short) : "ok"
                     .student

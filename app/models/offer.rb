@@ -42,7 +42,7 @@ class Offer < ApplicationRecord
   end
 
   def self.ransackable_scopes(_auth_object = nil)
-    %i[active expired available]
+    %w[active expired available]
   end
 
   def status

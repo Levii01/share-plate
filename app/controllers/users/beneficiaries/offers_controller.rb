@@ -5,7 +5,9 @@ module Users
     class OffersController < ApplicationController
       def index
         @q = Offer.ransack(params[:q])
-        @pagy, @offers = pagy(@q.result(distinct: true).order(available_from: :desc), limit: 10)
+        @pagy, @offers = pagy(
+          @q.result(distinct: true).includes(:offer, :food_provider).order(created_at: :desc), limit: 10
+        )
       end
 
       def show

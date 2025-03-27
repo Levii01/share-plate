@@ -8,8 +8,8 @@ module Users
 
       def index
         @beneficiary = current_user.beneficiary
-        @q = @beneficiary.reservations.includes(:offer).ransack(params[:q])
-        @pagy, @reservations = pagy(@q.result(distinct: true), limit: 5, items: 3)
+        @q = @beneficiary.reservations.ransack(params[:q])
+        @pagy, @reservations = pagy(@q.result.includes(:offer).order(created_at: :desc), limit: 10)
       end
 
       def show
