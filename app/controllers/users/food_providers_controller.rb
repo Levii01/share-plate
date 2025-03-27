@@ -3,6 +3,7 @@
 module Users
   class FoodProvidersController < ApplicationController
     before_action :authenticate_user!
+    before_action :require_food_provider!
     before_action :food_provider, only: %i[edit update]
 
     def edit; end

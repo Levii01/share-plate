@@ -4,7 +4,6 @@ module Users
   module FoodProviders
     class OffersController < ApplicationController
       before_action :set_offer, only: %i[show edit update destroy]
-      before_action :require_food_provider
 
       # TODO: redirect if not food provider
 

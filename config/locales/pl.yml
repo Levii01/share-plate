@@ -1,4 +1,6 @@
 pl:
+  common:
+    access_denied: Nie masz dostępu do tej strony.
   users:
     beneficiaries:
       reservations:

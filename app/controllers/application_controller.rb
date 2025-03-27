@@ -43,15 +43,15 @@ class ApplicationController < ActionController::Base
 
   private
 
-  def require_food_provider
+  def require_food_provider!
     return if current_user&.food_provider.present?
 
-    redirect_to root_path, alert: 'Nie masz dostępu do tej strony.'
+    redirect_to root_path, alert: t('common.access_denied')
   end
 
-  def require_beneficiary
+  def require_beneficiary!
     return if current_user&.beneficiary.present?
 
-    redirect_to root_path, alert: 'Nie masz dostępu do tej strony.'
+    redirect_to root_path, alert: t('common.access_denied')
   end
 end
