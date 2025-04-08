@@ -64,7 +64,7 @@ module Users
       end
 
       def validate_user_access
-        return unless current_user.food_provider.present? || !current_user.initialized?
+        return unless current_user.food_provider.present? || !current_user.type_confirmed?
 
         redirect_to root_path, alert: 'Nie masz dostępu do tej strony'
       end
