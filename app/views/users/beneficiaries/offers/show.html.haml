@@ -375,7 +375,7 @@
                   .info-btn
                     - if @offer.remaining_quantity.zero?
                       %p.mt-2 Wszystkie paczki zostały odebrane!
-                    - elsif !@offer.abailable?
+                    - elsif !@offer.available?
                       %p.mt-2 Oferta nie jest już dostępna
                     - else
                       = simple_form_for Reservation.new, url: users_beneficiaries_reservations_path, method: :post do |f|

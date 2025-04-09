@@ -62,7 +62,7 @@
                     .taught
                       %span= t("activerecord.attributes.reservation.states.#{reservation.state}")
                     .student
-                      %span= reservation.picked_up? ? l(reservation.picked_up, format: :short) : "ok"
+                      %span= reservation.picked_up? ? l(reservation.picked_up, format: :short) : "🕐"
                     .student
                       %span= l(reservation.created_at, format: :date)
                     .button

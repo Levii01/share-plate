@@ -23,7 +23,7 @@ module Users
         ActiveRecord::Base.transaction do
           @offer.lock!
 
-          return redirect_with_error(t('.not_available')) unless @offer.abailable?
+          return redirect_with_error(t('.not_available')) unless @offer.available?
           return redirect_with_error(t('.no_packages')) if @offer.remaining_quantity.zero?
 
           create_reservation
